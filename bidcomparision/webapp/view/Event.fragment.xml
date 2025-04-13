@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<!-- <Dialog class="sapUiSizeCompact"  titleAlignment="Center" id="collectionDialog" type="Standard"  showHeader="true" title="Select Event"  contentWidth="15%" contentHeight="15%"> -->
+		<!-- <content> -->
+				<HBox>
+					<Label class="sapUiTinyMarginTop sapUiSmallMarginEnd" text="Event :" />
+					<Select class="sapUiTinyMarginBottom" width="auto"
+					id="selectEvent"
+				   items="{ path: 'Events>/' }">
+					<core:ListItem text="{Events>uniqueName}" key="{Events>uniqueName}"/>
+				</Select>
+				</HBox>
+			<!-- </content> -->
+	<!-- </Dialog> -->
+</core:FragmentDefinition>

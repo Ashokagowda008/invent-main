@@ -1,0 +1,46 @@
+<mvc:View controllerName="attachment.controller.View1"
+xmlns="sap.m"
+xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    >
+    <Page id="page" title="{i18n>title}">
+   
+        <content>
+        
+        <FlexBox direction="Column" class="sapUiLargeMargin">
+                            <Label text="Attach File" labelFor="fileUploader" required="true"/>
+                            <u:FileUploader id="__fileUploader" tooltip="Upload your file to DB"   buttonOnly="true" change="onFileChange"/>
+                            <Button text="Read File" press="onReadFile" type="Emphasized"/>
+                            	
+                        </FlexBox>
+        <!-- <u:FileUploader id="uploader"
+                fileType="xlsx,csv"
+                multiple="false"
+                buttonOnly="true"
+                uploadUrl="StudentsSrv/ExcelUpload/excel"
+                uploadComplete=".onUploadComplete"
+                typeMissmatch=".onTypeMismatch"
+                change="handleValueChange"
+                placeholder="Choose a xlsx file..."
+                useMultipart="true"
+                uploadOnChange="false"
+                sendXHR="true"
+                httpRequestMethod = "Post">
+                	<u:parameters>
+					<u:FileUploaderParameter
+						name="Accept-CH"
+						value="Viewport-Width"/>
+					<u:FileUploaderParameter
+						name="Accept-CH"
+						value="Width"/>
+					<u:FileUploaderParameter
+						name="Accept-CH-Lifetime"
+						value="86400"/>
+				</u:parameters>
+			</u:FileUploader>
+           <Button id="myButton" text="upload" press="onUpload"></Button> -->
+        </content>
+    </Page>
+</mvc:View>
+

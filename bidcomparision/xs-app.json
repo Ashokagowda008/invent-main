@@ -1,0 +1,39 @@
+{
+  "welcomeFile": "/index.html",
+  "authenticationMethod": "route",
+  "routes": [
+      {
+        "source": "^/ariba_token/(.*)$",
+        "target": "$1",
+        "authenticationType": "none",
+        "destination": "ariba_token_nsu",
+        "csrfProtection": false
+    },
+    {
+        "source": "^/ariba_report/(.*)$",
+        "target": "$1",
+        "authenticationType": "none",
+        "destination": "ariba_report_nsu",
+        "csrfProtection": false
+    },
+
+    {
+      "source": "^/resources/(.*)$",
+      "target": "/resources/$1",
+      "authenticationType": "none",
+      "destination": "ui5"
+    },
+    {
+      "source": "^/test-resources/(.*)$",
+      "target": "/test-resources/$1",
+      "authenticationType": "none",
+      "destination": "ui5"
+    },
+    {
+      "source": "^(.*)$",
+      "target": "$1",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa"
+    }
+  ]
+}

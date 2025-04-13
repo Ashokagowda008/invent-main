@@ -1,0 +1,151 @@
+{
+	"Financials": [{
+		"Name": "Historic:",
+		"Value": "$0.00 USD"
+	}, {
+		"Name": "Leading vs. Historic:",
+		"Value": "$0.00 USD"
+	}, {
+		"Name": "Reserve:",
+		"Value": "$0.00 USD"
+	}, {
+		"Name": "Leading vs. Reserve:",
+		"Value": "$0.00 USD"
+	}, {
+		"Name": "Initial:",
+		"Value": "$0.00 USD"
+	}, {
+		"Name": "Leading vs. Initial:",
+		"Value": "$0.00 USD(0% )"
+	}, {
+		"Name": "Leading:",
+		"Value": "$0.00 USD"
+	}, {
+		"Name": "Incumbent:",
+		"Value": "$0.00 USD"
+	}, {
+		"Name": "Leading vs. Incumbent:",
+		"Value": "$0.00 USD"
+	}, {
+		"Name": "Savings:",
+		"Value": "$0.00 USD(0% )"
+	}, {
+		"Name": "Reserve vs. Historic:",
+		"Value": "$0.00 USD(0% )"
+	}],
+	"InvitationSummary": [{
+		"Name": "Number Invited:",
+		"Value": "0"
+	}, {
+		"Name": "Incumbents Invited:",
+		"Value": "0"
+	}, {
+		"Name": "Number Accepted:",
+		"Value": "0"
+	}, {
+		"Name": "Incumbents Accepted:",
+		"Value": "0"
+	}, {
+		"Name": "Number Declined:",
+		"Value": "0"
+	}, {
+		"Name": "Incumbents Declined:",
+		"Value": "0"
+	}, {
+		"Name": "Number of Bidders/Respondents:",
+		"Value": "0"
+	}, {
+		"Name": "Number of Incumbent Bidders/Respondents:",
+		"Value": "0"
+	}, {
+		"Name": "Number Awarded:",
+		"Value": "0"
+	}, {
+		"Name": "Incumbents Awarded:",
+		"Value": "0"
+	}],
+	"ResponseSummary": [{
+		"Name": "Total Responses:",
+		"Value": "0"
+	}, {
+		"Name": "Total Surrogate Responses:",
+		"Value": "0"
+	}, {
+		"Name": "Total Responses Removed:",
+		"Value": "0"
+	}],
+	"ProjectSummary": [{
+		"Name": "Total Lots:",
+		"Value": "0"
+	}, {
+		"Name": "Total Lots Awarded:",
+		"Value": "0"
+	}, {
+		"Name": "Total Lots with Bids:",
+		"Value": "0"
+	}],
+	"LotDetails": [{
+		"Id": 2,
+		"Name": "Test Tube 4ml, Not reusable, Pack of 36",
+		"Historic": "Fx",
+		"Reserve": "Fx",
+		"Initial": "$436.90 USD Fx",
+		"Leading": "$380.00 USD Fx"
+	}],
+	"TimingRules": [{
+		"Name": "Publish time",
+		"Value": "5/20/2021 6:29 PM"
+	}, {
+		"Name": "Response end time",
+		"Value": "9/17/2021 6:29 PM"
+	}],
+	"Content": [{
+		"Name": "1 General",
+		"Value": ""
+	}, {
+		"Name": "1.1 Has your business changed its name in the last 3 years? If yes, please list previous name.",
+		"Value": "No"
+	}, {
+		"Name": "1.2 What are your standard payment terms?",
+		"Value": "45 days"
+	}, {
+		"Name": "2 Test Tube 4ml, Not reusable, Pack of 36",
+		"Value": ""
+	}, {
+		"Name": "Test Tube Borosilicate Glass (Volumn 4ml) (Tube Dimension 10*75mm) Pack of 36",
+		"Value": ""
+	}, {
+		"Name": "Price",
+		"Value": "$38.00 USD (1)"
+	}, {
+		"Name": "Quality",
+		"Value": "10 each"
+	}, {
+		"Name": "Extended Price",
+		"Value": "$380.00 USD"
+	}, {
+		"Name": "Savings",
+		"Value": "$0 USD (0.00%)"
+	}, {
+		"Name": "Discount Amount",
+		"Value": "$0.00 USD per unit"
+	}, {
+		"Name": "Shipping",
+		"Value": "$0.00 USD per unit"
+	}, {
+		"Name": "Total Cost",
+		"Value": "$380.00 USD"
+	}, {
+		"Name": "Supplier Part Id",
+		"Value": "PROC-LM-TT-0004"
+	}, {
+		"Name": "Lead Time",
+		"Value": "1"
+	}, {
+		"Name": "Requested Delivery Date",
+		"Value": "Thu, 20 May, 2021"
+	}, {
+		"Name": "Ship To",
+		"Value": "867 1 300 Peach tree street So ATLANTA, GA 30310 United States"
+	}]
+}

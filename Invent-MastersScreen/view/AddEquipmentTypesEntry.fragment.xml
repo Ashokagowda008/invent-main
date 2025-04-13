@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>AddEquipTypeEntry}" icon="sap-icon://edit" state="Information" titleAlignment="Center" class="sapUiContentPadding" id="AddEquipmentTypesEntry" 
+		resizable="false" draggable="true" showHeader="true">
+		<content>
+            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" title="" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" singleContainerFullSize="false">
+                <f:content>
+					<Label text="{i18n>ID}" class="sapUiTinyMarginTop sapUiTinyMarginBegin"/>
+                    <Input value="{id}" editable="{= ${id} === '000' ? true: false }"/>
+                    <Label text="{i18n>EqipTypeDesc}" class="sapUiTinyMarginTop sapUiTinyMarginBegin"/>
+                    <Input value="{desc}"/>
+                </f:content>
+            </f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button text="{i18n>Save}" press="onUpdateEntry('AddEquipmentTypesEntry')" icon="sap-icon://accept" type="Emphasized"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>Cancel}" press="onCancelDialogAdd('AddEquipmentTypesEntry')" icon="sap-icon://decline" type="Emphasized"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

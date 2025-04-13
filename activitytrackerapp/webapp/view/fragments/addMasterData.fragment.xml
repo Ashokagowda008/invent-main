@@ -1,0 +1,75 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified"
+	xmlns:core="sap.ui.core">
+  <form:SimpleForm  
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title=""
+			labelSpanXL="2"
+			labelSpanL="2"
+			labelSpanM="2"
+			labelSpanS="2"
+		    columnsXL="2"
+			columnsL="1"
+			columnsM="1">
+            <form:content>
+			    <Label text="Type"/>
+				<Select
+					id="fMasterType" selectedKey="{MDataModel>/type}"
+					showSecondaryValues= "false"
+					items="{ path: 'MDataModel>/Types' }">
+					<core:ListItem key="{MDataModel>type}" text="{MDataModel>desc}"/>
+				</Select>
+				<Label text="Data" required="true" />
+				<Input id="fMasterDesc" value="{MDataModel>/Desc}"/>
+			    <OverflowToolbar id="contentTb" >
+				<ToolbarSpacer/>
+				<Button text="Export Master Data" icon="sap-icon://download" type="Emphasized" press="onExportMasterData"></Button>
+				<u:FileUploader buttonOnly="true" icon="sap-icon://upload" iconOnly="false" id="idMasterfileUploader" typeMissmatch="onTypeMissmatch" change="onUploadMasterData" sameFilenameAllowed="false" buttonText="Upload Master Data" fileType="CSV,XLSX,xlsx" placeholder="Choose a CSV/XLSX file"
+				style="Emphasized"></u:FileUploader>
+			  </OverflowToolbar>
+				
+			 </form:content>
+		  </form:SimpleForm>
+		  	<Table id="idMasterTable" visible="false"
+		inset="false"
+		items="{
+			path: 'MDModel>/',
+			sorter: {
+				path: 'Name'
+			}
+		}">
+		<columns>
+			<Column
+				demandPopin="true"
+                               minScreenWidth="Tablet"
+								hAlign="Center">
+				<Text text="Master Data Type" />
+			</Column>
+			<!-- <Column
+				demandPopin="true"
+                               minScreenWidth="Tablet"
+								hAlign="Center">
+				<Text text="Code" />
+			</Column> -->
+			<Column
+				demandPopin="true"
+                               minScreenWidth="Tablet"
+								hAlign="Center">
+				<Text text="Description" />
+			</Column>
+				</columns>
+		<items>
+			<ColumnListItem vAlign="Middle">
+				<cells>
+					<ObjectNumber emphasized="false" number="{MDModel>typedesc}"/>
+					<!-- <ObjectNumber emphasized="false" number="{MDModel>Code}"/> -->
+					<ObjectNumber emphasized="false" number="{MDModel>Desc}"/>
+							</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

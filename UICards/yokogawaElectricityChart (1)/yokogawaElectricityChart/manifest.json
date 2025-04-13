@@ -1,0 +1,75 @@
+{
+	"_version": "1.15.0",
+	"sap.app": {
+		"id": "yokogawaElectricityChart",
+		"type": "card",
+		"title": "Electricity Chart",
+		"subTitle": "",
+		"applicationVersion": {
+			"version": "1.0.33"
+		},
+		"shortTitle": "Electricity Chart",
+		"info": "Electricity Chart",
+		"description": "Electricity Chart",
+		"tags": {
+			"keywords": [
+				"Component",
+				"Card",
+				"Sample"
+			]
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://technical-object"
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "yokogawaElectricityChart.View",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.38",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {}
+			}
+		},
+		"resources": {
+		  "css": [
+			{
+			  "uri": "style.css"
+			}
+		  ],
+		  "js": [
+			{ "uri": "libs/rgbcolor.js" },
+			{ "uri": "libs/stackblur.js" },
+			{ "uri": "libs/canvg.js" },
+			{ "uri": "libs/jsPDF.js" }
+		  ]
+		}
+	},
+	"sap.card": {
+		"type": "Component",
+		"designtime": "dt/configuration",
+		"header": {
+            "title": "Eelctricity Consumed by Equipment",
+            "icon": {
+                "src": "sap-icon://donut-chart",
+                "backgroundColor": "Accent6"
+            },
+			"visible":false
+		},
+		"configuration": {
+			"destinations": {
+				"myDestination": {
+					"name": "SustainabiltyCapDest"
+				}
+			}
+		}
+	}
+}

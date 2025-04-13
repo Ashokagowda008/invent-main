@@ -1,0 +1,68 @@
+{
+	"_version": "1.15.0",
+	"sap.app": {
+		"id": "yokogawaDB",
+		"type": "card",
+		"title": "Meter List",
+		"subTitle": "Meter",
+		"applicationVersion": {
+			"version": "1.0.61"
+		},
+		"shortTitle": "Meters",
+		"info": "Meters",
+		"description": "Meters List",
+		"tags": {
+			"keywords": [
+				"Component",
+				"Card",
+				"Sample"
+			]
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://technical-object"
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "yokogawaDB.View",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.38",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {}
+			}
+		},
+		"resources": {
+		  "css": [
+			{
+			  "uri": "style.css"
+			}
+		  ]
+		}
+	},
+	"sap.card": {
+		"type": "Component",
+		"designtime": "dt/configuration",
+		"header": {
+            "title": "",
+            "icon": {
+                "src": "sap-icon://database"
+            },
+			"visible":false
+		},
+		"configuration": {
+			"destinations": {
+				"myDestination": {
+					"name": "SustainabiltyCapDest"
+				}
+			}
+		}
+	}
+}

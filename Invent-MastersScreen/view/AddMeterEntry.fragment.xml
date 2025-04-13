@@ -1,0 +1,72 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>AddMeterEntry}" icon="sap-icon://edit" state="Information" titleAlignment="Center" class="sapUiContentPadding" id="AddMeterEntry" 
+        resizable="true" draggable="true" showHeader="true">
+		<content>
+            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" title="" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" 
+                adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" singleContainerFullSize="false">
+                <f:content>
+                    <VBox width="20rem">
+                        <Label text="{i18n>ID}" class="sapUiTinyMarginTop"/>
+                        <Input value="{id}" editable="{= ${id} === '000' ? true: false }"/>
+                        <Label text="{i18n>equipment_no}" class="sapUiTinyMarginTop"/>
+                        <Input value="{equipment_no}"/>
+                        <Label text="{i18n>equipment_type_id}" class="sapUiTinyMarginTop"/>
+                        <ComboBox width="20rem" items="{path : '/Equipment_type_Entity'}" placeholder="{i18n>Select}" selectedKey="{equipment_type_id}">
+                            <items>
+                                <core:Item text="{desc}" key="{id}"/>
+                            </items>
+                        </ComboBox>
+                        <Label text="{i18n>type_id}" class="sapUiTinyMarginTop sapUiTinyMarginBegin"/>
+                        <ComboBox width="20rem" items="{path : '/Sensor_Types_Entity'}" placeholder="{i18n>Select}" selectedKey="{type_id}">
+                            <items>
+                                <core:Item text="{desc}" key="{id}"/>
+                            </items>
+                        </ComboBox>
+                        <Label text="{i18n>plant_id}" class="sapUiTinyMarginTop sapUiTinyMarginBegin"/>
+                        <ComboBox width="20rem" items="{path : '/Plant_Info_Entity'}" placeholder="{i18n>Select}" selectedKey="{plant_id}">
+                            <items>
+                                <core:Item text="{desc}" key="{id}"/>
+                            </items>
+                        </ComboBox>
+                        <Label text="{i18n>FuelType}" class="sapUiTinyMarginTop sapUiTinyMarginBegin"/>
+                        <ComboBox width="20rem" items="{path : '/Fuel_Category_Entity'}" placeholder="{i18n>Select}" selectedKey="{fuel_type}">
+                            <items>
+                                <core:Item text="{type}" key="{type}"/>
+                            </items>
+                        </ComboBox>
+                        <Label text="{i18n>status}" class="sapUiTinyMarginTop sapUiTinyMarginBegin"/>
+                        <ComboBox width="20rem" placeholder="{i18n>Select}" selectedKey="{status}">
+                            <items>
+                                <core:Item text="Online" key="Online"/>
+                                <core:Item text="Offline" key="Offline"/>
+                            </items>
+                        </ComboBox>
+                        <CheckBox text="{i18n>createMaintenanceOrTooltip}" selected="{create_maintainance_order}" class="sapUiTinyMarginTop sapUiTinyMarginBegin"
+                            tooltip="{i18n>createMaintenanceOrTooltip}"/>
+                        <VBox>
+                            <CheckBox text="Lower Threshold Limit" selected="{lower_threshold_isactive}" select="onSelectLimit($event, 'lower_threshold_limit')" class="sapUiTinyMarginTop sapUiTinyMarginBegin" tooltip="{i18n>upThresholdLimitDesc}"/>
+                            <Input value="{lower_threshold_limit}" visible="{= ${lower_threshold_isactive} === true ? true : false}" 
+                            tooltip="{i18n>upThresholdLimitDesc}" placeholder="Enter Value. {i18n>upThresholdLimitDesc}"/>
+                            <CheckBox text="Upper Threshold Limit" selected="{upper_threshold_isactive}" select="onSelectLimit($event, 'upper_threshold_limit')" class="sapUiTinyMarginTop sapUiTinyMarginBegin" tooltip="{i18n>lowerThresholdLimitDesc}"/>
+                            <Input value="{upper_threshold_limit}" visible="{= ${upper_threshold_isactive} === true ? true : false}"
+                            tooltip="{i18n>lowerThresholdLimitDesc}" placeholder="Enter Value. {i18n>lowerThresholdLimitDesc}"/>
+                        </VBox>
+                        <!-- <Label text="{i18n>create_maintainance_order}" class="sapUiTinyMarginTop sapUiTinyMarginBegin" tooltip="{i18n>createMaintenanceOr}"/> -->
+                        <!-- <HBox>
+                            <CheckBox text="{i18n>create_maintainance_order}" selected="{create_maintainance_order}" class="sapUiTinyMarginTop sapUiTinyMarginBegin"
+                            tooltip="{i18n>createMaintenanceOrTooltip}"/>
+                        </HBox> -->
+                        <!-- <Label text="{i18n>threshold_limit}" class="sapUiTinyMarginTop sapUiTinyMarginBegin"/>
+                        <Input value="{threshold_limit}"/> -->
+                    </VBox>
+                </f:content>
+            </f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button text="{i18n>Save}" press="onUpdateEntry('AddMeterEntry')" icon="sap-icon://accept" type="Emphasized"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>Cancel}" press="onCancelDialogAdd('AddMeterEntry')" icon="sap-icon://decline" type="Emphasized"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>AddEntry}" icon="sap-icon://edit" state="Information" titleAlignment="Center" class="sapUiContentPadding" id="AddSensorEntry" 
+        resizable="false" draggable="true" showHeader="true">
+		<content>
+            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" title="" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" singleContainerFullSize="false">
+                <f:content>
+                    <Label text="{i18n>TimeStamp}" class="sapUiTinyMarginTop"/>
+                    <DateTimePicker placeholder="{i18n>DatePH}" change="handleChange" class="sapUiSmallMarginBottom" value= "{
+						path : 'timestamp',
+						type : 'sap.ui.model.odata.type.DateTimeOffset'
+					}" editable="{= ${timestamp} === '' ? true : false }"/>
+                    <Label text="{i18n>meter_id}" class="sapUiTinyMarginTop sapUiTinyMarginBegin"/>
+                    <ComboBox items="{path : '/Sensor_Register_Entity'}" placeholder="{i18n>Select}" value="{sensor_id}">
+                        <items>
+                            <core:Item text="{id}" key="{id}"/>
+                        </items>
+                    </ComboBox>
+                    <Label text="{i18n>Reading}" class="sapUiTinyMarginTop sapUiTinyMarginBegin"/>
+                    <Input value="{reading}"/>
+                </f:content>
+            </f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button text="{i18n>Save}" press="onUpdateEntry('AddSensorEntry')" icon="sap-icon://accept" type="Emphasized"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>Cancel}" press="onCancelDialogAdd('AddSensorEntry')" icon="sap-icon://decline" type="Emphasized"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

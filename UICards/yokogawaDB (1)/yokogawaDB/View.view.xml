@@ -1,0 +1,45 @@
+<mvc:View
+    xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+    width="100%" displayBlock="true" controllerName="yokogawaDB.Main" xmlns:smartTable="sap.ui.comp.smarttable" 
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<ScrollContainer vertical="true" focusable="true" height="398px">
+	<!-- <VBox > -->
+		<Table mode="None" inset="false" alternateRowColors="true" backgroundDesign="Solid"
+			items="{/Sensor_Register_Entity}" sticky="ColumnHeaders,HeaderToolbar">
+			<headerToolbar>
+				<OverflowToolbar>
+					<Image src="{imageModel>/meter}" height="30px" width="30px"/>
+					<Title text="Meter Status" level="H2"/>
+				</OverflowToolbar>
+			</headerToolbar>
+			<columns> 
+				<Column hAlign="Center">
+					<Title text="Name"/>
+				</Column>
+				<Column hAlign="Center">
+					<Title text="Status"/>
+				</Column>
+				<!-- <Column hAlign="Center">
+					<Title text="Fuel Type"/>
+				</Column>  -->
+				<Column hAlign="Center">
+					<Title text="Equipment Type"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem vAlign="Middle" type="Navigation" press="onMeterPress" highlight="{= ${status} === 'Ofline' ? 'Error' : ${status} === 'InActive' ? 'Warning' : 'Success'}">
+					<cells>
+						<HBox justifyContent="Center">
+							<Image src="{imageModel>/meter}" height="25px" width="25px" class="sapUiTinyMarginEnd"/>
+							<ObjectStatus text="{id}" icon="sap-icon://receipt"/>
+						</HBox>
+						<GenericTag text="{status}" status="{=${path: 'status', formatter: '.statusColorFormatter'}}"/>
+						<!-- <Text text="{fuel_type}"/> -->
+						<Text text="{equipment_type/desc}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	<!-- </VBox> -->
+	</ScrollContainer>
+</mvc:View>

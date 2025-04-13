@@ -1,0 +1,73 @@
+{
+    "_version": "1.15.0",
+    "sap.app": {
+        "id": "ns.fundofferscreate",
+        "type": "card",
+        "title": "Create Offer",
+        "subTitle": "Promotional Offers for Vendor fund",
+        "applicationVersion": {
+            "version": "1.0.3"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "phone": true,
+            "tablet": true
+        },
+        "icons": {
+            "icon": "sap-icon://bus-public-transport"
+        }
+    },
+    "sap.ui5": {
+        "rootView": {
+            "viewName": "ns.fundofferscreate.View",
+            "type": "XML",
+            "async": true
+        },
+        "dependencies": {
+            "minUI5Version": "1.38",
+            "libs": {
+                "sap.m": {}
+            }
+        }
+    },
+    "sap.card": {
+        "type": "Component",
+        "configuration": {
+            "destinations": {
+                "wfapi": {
+                    "name": "wfapi",
+                    "label": "Workflow Service URL"
+                },
+                "VendorFunds": {
+                    "name": "NewPromo",
+                    "label": "Vendor fund and Offers Service URL"
+                }
+                
+            }
+        },
+         "data": {
+                "request": {
+                    "url": "{{destinations.VendorFunds}}/sap/opu/odata/sap/ZVENDOR_FUND_MAIN_SRV/vendorfundSet",
+                    "parameters": {
+                        "$format": "json",
+                        "$expand" : "productmatSet"
+                    },
+					 "withCredentials": true
+                },
+                "path": "/d/results"
+          },
+            "header": {
+                "icon": {
+                    "src": "sap-icon://business-objects-mobile"
+                },
+                "title": "Create Offer",
+                "subTitle": "Promotional Offers for Vendor fund"
+            }
+        },
+        "sap.platform.mobilecards": {
+            "compatible": false
+        }
+    }

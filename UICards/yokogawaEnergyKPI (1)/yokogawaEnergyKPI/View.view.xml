@@ -1,0 +1,21 @@
+<mvc:View
+    xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+    width="100%" displayBlock="true" xmlns:f="sap.f" xmlns:card="sap.f.cards"
+	controllerName="yokogawaEnergyKPI.Main" xmlns:w="sap.ui.integration.widgets">
+	<VBox height="100%" width="100%">
+		<VBox class="cardHeader" justifyContent="Center">
+			<Text text="Total Energy Used" class="headerText"/>
+		</VBox>
+		<HBox height="100%" width="100%" class="mainContainer">
+			<HBox class="iconBox" justifyContent="Center" alignItems="Center">
+				<!-- <core:Icon src="sap-icon://e-care" class="iconEnergy"/> -->
+				<Image src="EnergyUsedKPI.png" backgroundPosition="center" 
+					width="92px" height="92px" id="energyImg"/>
+			</HBox>
+			<HBox class="content" justifyContent="End" alignItems="Center">
+				<Text text="{/Energy_Used/TotalEnergyUsed}" class="valueTextEnergy"/>
+				<Text text="{/Energy_Used/unit}" class="unitTextEnergy"/>
+			</HBox>
+		</HBox>
+	</VBox>
+</mvc:View>

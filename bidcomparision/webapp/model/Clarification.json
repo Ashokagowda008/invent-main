@@ -1,0 +1,24 @@
+[
+    {
+        "Id": "MSG179709664.1",
+        "ReplySent": "No",
+        "SentDate": "08/04/2021 01:39 PM",
+        "From": "Stratus Safety Supplier",
+        "ContactName": "Wills Deniel",
+        "To": "Tricia Tang",
+        "Lables": "(no value)",
+        "Subject": "RE:Comment entered in event Test Tube 4ml sourcing",
+        "Empasized" : false
+    },
+    {
+        "Id": "MSG179709664",
+        "ReplySent": "By Participant",
+        "SentDate": "08/04/2021 01:37 PM",
+        "From": "Stratus Pacific",
+        "ContactName": "Tricia Tang",
+        "To": "Wills Deniel",
+        "Lables": "(no value)",
+        "Subject": "Comment entered in event Test Tube 4ml sourcing",
+        "Empasized" : true
+    }
+]

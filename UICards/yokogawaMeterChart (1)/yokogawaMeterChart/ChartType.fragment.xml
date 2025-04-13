@@ -1,0 +1,11 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Popover id="myPopover" placement="Bottom">
+        <List id="inner-List" items="{chartTypeModel>/aChartTypes}">
+            <items>
+                <StandardListItem title="{chartTypeModel>name}" type="Active" icon="{chartTypeModel>icon}" press="onSelectChart"/>
+            </items>
+		</List>
+	</Popover>
+</core:FragmentDefinition>

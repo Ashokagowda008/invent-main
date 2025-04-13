@@ -1,0 +1,114 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:m="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="cit.ux.yokogawadata.controller.Data" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:u="sap.ui.unified" 
+    xmlns:smartVariantManagement="sap.ui.comp.smartvariants" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:smartTable="sap.ui.comp.smarttable" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <Page id="_IDGenPage1" title="" showHeader="false">
+		<content>
+            <Panel id="DataUpload" expandable="true" visible="true"
+                expanded="true">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="{i18n>DataUploadTab}"/>
+                        <core:Icon src="sap-icon://upload"/>
+                    </Toolbar>
+                </headerToolbar>
+                <f:SimpleForm editable="true" layout="ResponsiveGridLayout" title="" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4">
+                    <f:content>
+                        <core:Title text=""/>
+                        <Label text="{i18n>UploadFileLabel}" required="true" class="sapUiSmallMarginBegin"/>
+                        <u:FileUploader id="__fileUploader" tooltip="{i18n>UploadFileTooltip}" change="onFileChange" style="Emphasized" fileType="xlsx,csv"/>
+                    </f:content>
+                </f:SimpleForm>
+            </Panel>
+            <Panel id="DataPreview" expandable="true" visible="true" expand="onDataPrevExpand"
+                expanded="true">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="{i18n>DataPreviewTab}"/>
+                        <core:Icon src="sap-icon://show"/>
+                    </Toolbar>
+                </headerToolbar>
+                <smartFilterBar:SmartFilterBar id="smartFilterBar" initialise="onInitialiseFilter" basicSearchFieldName="sensor_id"
+                    enableBasicSearch="false" entitySet="Sensor_Data_Entity" persistencyKey="SmartFilterPKey">
+                    <smartFilterBar:controlConfiguration>
+                        <smartFilterBar:ControlConfiguration key="timestamp" index="0" visible="true" visibleInAdvancedArea="true"
+                            label="{i18n>timestamp}" conditionType="{ module: 'sap.ui.comp.config.condition.DateRangeType' }"/>
+                        <smartFilterBar:ControlConfiguration key="Sensors" index="1" label="Sensor ID" visibleInAdvancedArea="true">
+							<smartFilterBar:customControl>
+								<m:ComboBox items="{path: '/Sensor_Register_Entity', sorter: { path: 'plant_id', group:true }, templateShareable:true}" id="sensors" customData:hasValue="false" selectionChange="onSelectSensors">
+									<core:Item key="{id}" text="{id}"/>
+								</m:ComboBox>
+							</smartFilterBar:customControl>
+						</smartFilterBar:ControlConfiguration>
+                    </smartFilterBar:controlConfiguration>
+                    <smartFilterBar:controlConfiguration>
+                        <smartFilterBar:ControlConfiguration key=" " index="1" visible="true" visibleInAdvancedArea="true"
+                            label="{i18n>sensor_id}"/>
+                    </smartFilterBar:controlConfiguration>
+                </smartFilterBar:SmartFilterBar>
+                <smartTable:SmartTable enableExport="true" beforeRebindTable="onBeforeRebindTable" entitySet="Sensor_Data"
+                    useVariantManagement="false" useTablePersonalisation="true" header="Records" smartFilterId="smartFilterBar"
+                    showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" 
+                    enableAutoColumnWidth="true" initiallyVisibleFields="timestamp" id="SensorDataTable"
+                    tableType="ResponsiveTable" useExportToExcel="false" demandPopin="true" requestAtLeastFields="timestamp">
+                    <smartTable:layoutData>
+                        <FlexItemData growFactor="1" baseSize="0%"/>
+                    </smartTable:layoutData>
+                    <Table id="SensorTableID" mode="None" growing="true" alternateRowColors="true">
+                        <columns>
+                            <Column hAlign="Center" visible="true">
+                                <customData>
+                                    <core:CustomData key="p13nData"
+                                    value='\{"columnKey": "timestamp", "columnIndex":"0","sortProperty":"timestamp", "filterProperty":"timestamp", "leadingProperty": "timestamp"}'/>
+                                </customData>
+                                <Title text="{i18n>timestamp}"/>
+                            </Column>
+                            <Column hAlign="Center" visible="true">
+                                <customData>
+                                    <core:CustomData key="p13nData"
+                                    value='\{"columnKey": "sensor_id", "columnIndex":"1", "filterProperty":"sensor_id","sortProperty": "sensor_id", "leadingProperty": "sensor_id"}'/>
+                                </customData>
+                                <Title text="{i18n>sensor_id}"/>
+                            </Column>
+                            <Column hAlign="Center" visible="true">
+                                <customData>
+                                    <core:CustomData key="p13nData"
+                                    value='\{"columnKey": "reading", "columnIndex":"2", "filterProperty":"reading","sortProperty": "reading", "leadingProperty": "reading"}'/>
+                                </customData>
+                                <Title text="{i18n>Reading}"/>
+                            </Column>
+                            <Column hAlign="Center" visible="true">
+                                <customData>
+                                    <core:CustomData key="p13nData"
+                                    value='\{"columnKey": "unit", "columnIndex":"3", "filterProperty":"unit","sortProperty": "unit", "leadingProperty": "sensor/type/unit"}'/>
+                                </customData>
+                                <Title text="{i18n>Unit}"/>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <!-- <Text text="{timestamp}"/> -->
+                                    <Text text="{
+                                        formatOptions : {UTC : true, 'pattern': 'dd/MM/y HH:mm'},
+                                        path : 'timestamp',
+                                        type : 'sap.ui.model.odata.type.DateTimeOffset'
+                                    }"/>
+                                </cells>
+                                <cells>
+                                    <Text text="{sensor_id}"/>
+                                </cells>
+                                <cells>
+                                    <Text text="{reading}"/>
+                                </cells>
+                                <cells>
+                                    <Text text="{sensor/type/unit}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </smartTable:SmartTable>
+            </Panel>
+        </content>
+	</Page>
+</mvc:View>

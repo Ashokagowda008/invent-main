@@ -1,0 +1,113 @@
+{
+	"_version": "1.15.0",
+	"sap.app": {
+		"id": "yokogawaPlantChart",
+		"type": "card",
+		"title": "Plant Chart",
+		"subTitle": "",
+		"applicationVersion": {
+			"version": "1.0.34"
+		},
+		"shortTitle": "Plant Chart",
+		"info": "Plant Chart",
+		"description": "Plant Chart",
+		"tags": {
+			"keywords": [
+				"Component",
+				"Card",
+				"Sample"
+			]
+		},
+		"dataSources": {
+            "Sustainability": {
+                "uri": "{{destinations.myDestination}}/odata/v2/Sustainability",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://technical-object"
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "yokogawaPlantChart.View",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.38",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {}
+			}
+		},
+		"models": {
+            "oDataModel": {
+                "preload": true,
+                "dataSource": "Sustainability",
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            }
+        },
+		"resources": {
+		  "css": [
+			{
+			  "uri": "style.css"
+			}
+		  ],
+		  "js": [
+			{ "uri": "libs/rgbcolor.js" },
+			{ "uri": "libs/stackblur.js" },
+			{ "uri": "libs/canvg.js" },
+			{ "uri": "libs/jsPDF.js" }
+		  ]
+		}
+	},
+	"sap.card": {
+		"type": "Component",
+		"designtime": "dt/configuration",
+		"header": {
+            "title": "Emissions By Plant",
+            "icon": {
+                "src": "sap-icon://line-charts",
+                "backgroundColor": "Accent3"
+            },
+			"visible": false
+		},
+		"configuration": {
+			"destinations": {
+				"myDestination": {
+					"name": "SustainabiltyCapDest"
+				}
+			}
+		},
+		"csrfTokens": {
+			"token1": {
+				"data": {
+					"request": {
+						"url": "{{destinations.myDestination}}/Token",
+						"method": "HEAD",
+						"headers": {
+							"X-CSRF-Token": "Fetch"
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,151 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+>
+    <form:SimpleForm
+        id="SimpleFormChange354wideDual"
+        editable="true"
+        layout="ResponsiveGridLayout"
+        title=""
+        backgroundDesign="Solid"
+        labelSpanXL="4"
+        labelSpanL="3"
+        labelSpanM="4"
+        labelSpanS="4"
+        adjustLabelSpan="false"
+        emptySpanXL="5"
+        emptySpanL="5"
+        emptySpanM="0"
+        emptySpanS="0"
+        columnsXL="2"
+        columnsL="1"
+        columnsM="1"
+        columnsS="1"
+        singleContainerFullSize="false"
+    >
+        <form:content>
+            <Label
+                text="Name"
+                required="true"
+            />
+            <Select
+                id="frName"
+                selectedKey="{newActivity>/Name}"
+                showSecondaryValues="false"
+                items="{ path: 'newActivity>/Names' }"
+            >
+                <core:ListItem
+                    key="{newActivity>desc}"
+                    text="{newActivity>desc}"
+                />
+            </Select>
+            <Label
+                text="Activity Date"
+                required="true"
+            />
+            <DatePicker
+                id="fActivityDate"
+                value="{'path': 'newActivity>/ActivityDate',
+						'type': 'sap.ui.model.type.Date',
+						'formatOptions': {
+							'pattern': 'dd/MM/y',
+                             UTC:true
+						}}"
+            />
+            <!-- <DatePicker id="fActivityDate"  value="{path:'newActivity>/ActivityDate', formatter: '.dateFormatter'}" change="onActivityDateChange" /> -->
+            <Label
+                text="Activity Type"
+                required="true"
+            />
+            <Select
+                id="frActivityType"
+                selectedKey="{newActivity>/ActivityType}"
+                showSecondaryValues="false"
+                items="{ path: 'newActivity>/ActivityTypes' }"
+            >
+                <core:ListItem
+                    key="{newActivity>desc}"
+                    text="{newActivity>desc}"
+                />
+            </Select>
+            <Label
+                text="Customer"
+                required="true"
+            />
+            <!-- <Select
+					id="frCustomer" selectedKey="{newActivity>/Customer}"
+					showSecondaryValues= "false"
+					items="{ path: 'newActivity>/Customers' }">
+					<core:ListItem key="{newActivity>desc}" text="{newActivity>desc}"/>
+				</Select> -->
+            <Input
+                id="frCustomer"
+                placeholder="Please enter Customer"
+                showSuggestion="true"
+                value="{newActivity>/Customer}"
+                suggestionItems="{ path: 'newActivity>/Customers/'}"
+            >
+                <suggestionItems>
+                    <core:Item
+                        key="{newActivity>desc}"
+                        text="{newActivity>desc}"
+                    />
+                </suggestionItems>
+            </Input>
+            <Label
+                text="Type of Work"
+                required="true"
+            />
+            <Input
+                id="frTypeOfWork"
+                placeholder="Please enter Type of Work"
+                showSuggestion="true"
+                value="{newActivity>/TypeOfWork}"
+                suggestionItems="{ path: 'newActivity>/TypeOfWorks/'}"
+            >
+                <suggestionItems>
+                    <core:Item
+                        key="{newActivity>desc}"
+                        text="{newActivity>desc}"
+                    />
+                </suggestionItems>
+            </Input>
+            <!-- <Select
+                id="frTypeOfWork"
+                selectedKey="{newActivity>/TypeOfWork}"
+                showSecondaryValues="false"
+                items="{ path: 'newActivity>/TypeOfWorks' }"
+            >
+                <core:ListItem
+                    key="{newActivity>desc}"
+                    text="{newActivity>desc}"
+                />
+            </Select> -->
+            <Label
+                text="Activity Code"
+                required="true"
+            />
+            <Select
+                id="frActivityCode"
+                selectedKey="{newActivity>/ActivityCode}"
+                showSecondaryValues="false"
+                items="{ path: 'newActivity>/ActivityCodes' }"
+            >
+                <core:ListItem
+                    key="{newActivity>desc}"
+                    text="{newActivity>desc}"
+                />
+            </Select>
+            <Label text="Comments" />
+            <TextArea
+                id="frComments"
+                value="{newActivity>/Comments}"
+                growing="true"
+                rows="3"
+                width="100%"
+            />
+        </form:content>
+    </form:SimpleForm>
+</core:FragmentDefinition>

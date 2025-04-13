@@ -1,0 +1,5 @@
+applications:
+- name: chatgptnew
+  memory:  512M
+  disk_quota: 512M
+  command: node app.js

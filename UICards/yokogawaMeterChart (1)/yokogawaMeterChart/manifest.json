@@ -1,0 +1,83 @@
+{
+	"_version": "1.15.0",
+	"sap.app": {
+		"id": "yokogawaMeterChart",
+		"type": "card",
+		"title": "Meter Chart",
+		"subTitle": "Meter Emissions",
+		"applicationVersion": {
+			"version": "1.0.106"
+		},
+		"shortTitle": "Meter Chart",
+		"info": "Meter Chart",
+		"description": "Meter Emissions Chart",
+		"tags": {
+			"keywords": [
+				"Component",
+				"Card",
+				"Sample"
+			]
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://technical-object"
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "yokogawaMeterChart.View",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.38",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {}
+			}
+		},
+		"models": {
+			"viewModel":{
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"contextModel":{
+				"type": "sap.ui.model.json.JSONModel"
+			}
+        },
+		"resources": {
+		  "css": [
+			{
+			  "uri": "style.css"
+			}
+		  ],
+		  "js": [
+			{ "uri": "libs/rgbcolor.js" },
+			{ "uri": "libs/stackblur.js" },
+			{ "uri": "libs/canvg.js" },
+			{ "uri": "libs/jsPDF.js" }
+		  ]
+		}
+	},
+	"sap.card": {
+		"type": "Component",
+		"designtime": "dt/configuration",
+		"header": {
+            "title": "Emissions By Single Meter",
+            "icon": {
+                "src": "sap-icon://bar-chart",
+                "backgroundColor": "Accent2"
+            },
+			"visible": false
+		},
+		"configuration": {
+			"destinations": {
+				"myDestination": {
+					"name": "SustainabiltyCapDest"
+				}
+			}
+		}
+	}
+}

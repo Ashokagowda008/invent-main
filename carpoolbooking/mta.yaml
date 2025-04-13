@@ -1,0 +1,94 @@
+_schema-version: "3.2"
+ID: carpoolbooking
+description: A Fiori application.
+version: 0.0.1
+modules:
+- name: carpoolbooking-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: carpoolbooking-destination-service
+    parameters:
+      content-target: true
+  - name: carpoolbooking-repo-host
+    parameters:
+      service-key:
+        name: carpoolbooking-repo-host-key
+  - name: carpoolbooking-uaa
+    parameters:
+      service-key:
+        name: carpoolbooking-uaa-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: carpoolbooking_html_repo_host
+          ServiceInstanceName: carpoolbooking-html5-srv
+          ServiceKeyName: carpoolbooking-repo-host-key
+          sap.cloud.service: carpoolbooking
+        - Authentication: OAuth2UserTokenExchange
+          Name: carpoolbooking_uaa
+          ServiceInstanceName: carpoolbooking-xsuaa-srv
+          ServiceKeyName: carpoolbooking-uaa-key
+          sap.cloud.service: carpoolbooking
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: carpoolbooking-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: carpoolbooking-repo-host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - carpoolbooking.zip
+      name: carpoolbooking
+      target-path: resources/
+- name: carpoolbooking
+  type: html5
+  path: .
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: carpoolbooking-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: carpoolbooking-destination-service
+    service-plan: lite
+- name: carpoolbooking-uaa
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: carpoolbooking-xsuaa-srv
+    service-plan: application
+- name: carpoolbooking-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: carpoolbooking-html5-srv
+    service-plan: app-host
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true

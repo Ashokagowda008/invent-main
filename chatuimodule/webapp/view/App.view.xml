@@ -1,0 +1,53 @@
+<mvc:View
+    controllerName="chatuimodule.controller.App"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:tnt="sap.tnt"
+>
+    <tnt:ToolHeader id="shellLikeToolHeader" >
+        <ToolbarSpacer />
+        <Title class="sapUiSmallMarginBegin"
+            level="H4"
+            titleStyle="H4"
+            text="Vendor Insights Powered by AI"
+        >
+            <layoutData>
+                <OverflowToolbarLayoutData shrinkable="true" />
+            </layoutData>
+        </Title>
+
+        <ToolbarSpacer id="spacer">
+            <layoutData>
+                <OverflowToolbarLayoutData
+                    priority="Low"
+                    group="1"
+                />
+            </layoutData>
+        </ToolbarSpacer>
+        <Title
+            level="H5"
+            titleStyle="H5"
+            text="John Miller"
+        />
+        <Avatar
+            class="sapUiSmallMarginEnd"
+            src="https://sapui5.hana.ondemand.com/1.115.1/test-resources/sap/tnt/images/John_Miller.png"
+            displaySize="S"
+        >
+            <layoutData>
+                <OverflowToolbarLayoutData priority="NeverOverflow" />
+            </layoutData>
+        </Avatar>
+    </tnt:ToolHeader>
+
+   
+        <App
+            id="app"
+            busy="{appView>/busy}"
+            busyIndicatorDelay="{appView>/delay}"
+        />
+    
+</mvc:View>

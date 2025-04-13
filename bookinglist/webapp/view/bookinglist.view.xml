@@ -1,0 +1,76 @@
+<mvc:View controllerName="bookinglist.controller.bookinglist" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+    <Page id="page" titleLevel="H2" showHeader="false" floatingFooter="true">
+        <ObjectHeader class="myHeader" titleLevel="H4" title="Booking Details" responsive="true" fullScreenOptimized="true" icon="{LocalModel>/toolbarIcon}" />
+        <content>
+            <!-- <Panel  class="sapUiResponsiveMargin"> -->
+            <FlexBox id="_IDGenFlexBox2" alignItems="Center" class="sapUiResponsiveMargin" justifyContent="Center">
+                <u:Calendar id="calendar" showCurrentDateButton="true" select="handleCalendarSelect" width="600px" />
+            </FlexBox>
+            <!-- </Panel> -->
+            <Table class="sapUiResponsiveMargin" id="idProductsTable" width="90%" alternateRowColors="false" items="{
+		   path:'BookingList>/',
+			sorter: {
+				path: 'modifiedAt',
+				descending: false
+			}
+		}">
+        	<headerToolbar>
+			<OverflowToolbar>
+				<Title text="List" level="H3"/>
+			</OverflowToolbar>
+		</headerToolbar>
+                <columns>
+                    <Column mergeDuplicates="true">
+                        <header>
+                            <Text text="Post-IT ID" />
+                        </header>
+                    </Column>
+                     <Column mergeDuplicates="true">
+                        <header>
+                            <Text text="Date" />
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Text text="Booked Person" />
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Text text="From Location" />
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Text text="To Location" />
+                        </header>
+                    </Column>
+                   
+                    <Column>
+                        <header>
+                            <Text text="Pickup Point" />
+                        </header>
+                    </Column> 
+                    <Column>
+                        <header>
+                            <Text text="Status" />
+                        </header>
+                    </Column>                    
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <ObjectIdentifier title="{BookingList>Post_IT_ID}" />
+                             <ObjectIdentifier title="{path: 'BookingList>BookingDate', formatter: '.dateFormatter'}" />
+                            <Text text="{BookingList>BookedUser}" />
+                             <Text text="{BookingList>From_Location}" />
+                            <Text text="{BookingList>To_Location}" />
+                            <Text text="{BookingList>Pickup_Point}" />
+                            <Text text="{BookingList>StatuDesc}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

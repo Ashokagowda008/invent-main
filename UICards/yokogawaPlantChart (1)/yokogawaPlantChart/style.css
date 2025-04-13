@@ -1,0 +1,18 @@
+.myBorderBox {
+    border: 1px solid #8b8888 !important;
+    border-radius: 10px !important;
+    box-shadow: 2px 2px 5px #888888 !important;
+}
+
+.myBorderCard {
+    border: 1px solid #8b8888 !important;
+    border-radius: 10px !important;
+}
+/* 
+.myCardHeader {
+    background:#6cc3b7 !important;
+}
+
+.myCard {
+    background: #6cc3b740 !important;
+} */

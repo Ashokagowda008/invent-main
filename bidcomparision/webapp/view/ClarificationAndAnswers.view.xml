@@ -1,0 +1,54 @@
+<mvc:View class="sapUiSizeCompact"
+	controllerName="bidcomparision.controller.ClarificationAndAnswers"
+    id="clrAndAnslist"
+    xmlns:mvc="sap.ui.core.mvc"
+     xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Panel expandable="true" expanded="true"  headerText="{i18n>ClarificationTitle}"> 
+    <content>
+       <Table id="tblClrAndAns"
+		items="{path: 'ClrAndAnsData>/'}"
+		growing="true" 
+       includeItemInSelection="true"   
+       mode="SingleSelectLeft" 
+       modeAnimationOn="false">
+        
+        <headerToolbar>
+		 <OverflowToolbar>
+        	<content>
+                      <Title text="{i18n>MessageTitle}" level="H4"/>
+                    <ToolbarSpacer/>
+                       <core:Icon src="sap-icon://grid" class="sapUiTinyMarginEnd" color="blue"/>
+                       <Text text="|" class="sapUiTinyMarginEnd"/>
+                       <core:Icon src="sap-icon://collapse-group" class="sapUiTinyMarginEnd" color="blue"/> 
+                       	 </content>
+					</OverflowToolbar>
+        </headerToolbar>
+		<columns>
+			<Column id="ClrId"><Text wrapping="true" text="{i18n>ClrId}"/></Column>
+             <Column id="clrReplySent" > <Text wrapping="true" text="{i18n>clrReplySent}" /></Column>
+			<Column id="clrSentDate" > <Text wrapping="true" text="{i18n>clrSentDate}" /></Column>
+            <Column id="clrFrom" > <Text wrapping="true" text="{i18n>clrFrom}" /></Column>
+            <Column id="clrContactName" > <Text wrapping="true" text="{i18n>clrContactName}" /></Column>
+             <Column id="clrTo" > <Text wrapping="true" text="{i18n>clrTo}" /></Column>
+              <Column id="clrLabels" > <Text wrapping="true" text="{i18n>clrLabels}" /></Column>
+               <Column id="clrSubjects" > <Text wrapping="true" text="{i18n>clrSubjects}" /></Column>
+          </columns>  
+		<items>
+			<ColumnListItem>
+				<cells>
+                    <ObjectNumber  number="{ClrAndAnsData>Id}" emphasized="true"/>
+                     <Text  text="{ClrAndAnsData>ReplySent}" />
+                      <Text  text="{ClrAndAnsData>SentDate}" />
+                     <Text  text="{ClrAndAnsData>From}" />
+                      <Text  text="{ClrAndAnsData>ContactName}" />
+                     <Text  text="{ClrAndAnsData>To}" />
+                    <Text  text="{ClrAndAnsData>Lables}" /> 
+                    <Text  text="{ClrAndAnsData>Subject}"/>                
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+    </content>
+	   </Panel>	
+</mvc:View>

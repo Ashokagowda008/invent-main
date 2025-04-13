@@ -1,0 +1,210 @@
+<mvc:View
+    controllerName="bidcomparision.controller.EventSummary"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    class="sapUiSizeCompact"
+>
+	<!-- <Shell id="shell">
+		<App id="app">
+			<pages> -->
+				<!-- <Page id="page" title="Publication Information">
+					<content> -->
+                    <Panel expandable="true" expanded="true" headerText="Publication Information">
+						<Panel expanded="true" >
+							<headerToolbar>
+								<OverflowToolbar>
+									<Text text="Financials"/>
+									<ToolbarSpacer/>
+									<Text text="Term: Extended Price"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<content>
+								<Table items="{localModel>/Financials}" class="tblRowCls">
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text text="{localModel>Name}"/>
+												<Text text="{localModel>Value}"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+									<columns>
+										<Column width="50%"></Column>
+										<Column width="50%"></Column>
+									</columns>
+								</Table>
+							</content>
+						</Panel>
+						<Panel  expanded="true">
+							<headerToolbar>
+								<OverflowToolbar>
+									<Text text="Invitation Summary"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<content>
+								<Table items="{localModel>/InvitationSummary}" class="tblRowCls">
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text text="{localModel>Name}"/>
+												<Text text="{localModel>Value}"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+									<columns>
+										<Column width="90%"></Column>
+										<Column width="10%"></Column>
+									</columns>
+								</Table>
+							</content>
+						</Panel>
+						<HBox>
+						<Panel  expanded="true">
+							<headerToolbar>
+								<OverflowToolbar>
+									<Text text="Response Summary"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<content>
+								<Table items="{localModel>/ResponseSummary}" class="tblRowCls">
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text text="{localModel>Name}"/>
+												<Text text="{localModel>Value}"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+									<columns>
+										<Column width="80%"></Column>
+										<Column width="20%"></Column>
+									</columns>
+								</Table>
+							</content>
+						</Panel>
+						<Panel  expanded="true">
+							<headerToolbar>
+								<OverflowToolbar>
+									<Text text="Project Summary"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<content>
+								<Table items="{localModel>/ProjectSummary}" class="tblRowCls">
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text text="{localModel>Name}"/>
+												<Text text="{localModel>Value}"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+									<columns>
+										<Column width="80%"></Column>
+										<Column width="20%"></Column>
+									</columns>
+								</Table>
+							</content>
+						</Panel>
+						</HBox>
+						<Panel expanded="true">
+							<headerToolbar>
+								<OverflowToolbar>
+									<Text text="Lot Details"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<content>
+								<Table items="{tableModel>/LotDetails}" class="tblRowCls">
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text text="{tableModel>Id}"/>
+												<Text text="{tableModel>Name}"/>
+												<Text text="{tableModel>Historic}"/>
+												<!-- <Text text="{tableModel>Reserve}"/> -->
+												<Text text="{tableModel>Initial}"/>
+												<Text text="{tableModel>Leading}"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+									<columns>
+										<Column >
+											
+										</Column>
+										<Column>
+											<Text text="Name" />
+										</Column>
+										<Column >
+											<Text text="Historic" />
+										</Column>
+										<!-- <Column >
+											<Text text="Reserve" />
+										</Column> -->
+										<Column >
+											<Text text="Initial" />
+										</Column>
+										<Column >
+											<Text text="Leading" />
+										</Column>
+									</columns>
+								</Table>
+							</content>
+						</Panel>
+						</Panel>
+
+						<!-- <Panel expanded="true">
+							<headerToolbar>
+								<OverflowToolbar>
+									<Text text="Timing Rules"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<content>
+								<Table items="{localModel>/TimingRules}" class="tblRowLeftBorderCls">
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text text="{localModel>Name}"/>
+												<Text text="{localModel>Value}"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+									<columns>
+										<Column width="30%"></Column>
+										<Column width="70%"></Column>
+									</columns>
+								</Table>
+							</content>
+						</Panel>
+						<Panel expanded="true">
+							<headerToolbar>
+								<OverflowToolbar>
+									<Text text="Content"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<content>
+								<Table items="{localModel>/Content}" class="tblRowLeftBorderCls">
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text text="{localModel>Name}"/>
+												<Text text="{localModel>Value}"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+									<columns>
+										<Column width="60%">
+											<Text text="Name" />
+										</Column>
+										<Column width="40%">
+											<Text text="Value" />
+										</Column>
+									</columns>
+								</Table>
+							</content>
+						</Panel> -->
+					<!-- </content>
+				</Page> -->
+			<!-- </pages>
+		</App>
+	</Shell> -->
+</mvc:View>

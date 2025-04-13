@@ -1,0 +1,597 @@
+{
+    "title": "SP - OR - T1",
+    "description": "Operational Reporting API  - Testing",
+    "internalId": "Doc259020677",
+    "templateProjectInternalId": "SYS0207",
+    "testProject": "false",
+    "status": "Pending Selection",
+    "version": "v1",
+    "baseLanguage": "en",
+    "owner": {
+        "uniqueName": "admin",
+        "passwordAdapter": "PasswordAdapter1",
+        "name": "Admin",
+        "emailAddress": "no-reply@ansmtp.ariba.com",
+        "organization": "Cumulus 8",
+        "orgANId": "AN01478332031-T",
+        "orgName": "Cumulus 8",
+        "timeZoneID": "Europe/Prague",
+        "localeID": "en_US"
+    },
+    "regions": [
+        {
+            "uniqueName": "USA",
+            "name": "United States"
+        }
+    ],
+    "departments": [],
+    "commodities": [
+        {
+            "uniqueName": "7111",
+            "domain": "unspsc",
+            "name": "Oil and gas exploration services"
+        }
+    ],
+    "eventTypeName": "RFP",
+    "customFields": [
+        {
+            "fieldName": "arb_CompanyCode",
+            "fieldValue": "",
+            "fieldType": "java.lang.String"
+        },
+        {
+            "fieldName": "arb_PurchasingOrganization",
+            "fieldValue": "",
+            "fieldType": "java.lang.String"
+        },
+        {
+            "fieldName": "arb_PurchasingGroup",
+            "fieldValue": "",
+            "fieldType": "java.lang.String"
+        },
+        {
+            "fieldName": "arb_PaymentTerms",
+            "fieldValue": "",
+            "fieldType": "java.lang.String"
+        },
+        {
+            "fieldName": "arb_DocumentType",
+            "fieldValue": "",
+            "fieldType": "java.lang.String"
+        },
+        {
+            "fieldName": "arb_DocumentCategory",
+            "fieldValue": "",
+            "fieldType": "java.lang.String"
+        }
+    ],
+    "previewDate": "1628865538331",
+    "openDate": "1628865900000",
+    "closeDate": "1628868300000",
+    "externalSystem": {},
+    "link": {
+        "href": "",
+        "rel": "Next"
+    },
+    "itemResponses": [
+        {
+            "item": {
+                "itemId": "331332544",
+                "terms": [
+                    {
+                        "title": "Extended Price",
+                        "fieldId": "EXTENDEDPRICE",
+                        "valueTypeName": "Money",
+                        "value": {
+                            "amount": 12925.00,
+                            "currency": "USD"
+                        },
+                        "supplierValue": {
+                            "amount": 12925.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Savings",
+                        "fieldId": "SAVINGS",
+                        "valueTypeName": "MoneyDifference",
+                        "value": {
+                            "amount": 2075.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    }
+                ]
+            },
+            "supplierUniqueName": "1626262700337_SolExp.procurement.internal@demo.cloud.sap",
+            "orgSystemId": "ACM_7490987"
+        },
+        {
+            "item": {
+                "itemId": "331332547",
+                "terms": []
+            },
+            "supplierUniqueName": "1626262700337_SolExp.procurement.internal@demo.cloud.sap",
+            "orgSystemId": "ACM_7490987"
+        },
+        {
+            "bidRank": "1",
+            "item": {
+                "itemId": "331332550",
+                "terms": [
+                    {
+                        "title": "Price",
+                        "fieldId": "PRICE",
+                        "valueTypeName": "Money",
+                        "value": {
+                            "amount": 795.00,
+                            "currency": "USD"
+                        },
+                        "supplierValue": {
+                            "amount": 795.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Quantity",
+                        "fieldId": "QUANTITY",
+                        "valueTypeName": "Quantity",
+                        "value": {
+                            "quantity": 10,
+                            "uom": "EA"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Extended Price",
+                        "fieldId": "EXTENDEDPRICE",
+                        "valueTypeName": "Money",
+                        "value": {
+                            "amount": 7950.00,
+                            "currency": "USD"
+                        },
+                        "supplierValue": {
+                            "amount": 7950.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Savings",
+                        "fieldId": "SAVINGS",
+                        "valueTypeName": "MoneyDifference",
+                        "value": {
+                            "amount": 1050.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    }
+                ]
+            },
+            "supplierUniqueName": "1626262700337_SolExp.procurement.internal@demo.cloud.sap",
+            "orgSystemId": "ACM_7490987"
+        },
+        {
+            "item": {
+                "itemId": "331332548",
+                "terms": []
+            },
+            "supplierUniqueName": "1626262700337_SolExp.procurement.internal@demo.cloud.sap",
+            "orgSystemId": "ACM_7490987"
+        },
+        {
+            "bidRank": "3",
+            "item": {
+                "itemId": "331332551",
+                "terms": [
+                    {
+                        "title": "Price",
+                        "fieldId": "PRICE",
+                        "valueTypeName": "Money",
+                        "value": {
+                            "amount": 995.00,
+                            "currency": "USD"
+                        },
+                        "supplierValue": {
+                            "amount": 995.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Quantity",
+                        "fieldId": "QUANTITY",
+                        "valueTypeName": "Quantity",
+                        "value": {
+                            "quantity": 5,
+                            "uom": "EA"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Extended Price",
+                        "fieldId": "EXTENDEDPRICE",
+                        "valueTypeName": "Money",
+                        "value": {
+                            "amount": 4975.00,
+                            "currency": "USD"
+                        },
+                        "supplierValue": {
+                            "amount": 4975.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Savings",
+                        "fieldId": "SAVINGS",
+                        "valueTypeName": "MoneyDifference",
+                        "value": {
+                            "amount": 1025.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    }
+                ]
+            },
+            "supplierUniqueName": "1626262700337_SolExp.procurement.internal@demo.cloud.sap",
+            "orgSystemId": "ACM_7490987"
+        },
+        {
+            "item": {
+                "itemId": "331332549",
+                "terms": []
+            },
+            "supplierUniqueName": "1626262700337_SolExp.procurement.internal@demo.cloud.sap",
+            "orgSystemId": "ACM_7490987"
+        },
+        {
+            "item": {
+                "itemId": "331332544",
+                "terms": [
+                    {
+                        "title": "Extended Price",
+                        "fieldId": "EXTENDEDPRICE",
+                        "valueTypeName": "Money",
+                        "value": {
+                            "amount": 12915.00,
+                            "currency": "USD"
+                        },
+                        "supplierValue": {
+                            "amount": 12915.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Savings",
+                        "fieldId": "SAVINGS",
+                        "valueTypeName": "MoneyDifference",
+                        "value": {
+                            "amount": 2085.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    }
+                ]
+            },
+            "supplierUniqueName": "1626263209654_SolExp.procurement.internal@demo.cloud.sap",
+            "orgSystemId": "ACM_7490988"
+        },
+        {
+            "item": {
+                "itemId": "331332547",
+                "terms": []
+            },
+            "supplierUniqueName": "1626263209654_SolExp.procurement.internal@demo.cloud.sap",
+            "orgSystemId": "ACM_7490988"
+        },
+        {
+            "bidRank": "1",
+            "item": {
+                "itemId": "331332550",
+                "terms": [
+                    {
+                        "title": "Price",
+                        "fieldId": "PRICE",
+                        "valueTypeName": "Money",
+                        "value": {
+                            "amount": 795.00,
+                            "currency": "USD"
+                        },
+                        "supplierValue": {
+                            "amount": 795.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Quantity",
+                        "fieldId": "QUANTITY",
+                        "valueTypeName": "Quantity",
+                        "value": {
+                            "quantity": 10,
+                            "uom": "EA"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Extended Price",
+                        "fieldId": "EXTENDEDPRICE",
+                        "valueTypeName": "Money",
+                        "value": {
+                            "amount": 7950.00,
+                            "currency": "USD"
+                        },
+                        "supplierValue": {
+                            "amount": 7950.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Savings",
+                        "fieldId": "SAVINGS",
+                        "valueTypeName": "MoneyDifference",
+                        "value": {
+                            "amount": 1050.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    }
+                ]
+            },
+            "supplierUniqueName": "1626263209654_SolExp.procurement.internal@demo.cloud.sap",
+            "orgSystemId": "ACM_7490988"
+        },
+        {
+            "item": {
+                "itemId": "331332548",
+                "terms": []
+            },
+            "supplierUniqueName": "1626263209654_SolExp.procurement.internal@demo.cloud.sap",
+            "orgSystemId": "ACM_7490988"
+        },
+        {
+            "bidRank": "2",
+            "item": {
+                "itemId": "331332551",
+                "terms": [
+                    {
+                        "title": "Price",
+                        "fieldId": "PRICE",
+                        "valueTypeName": "Money",
+                        "value": {
+                            "amount": 993.00,
+                            "currency": "USD"
+                        },
+                        "supplierValue": {
+                            "amount": 993.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Quantity",
+                        "fieldId": "QUANTITY",
+                        "valueTypeName": "Quantity",
+                        "value": {
+                            "quantity": 5,
+                            "uom": "EA"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Extended Price",
+                        "fieldId": "EXTENDEDPRICE",
+                        "valueTypeName": "Money",
+                        "value": {
+                            "amount": 4965.00,
+                            "currency": "USD"
+                        },
+                        "supplierValue": {
+                            "amount": 4965.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Savings",
+                        "fieldId": "SAVINGS",
+                        "valueTypeName": "MoneyDifference",
+                        "value": {
+                            "amount": 1035.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    }
+                ]
+            },
+            "supplierUniqueName": "1626263209654_SolExp.procurement.internal@demo.cloud.sap",
+            "orgSystemId": "ACM_7490988"
+        },
+        {
+            "item": {
+                "itemId": "331332549",
+                "terms": []
+            },
+            "supplierUniqueName": "1626263209654_SolExp.procurement.internal@demo.cloud.sap",
+            "orgSystemId": "ACM_7490988"
+        },
+        {
+            "item": {
+                "itemId": "331332544",
+                "terms": [
+                    {
+                        "title": "Extended Price",
+                        "fieldId": "EXTENDEDPRICE",
+                        "valueTypeName": "Money",
+                        "value": {
+                            "amount": 12920.00,
+                            "currency": "USD"
+                        },
+                        "supplierValue": {
+                            "amount": 12920.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Savings",
+                        "fieldId": "SAVINGS",
+                        "valueTypeName": "MoneyDifference",
+                        "value": {
+                            "amount": 2080.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    }
+                ]
+            },
+            "supplierUniqueName": "1626263426931_SolExp.procurement.internal@demo.cloud.sap",
+            "orgSystemId": "ACM_7490990"
+        },
+        {
+            "item": {
+                "itemId": "331332547",
+                "terms": []
+            },
+            "supplierUniqueName": "1626263426931_SolExp.procurement.internal@demo.cloud.sap",
+            "orgSystemId": "ACM_7490990"
+        },
+        {
+            "bidRank": "3",
+            "item": {
+                "itemId": "331332550",
+                "terms": [
+                    {
+                        "title": "Price",
+                        "fieldId": "PRICE",
+                        "valueTypeName": "Money",
+                        "value": {
+                            "amount": 796.00,
+                            "currency": "USD"
+                        },
+                        "supplierValue": {
+                            "amount": 796.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Quantity",
+                        "fieldId": "QUANTITY",
+                        "valueTypeName": "Quantity",
+                        "value": {
+                            "quantity": 10,
+                            "uom": "EA"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Extended Price",
+                        "fieldId": "EXTENDEDPRICE",
+                        "valueTypeName": "Money",
+                        "value": {
+                            "amount": 7960.00,
+                            "currency": "USD"
+                        },
+                        "supplierValue": {
+                            "amount": 7960.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Savings",
+                        "fieldId": "SAVINGS",
+                        "valueTypeName": "MoneyDifference",
+                        "value": {
+                            "amount": 1040.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    }
+                ]
+            },
+            "supplierUniqueName": "1626263426931_SolExp.procurement.internal@demo.cloud.sap",
+            "orgSystemId": "ACM_7490990"
+        },
+        {
+            "item": {
+                "itemId": "331332548",
+                "terms": []
+            },
+            "supplierUniqueName": "1626263426931_SolExp.procurement.internal@demo.cloud.sap",
+            "orgSystemId": "ACM_7490990"
+        },
+        {
+            "bidRank": "1",
+            "item": {
+                "itemId": "331332551",
+                "terms": [
+                    {
+                        "title": "Price",
+                        "fieldId": "PRICE",
+                        "valueTypeName": "Money",
+                        "value": {
+                            "amount": 992.00,
+                            "currency": "USD"
+                        },
+                        "supplierValue": {
+                            "amount": 992.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Quantity",
+                        "fieldId": "QUANTITY",
+                        "valueTypeName": "Quantity",
+                        "value": {
+                            "quantity": 5,
+                            "uom": "EA"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Extended Price",
+                        "fieldId": "EXTENDEDPRICE",
+                        "valueTypeName": "Money",
+                        "value": {
+                            "amount": 4960.00,
+                            "currency": "USD"
+                        },
+                        "supplierValue": {
+                            "amount": 4960.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    },
+                    {
+                        "title": "Savings",
+                        "fieldId": "SAVINGS",
+                        "valueTypeName": "MoneyDifference",
+                        "value": {
+                            "amount": 1040.00,
+                            "currency": "USD"
+                        },
+                        "attachments": []
+                    }
+                ]
+            },
+            "supplierUniqueName": "1626263426931_SolExp.procurement.internal@demo.cloud.sap",
+            "orgSystemId": "ACM_7490990"
+        },
+        {
+            "item": {
+                "itemId": "331332549",
+                "terms": []
+            },
+            "supplierUniqueName": "1626263426931_SolExp.procurement.internal@demo.cloud.sap",
+            "orgSystemId": "ACM_7490990"
+        }
+    ]
+}

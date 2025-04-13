@@ -1,0 +1,37 @@
+<mvc:View class="sapUiSizeCompact"
+	controllerName="bidcomparision.controller.BidAmendment"
+    id="BidAmidmentlist"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Panel expandable="true" expanded="true"  headerText="{i18n>AmendmentTitle}"> 
+    <content>
+    	<Table id="tblBidAmidment"
+		items="{path: 'AmendmentsData>/'}"
+		itemPress=".onItemPressed">
+		<!-- <headerToolbar>
+			<Toolbar>
+				<Title text="{i18n>AmendmentTitle}" level="H4"/>
+			</Toolbar>
+		</headerToolbar> -->
+		<columns>
+			<Column id="clmFieldName"><Text wrapping="true" text=""/></Column>
+             <Column id="clmPreviousBid" > <Text wrapping="true" text="{i18n>PreviousBid}" /></Column>
+			<Column id="clmCurrentBid" > <Text wrapping="true" text="{i18n>CurrentBid}" /></Column>
+            <Column id="clmItemChanged" > <Text wrapping="true" text="{i18n>ItemChanged}" /></Column>
+            <Column id="clmCTermChanged" > <Text wrapping="true" text="{i18n>TermChanged}" /></Column>
+          </columns>  
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Text  wrapping="true" text="{AmendmentsData>FieldName}" />
+                    <Text text="{AmendmentsData>PreviousBid}" />
+                    <Text text="{AmendmentsData>CurrentBid}" />                    
+                    <Text text="{AmendmentsData>ItemChanged}" />
+                    <Text text="{AmendmentsData>TermChanged}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+    </content>
+	   </Panel>	
+</mvc:View>

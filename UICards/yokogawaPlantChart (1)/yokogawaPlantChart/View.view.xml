@@ -1,0 +1,42 @@
+<mvc:View
+    xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:m="sap.m"  xmlns:html="http://www.w3.org/1999/xhtml"
+    width="100%" displayBlock="true" xmlns:commons="sap.suite.ui.commons"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    controllerName="yokogawaPlantChart.Main">
+	<commons:ChartContainer showFullScreen="true" showPersonalization="false" showZoom="false" showLegendButton="false"
+		autoAdjustHeight="false" title="Emissions By Plant">
+		<commons:content>
+			<commons:ChartContainerContent icon="sap-icon://line-chart" title="">
+				<commons:content>
+					<viz:VizFrame vizType="column" width="100%" vizProperties="{plotArea: {colorPalette: ['#0070F2','#DF1278','#75980B','#C87B00','#8B47D7'], drawingEffect: 'normal'}, title:{ visible:false },dataLabel:{visible:true,showTotal:true}, legend: { visible: false }}" 
+						id="plantChart" height="350px">
+						<viz:dataset>				
+							<viz.data:FlattenedDataset data="{/Plant_Emissions_Entity}" id="idDataSet">
+								<viz.data:dimensions>		
+									<viz.data:DimensionDefinition name="Plant" value="{PlantName}"/>	
+								</viz.data:dimensions>
+								<viz.data:measures>			
+									<viz.data:MeasureDefinition name="CO2e Emissions(kg)" value="{TotalCeValue}"/>	
+								</viz.data:measures>
+							</viz.data:FlattenedDataset>		
+						</viz:dataset>
+						<viz:feeds>
+							<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="CO2e Emissions(kg)"/>
+							<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Plant"/>
+						</viz:feeds>
+					</viz:VizFrame>
+				</commons:content>
+			</commons:ChartContainerContent>
+		</commons:content>
+		<commons:customIcons>
+			<core:Icon src="sap-icon://download" tooltip="Download" press="onSaveChart"/>
+		</commons:customIcons>
+		<commons:toolbar>
+			<m:OverflowToolbar >
+				<m:ToolbarSpacer/>
+				<Button icon="{chartTypeModel>/selectedChartIcon}" press="onChartTypePopover" type="Emphasized"/>
+				<commons:ChartContainerToolbarPlaceholder></commons:ChartContainerToolbarPlaceholder>
+			</m:OverflowToolbar>
+		</commons:toolbar>
+	</commons:ChartContainer>
+</mvc:View>

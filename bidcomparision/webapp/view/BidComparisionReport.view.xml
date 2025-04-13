@@ -1,0 +1,28 @@
+<mvc:View
+    controllerName="bidcomparision.controller.BidComparisionReport"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    class="sapUiSizeCompact">
+	<!-- <Shell id="shell">
+		<App id="app">
+			<pages> -->
+				<!-- <Page id="page" showHeader="false" title="{i18n>title}"> -->
+<Panel expandable="true" expanded="true"  headerText="{i18n>title}">    
+<content>            
+					<Table id="idMyTable"  contextualWidth="Auto" inset="false" width="100%" growing="true"  alternateRowColors="false">
+                    <!-- <headerToolbar>
+			<Toolbar>
+				<Title text="{i18n>title}" level="H5"/>
+				  <ToolbarSpacer />
+				   <Button icon="sap-icon://download" type="Accept" tooltip="DownLoad" press="ExportToExcel" />
+			      </Toolbar>
+		        </headerToolbar> -->
+                     </Table>
+                     </content> 
+                   </Panel>
+				<!-- </Page>
+			</pages>
+		</App>
+	</Shell> -->
+</mvc:View>

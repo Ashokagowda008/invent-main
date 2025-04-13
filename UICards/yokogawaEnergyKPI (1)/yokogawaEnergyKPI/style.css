@@ -1,0 +1,52 @@
+.myEnergyCard{
+    flex-shrink: 0;
+    background: #FFF;
+    box-shadow: inset 5px 0px 0px 0px rgb(49 126 207) !important;
+    height: 168px;
+}
+
+.cardHeader{
+    justify-content: space-between;
+    display: block;
+    border-bottom: 0.0625rem solid rgb(204, 204, 204);
+    border-radius: 0.25rem 0.25rem 0px 0px;
+    padding: 1rem;
+}
+
+.headerText {
+    color: #1D2D3E !important; 
+    font-size: 16px !important; 
+    font-family: 72 !important; 
+    font-weight: 700 !important; 
+    word-wrap: break-word;
+}
+
+.mainContainer {
+    padding: 16px;
+}
+
+.iconBox {
+    width: 30%;
+}
+
+.iconEnergy{
+    color: rgb(49 126 207) ;
+    font-size: 500%;
+}
+
+.content{
+    width: 70%;
+}
+
+.valueTextEnergy{
+    font-size: 45px;
+    color: rgb(49 126 207);
+    font-weight: 400;
+}
+
+.unitTextEnergy{
+    font-size: 16px;
+    padding-top: 20px;
+    color: rgb(49 126 207);
+    font-weight: 400;
+}

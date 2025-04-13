@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<QuickView
+		id="quickView"
+		pages="{
+			path: '/matDetails',
+			templateShareable: true
+			}"
+		navigate=".onNavigate">
+		<QuickViewPage
+			pageId="QVPage"
+			title="{ProductDescription}"
+			description="">
+		</QuickViewPage>
+	</QuickView>
+</core:FragmentDefinition>

@@ -1,0 +1,69 @@
+{
+	"_version": "1.15.0",
+	"sap.app": {
+		"id": "yokogawaMap",
+		"type": "card",
+		"title": "CO2e Map",
+		"subTitle": "CO2e",
+		"applicationVersion": {
+			"version": "1.0.83"
+		},
+		"shortTitle": "Map",
+		"info": "CO2e",
+		"description": "CO2e Map",
+		"tags": {
+			"keywords": [
+				"Component",
+				"Card",
+				"Map"
+			]
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://technical-object"
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "yokogawaMap.View",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.38",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {}
+			}
+		},
+		"resources": {
+		  "css": [
+			{
+			  "uri": "style.css"
+			}
+		  ]
+		}
+	},
+	"sap.card": {
+		"type": "Component",
+		"designtime": "dt/configuration",
+		"header": {
+            "title": "Plant Location",
+            "icon": {
+                "src": "sap-icon://map-fill",
+                "backgroundColor": "Accent9"
+            },
+			"visible": false
+		},
+		"configuration": {
+			"destinations": {
+				"myDestination": {
+					"name": "SustainabiltyCapDest"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,51 @@
+<mvc:View
+    xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:m="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+    width="100%" displayBlock="true" xmlns:commons="sap.suite.ui.commons"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    controllerName="yokogawaMeterChart.Main" xmlns:w="sap.ui.integration.widgets" >
+	<commons:ChartContainer id="idChartContainer" showFullScreen="true" showPersonalization="false" showZoom="false" showLegend="false"
+		autoAdjustHeight="false" title="Emissions By Meter">
+		<commons:content>
+			<commons:ChartContainerContent icon="sap-icon://line-chart" title="">
+				<commons:content>
+					<viz:VizFrame vizType="line" width="100%" vizProperties="{plotArea: { drawingEffect: 'glossy'}, title:{ visible:false},dataLabel:{visible:true,showTotal:true}}" 
+						id="MeterChart" height="350px">
+						<viz:dataset>				
+							<viz.data:FlattenedDataset data="{/Sensor_Register_Emission}" id="idDataSet">
+								<viz.data:dimensions>		
+									<viz.data:DimensionDefinition name="Period" value="{period}"/>	
+								</viz.data:dimensions>
+								<viz.data:measures>			
+									<viz.data:MeasureDefinition name="CO2e Emissions(kg)" value="{reading}"/>	
+								</viz.data:measures>
+							</viz.data:FlattenedDataset>		
+						</viz:dataset>
+						<viz:feeds>
+							<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="CO2e Emissions(kg)"/>
+							<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Period"/>
+						</viz:feeds>
+					</viz:VizFrame>
+				</commons:content>
+			</commons:ChartContainerContent>
+		</commons:content>
+		<commons:customIcons>
+			<core:Icon id="customIcon" src="sap-icon://download" tooltip="Download" press="onSaveMeterChart"/>
+		</commons:customIcons>
+		<commons:toolbar>
+			<m:OverflowToolbar id="appToolbar">
+				<Label text="Meter:"/>
+				<Select items="{/Sensor_Register_Entity}" class="sapUiTinyMarginBeginEnd sapUiLargeMarginEnd" change="onMeterSelect" selectedKey="{viewModel>/MeterSelected}" id="meterList">
+					<core:Item key="{id}" text="{id}" />
+				</Select>
+				<Label text="Period:" />
+				<Select items="{viewModel>/PeriodData}" selectedKey="{viewModel>/PeriodSelected}" class="sapUiTinyMarginBeginEnd sapUiLargeMarginEnd"
+					change="onPeriodSelect">
+					<core:Item key="{viewModel>Name}" text="{viewModel>Name}" />
+				</Select>
+				<m:ToolbarSpacer/>
+				<Button icon="{chartTypeModel>/selectedChartIcon}" press="onChartTypePopover" type="Emphasized"/>
+				<commons:ChartContainerToolbarPlaceholder></commons:ChartContainerToolbarPlaceholder>
+			</m:OverflowToolbar>
+		</commons:toolbar>
+	</commons:ChartContainer>
+</mvc:View>

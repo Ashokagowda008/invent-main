@@ -1,0 +1,23 @@
+ <mvc:View
+		controllerName="ns.fundofferscreate.Card"
+		xmlns:layout="sap.ui.layout"
+		xmlns:form="sap.ui.layout.form"
+		xmlns:mvc="sap.ui.core.mvc"
+        xmlns:f="sap.f"
+        xmlns:u="sap.ui.unified"
+        xmlns:core="sap.ui.core"
+        xmlns="sap.m" 
+        height="100%"
+        class="sapUiSizeCompact">
+        <App>
+       	<List
+		items="{
+			path: '/'
+		}" >
+		<StandardListItem
+			title="{Name}"
+			description="{Description}"/>
+	    </List>
+
+       </App>
+</mvc:View>

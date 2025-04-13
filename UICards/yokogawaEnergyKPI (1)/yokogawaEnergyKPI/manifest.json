@@ -1,0 +1,65 @@
+{
+	"_version": "1.15.0",
+	"sap.app": {
+		"id": "yokogawaEnergyKPI",
+		"type": "card",
+		"title": "EnergyKPI",
+		"subTitle": "",
+		"applicationVersion": {
+			"version": "1.0.16"
+		},
+		"shortTitle": "EnergyKPI",
+		"info": "EnergyKPI",
+		"description": "EnergyKPI",
+		"tags": {
+			"keywords": [
+				"Component",
+				"Card",
+				"Sample"
+			]
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://technical-object"
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "yokogawaEnergyKPI.View",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.38",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {}
+			}
+		},
+		"resources": {
+		  "css": [
+			{
+			  "uri": "style.css"
+			}
+		  ]
+		}
+	},
+	"sap.card": {
+		"type": "Component",
+		"designtime": "dt/configuration",
+		"header": {
+            "title": "Total Energy Used",
+			"visible": false
+		},
+		"configuration": {
+			"destinations": {
+				"myDestination": {
+					"name": "SustainabiltyCapDest"
+				}
+			}
+		}
+	}
+}

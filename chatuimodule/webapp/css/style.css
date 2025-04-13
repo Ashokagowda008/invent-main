@@ -1,0 +1,138 @@
+/* Enter your custom styles here */
+
+.leftPage {
+    background-image: linear-gradient(rgb(163, 149, 149), rgb(163, 234, 236), rgb(172, 188, 233)) !important;
+    border-radius: 60px !important;
+}
+
+.customText {
+    color: rgb(201, 76, 31);
+    font-size: 20px;
+}
+
+.sapMFeedIn {
+    border-radius: 4px !important;
+}
+
+.sapMFeedListShowSeparatorsAll.sapMLIB {
+    border-radius: 30px 30px 30px 5px !important;
+
+}
+
+.myFeedUl>li {
+    list-style-type: none;
+    display: block;
+    margin: 3px;
+    width: 60%;
+    border: 1px solid #b95100;
+    padding: 0 10px;
+    border-radius: 7px;
+    background-color: #f3f3f3;
+    font-weight: normal;
+    color: #000000;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .myFeedUl>li {
+        display: block;
+        width: 100%;
+        margin: 3px;
+    }
+}
+
+.myFooter {
+    background-color: transparent !important;
+    height: 4rem !important;
+}
+
+.myFooterleft {
+    background-color: transparent !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.sapMFeedListItemTitleDiv:nth-child(odd) {
+    background: #a1a3a35c;
+    margin-right: 25%;
+    margin-bottom: 4px;
+}
+
+.sapMFeedListItemTitleDiv:nth-child(even) {
+    background: #ceebec;
+    margin-left: 25%;
+    margin-right: 1%;
+    margin-bottom: 4px;
+}
+
+.ftrMicButton {
+    animation: mic-animation 2s infinite;
+}
+
+@keyframes mic-animation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.myButton .sapMBtnInner {
+    height: 50px !important;
+    width: 120px;
+    border-radius: 20px !important;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+    outline: none;
+}
+
+.myButton .sapMBtnInner span {
+    padding-top: 8px !important;
+    letter-spacing: 2px;
+
+}
+.myMessageinput .sapMTextAreaInner {
+    font-weight: bold;
+}
+
+.myInsightBtn {
+    animation: animated-border 2s infinite;
+}
+
+@media screen and (min-width: 768px) {
+    .myButton .sapMBtnInner {
+        height: 40px !important;
+        width: 180px;
+        border-radius: 20px !important;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        outline: none;
+
+    }
+
+    .myInsightBtn {
+        animation: animated-border 2s infinite;
+    }
+}
+
+@keyframes animated-border {
+    0% {
+        transform: scale(0.7);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

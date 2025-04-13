@@ -1,0 +1,109 @@
+[2024-11-05T11:28:01.700Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:28:00.392Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:27:59.090Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:27:57.790Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:27:56.480Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:27:55.181Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:27:53.876Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:27:52.572Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:27:51.263Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:27:49.961Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:27:48.656Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:27:47.350Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:27:00.331Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:26:59.026Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:26:57.725Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:26:56.416Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:26:55.124Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:26:53.809Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:26:52.505Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:26:51.203Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:26:49.896Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:26:48.594Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:26:47.293Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:26:01.865Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:26:00.567Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:25:59.266Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:25:57.966Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:25:56.660Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:25:55.358Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:25:53.956Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:25:52.656Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:25:51.350Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:25:50.047Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:25:48.738Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:25:47.333Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:25:07.806Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:25:06.498Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:25:05.195Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:25:03.889Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:25:02.594Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:25:01.083Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:24:59.835Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:24:57.450Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:24:56.147Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:24:54.843Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:24:53.442Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:24:52.036Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:24:50.734Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:24:49.430Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:24:48.128Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:24:46.821Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:24:45.520Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:24:44.222Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:24:42.911Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:24:41.604Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:24:40.300Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2024-11-05T11:24:38.993Z] [Info] Create event triggered for the Purchasing info record '5500000030'
+[2024-11-05T11:24:37.269Z] [Info] Retrieving the details from S4 for the Purchasing info record '5500000030'
+[2023-11-16T09:51:53.990Z] [Success] Taxonomy flag fetched from LLM service for the Material 'MZ-TG-200036'
+[2023-11-16T09:51:52.768Z] [Info] LLM service triggered to fetch the Taxonomy information for the Material 'MZ-TG-200036'
+[2023-11-16T09:51:52.617Z] [Success] Retrieved the details from S4 for the Purchasing info record '5300001125'
+[2023-11-16T09:51:50.092Z] [Info] Retrieving the details from S4 for the Purchasing info record '5300001125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+
+01125'
+

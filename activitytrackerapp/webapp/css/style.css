@@ -1,0 +1,10 @@
+/* Enter your custom styles here */
+.sapMObjectNumberText {
+    font-size:12px !important;
+}
+.sapUiCompFilterBarNonPhone.sapUiRespGrid.sapUiRespGridHSpace0 {
+    padding-top: 0.2rem !important;
+    padding-bottom: 0.2rem !important;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}

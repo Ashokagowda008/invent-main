@@ -1,0 +1,94 @@
+_schema-version: "3.2"
+ID: poolregistration
+description: A Fiori application.
+version: 0.0.1
+modules:
+- name: poolregistration-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: poolregistration-destination-service
+    parameters:
+      content-target: true
+  - name: poolregistration-repo-host
+    parameters:
+      service-key:
+        name: poolregistration-repo-host-key
+  - name: poolregistration-uaa
+    parameters:
+      service-key:
+        name: poolregistration-uaa-key
+  parameters:
+    content:
+      subaccount:
+        destinations:
+        - Name: poolregistration_html_repo_host
+          ServiceInstanceName: poolregistration-html5-srv
+          ServiceKeyName: poolregistration-repo-host-key
+          sap.cloud.service: poolregistration
+        - Authentication: OAuth2UserTokenExchange
+          Name: poolregistration_uaa
+          ServiceInstanceName: poolregistration-xsuaa-srv
+          ServiceKeyName: poolregistration-uaa-key
+          sap.cloud.service: poolregistration
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: poolregistration-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: poolregistration-repo-host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - poolregistration.zip
+      name: poolregistration
+      target-path: resources/
+- name: poolregistration
+  type: html5
+  path: .
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: poolregistration-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: poolregistration-destination-service
+    service-plan: lite
+- name: poolregistration-uaa
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: poolregistration-xsuaa-srv
+    service-plan: application
+- name: poolregistration-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: poolregistration-html5-srv
+    service-plan: app-host
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true

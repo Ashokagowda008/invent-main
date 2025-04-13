@@ -1,0 +1,445 @@
+<mvc:View controllerName="carpoolbooking.controller.booking" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:grid="sap.ui.layout.cssgrid" xmlns:form="sap.ui.layout.form" xmlns="sap.m" xmlns:f="sap.f">
+    <Page id="page" showHeader="false" title="{i18n>title}" showFooter="true" floatingFooter="true">
+        <ObjectHeader id="pageObject" class="myHeader" icon="{LocalModel>/toolbarIcon}" responsive="true" title="{i18n>title}" fullScreenOptimized="true">
+            <ObjectAttribute title="Date" text="{path: 'LocalModel>/BookingDate', formatter: '.dateFormatter'}" />
+        </ObjectHeader>
+        <l:VerticalLayout width="100%">
+            <fb:FilterBar
+                id="filterBar"
+                class="sapUiResponsiveMargin"
+                filterContainerWidth="10rem"
+                reset="onReset"
+                clear="onClear"
+                search="onSearch"
+                showFilterConfiguration="false"
+                filterBarExpanded="true"
+                filtersDialogClosed="onFiltersDialogClosed"
+                showRestoreButton="true"
+                showClearButton="true"
+                showClearOnFB="true"
+                position="Right"
+                useToolbar="false"
+            >
+                <fb:filterGroupItems>
+                    <fb:FilterGroupItem groupName="G1" groupTitle="Group2" partOfCurrentVariant="true" visibleInFilterBar="true" name="A1" label="From Location" labelTooltip="Tooltip GroupItem Example">
+                        <fb:control>
+                            <Select id="_fromLoc" selectedKey="{LocalModel>/From_Location}">
+                                <items>
+                                    <core:Item text="(Select)" key="(Select)" />
+                                    <core:Item text="Airoli(West)" key="Airoli(West)" />
+                                    <core:Item text="Andheri(East)" key="Andheri(East)" />
+                                    <core:Item text="Andheri(West)" key="Andheri(West)" />
+                                    <core:Item text="Bandra(East)" key="Bandra(East)" />
+                                    <core:Item text="Bandra(West)" key="Bandra(West)" />
+                                    <core:Item text="Belapur(East)" key="Belapur(East)" />
+                                    <core:Item text="Belapur(West)" key="Belapur(West)" />
+                                    <core:Item text="Bhandup(East)" key="Bhandup(East)" />
+                                    <core:Item text="Bhandup(West)" key="Bhandup(West)" />
+                                    <core:Item text="Bhayandar(East)" key="Bhayandar(East)" />
+                                    <core:Item text="Bhayandar(West)" key="Bhayandar(West)" />
+                                    <core:Item text="Boisar(East)" key="Boisar(East)" />
+                                    <core:Item text="Boisar(West)" key="Boisar(West)" />
+                                    <core:Item text="Borivali(East)" key="Borivali(East)" />
+                                    <core:Item text="Borivali(West)" key="Borivali(West)" />
+                                    <core:Item text="ChurchGate(East)" key="ChurchGate(East)" />
+                                    <core:Item text="ChurchGate(West)" key="ChurchGate(West)" />
+                                    <core:Item text="Dadar(East)" key="Dadar(East)" />
+                                    <core:Item text="Dadar(West)" key="Dadar(West)" />
+                                    <core:Item text="Goregaon(East)" key="Goregaon(East)" />
+                                    <core:Item text="Goregaon(West)" key="Goregaon(West)" />
+                                    <core:Item text="Kalyan(East)" key="Kalyan(East)" />
+                                    <core:Item text="Kalyan(West)" key="Kalyan(West)" />
+                                    <core:Item text="Malad(East)" key="Malad(East)" />
+                                    <core:Item text="Malad(West)" key="Malad(West)" />
+                                </items>
+                            </Select>
+                        </fb:control>
+                    </fb:FilterGroupItem>
+
+                    <fb:FilterGroupItem groupName="G1" groupTitle="Group2" name="B2" label="To Location" partOfCurrentVariant="true" visibleInFilterBar="true">
+                        <fb:control>
+                            <Select id="_toLoc" selectedKey="{LocalModel>/To_Location}">
+                                <items>
+                                    <core:Item text="(Select)" key="(Select)" />
+                                    <core:Item text="Airoli(West)" key="Airoli(West)" />
+                                    <core:Item text="Andheri(East)" key="Andheri(East)" />
+                                    <core:Item text="Andheri(West)" key="Andheri(West)" />
+                                    <core:Item text="Bandra(East)" key="Bandra(East)" />
+                                    <core:Item text="Bandra(West)" key="Bandra(West)" />
+                                    <core:Item text="Belapur(East)" key="Belapur(East)" />
+                                    <core:Item text="Belapur(West)" key="Belapur(West)" />
+                                    <core:Item text="Bhandup(East)" key="Bhandup(East)" />
+                                    <core:Item text="Bhandup(West)" key="Bhandup(West)" />
+                                    <core:Item text="Bhayandar(East)" key="Bhayandar(East)" />
+                                    <core:Item text="Bhayandar(West)" key="Bhayandar(West)" />
+                                    <core:Item text="Boisar(East)" key="Boisar(East)" />
+                                    <core:Item text="Boisar(West)" key="Boisar(West)" />
+                                    <core:Item text="Borivali(East)" key="Borivali(East)" />
+                                    <core:Item text="Borivali(West)" key="Borivali(West)" />
+                                    <core:Item text="ChurchGate(East)" key="ChurchGate(East)" />
+                                    <core:Item text="ChurchGate(West)" key="ChurchGate(West)" />
+                                    <core:Item text="Dadar(East)" key="Dadar(East)" />
+                                    <core:Item text="Dadar(West)" key="Dadar(West)" />
+                                    <core:Item text="Goregaon(East)" key="Goregaon(East)" />
+                                    <core:Item text="Goregaon(West)" key="Goregaon(West)" />
+                                    <core:Item text="Kalyan(East)" key="Kalyan(East)" />
+                                    <core:Item text="Kalyan(West)" key="Kalyan(West)" />
+                                    <core:Item text="Malad(East)" key="Malad(East)" />
+                                    <core:Item text="Malad(West)" key="Malad(West)" />
+                                </items>
+                            </Select>
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                    <fb:FilterGroupItem groupName="G1" groupTitle="Group2" name="C2" label="Departure Time" partOfCurrentVariant="true" visibleInFilterBar="true">
+                        <fb:control>
+                            <TimePicker id="_startTime" value="{LocalModel>/Depart_Time}" valueFormat="HH:mm:ss" displayFormat="HH:mm" change="handleChange" placeholder="Select Departure Time" />
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                    <fb:FilterGroupItem groupName="G1" groupTitle="Group2" partOfCurrentVariant="true" visibleInFilterBar="true" name="A2" label="Return Time" labelTooltip="Tooltip GroupItem Example">
+                        <fb:control>
+                            <TimePicker id="_returnime" value="{LocalModel>/Return_Time}" valueFormat="HH:mm:ss" displayFormat="HH:mm" change="handleChange" placeholder="Select Return Time" />
+                        </fb:control>
+                    </fb:FilterGroupItem>
+
+                    <fb:FilterGroupItem groupName="G1" groupTitle="Group2" partOfCurrentVariant="true" visibleInFilterBar="true" name="A3" label="A/C" labelTooltip="Tooltip GroupItem Example">
+                        <fb:control>
+                            <MenuButton text="{LocalModel>/isAC}" id="_isAc" buttonMode="Split">
+                                <menu>
+                                    <Menu itemSelected="onMenuAction">
+                                        <MenuItem text="No" icon="sap-icon://decline" />
+                                        <MenuItem text="Yes" icon="sap-icon://accept" />
+                                    </Menu>
+                                </menu>
+                            </MenuButton>
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                </fb:filterGroupItems>
+            </fb:FilterBar>
+        </l:VerticalLayout>
+        <!-- <f:GridList
+		id="gridList"
+		mode="SingleSelectLMaster"
+		items="{ path: '/' }"
+		selectionChange="onSelectionChange"
+		delete="onDelete"
+		class="sapUiResponsiveMargin">
+        	<f:headerToolbar >
+				<Toolbar >
+					<Title titleStyle="H5" text="List of Cars available for Pooling" />
+				</Toolbar>
+			</f:headerToolbar>
+	        <f:customLayout>
+				<grid:GridResponsiveLayout layoutChange="onLayoutChange">
+					<grid:layoutS>
+						<grid:GridSettings gridTemplateColumns="repeat(auto-fit, 25rem)" gridGap="0.25rem 0" />
+					</grid:layoutS>
+					<grid:layoutM>
+						<grid:GridSettings gridTemplateColumns="repeat(auto-fit, 45rem)" gridGap="0.5rem 0" />
+					</grid:layoutM>
+					<grid:layoutL>
+						<grid:GridSettings gridTemplateColumns="repeat(auto-fit, 75rem)" gridGap="0.75rem 0" />
+					</grid:layoutL>
+					<grid:layoutXL>
+						<grid:GridSettings gridTemplateColumns="repeat(auto-fit,  75rem)" gridGap="1rem 1rem" />
+					</grid:layoutXL>
+				</grid:GridResponsiveLayout>
+			</f:customLayout>        
+         <f:GridListItem highlight="Information" detailPress="onDetailPress"
+			press="onPress">
+		 <l:Splitter height="225px">
+		 <FlexBox height="225px" alignItems="Center" justifyContent="Center" > 
+            <HBox class="MyBox">
+                 <Image src="{path: 'imagePath', formatter: '.imagePathFormatter'}"  id="iImageTicket2" densityAware="false" width="180px" height="150px"/>
+             </HBox>
+             <layoutData>
+				<l:SplitterLayoutData size="300px" resizable="true" />
+			</layoutData>
+	     </FlexBox>
+         <VBox class="sapUiContentPadding sapUiTinyMarginBegin">
+           <form:SimpleForm 
+			editable="true"
+			layout="ResponsiveGridLayout"
+			labelSpanXL="4"
+			labelSpanL="2"
+			labelSpanM="2"
+			labelSpanS="12"
+			adjustLabelSpan="true"
+			emptySpanXL="0"
+			emptySpanL="2"
+			emptySpanM="2"
+			emptySpanS="0"
+			columnsXL="2"
+			columnsL="4"
+			columnsM="4"
+			singleContainerFullSize="true" >
+                <form:content>
+                 <Label text="Post-IT ID#" />
+                 <Input  value="{Post_IT_ID}" class="myBoldText" enabled="false">
+                    <layoutData>
+                        <l:GridData span="XL1 L3 M3 S6" />
+                    </layoutData> 
+                </Input>
+                  <Label  text="A/C" >
+                 <layoutData>
+                        <l:GridData span="XL1 L2 M2 S6" />
+                 </layoutData> 
+                </Label>
+                 <Input enabled="false" class="myBoldText" value="{isAC}">
+                    <layoutData>
+                        <l:GridData span="XL1 L3 M3 S6" />
+                    </layoutData> 
+                </Input>
+                 <Label text="From Location" />
+                  <Input  value="{From_Location}" class="myBoldText" enabled="false">
+                    <layoutData>
+                        <l:GridData span="XL1 L3 M3 S6" />
+                    </layoutData> 
+                </Input>
+                 <Label text="To Location" >
+                 <layoutData>
+                        <l:GridData span="XL1 L2 M2 S6" />
+                 </layoutData> 
+                </Label>
+                <Input value="{To_Location}" class="myBoldText" enabled="false">
+                    <layoutData>
+                        <l:GridData span="XL1 L3 M3 S6" />
+                    </layoutData> 
+                 </Input>
+                 <Label text="Rate (/Person)" />
+                  <Input value="{Rate_Per_Person}" class="myBoldText" textAlign="End"  enabled="false">
+                 <layoutData>
+                        <l:GridData span="XL1 L3 M3 S6" />
+                    </layoutData> 
+                </Input>
+                 <Label text="Available Seats">
+                  <layoutData>
+                        <l:GridData span="XL1 L2 M2 S6" />
+                 </layoutData> 
+                  </Label>
+               <Input  type="Number" class="myBoldText" value="{Avail_Seats}" enabled="false">
+              <layoutData>
+					 <l:GridData span="XL1 L3 M3 S6" />
+				</layoutData>
+              </Input>
+               <Label text="Start Time" >
+                 </Label>
+                 <Input value="{Start_Time}" class="myBoldText"  enabled="false">
+                 <layoutData>
+                        <l:GridData span="XL1 L3 M3 S6" />
+                    </layoutData> 
+                 </Input>
+                <Label text="Pick Up Point">  <layoutData>
+                        <l:GridData span="XL1 L2 M2 S6" />
+                    </layoutData> 
+                    </Label>
+                <Input enabled="false" class="myBoldText" value="{Pickup_Point}">
+                <layoutData>
+                    <l:GridData span="XL1 L3 M3 S6" />
+                </layoutData> 
+                </Input>
+             <Label text="Email" />
+              <Input value="{Email}" class="myBoldText" type="Email" enabled="false">
+               <layoutData>
+                        <l:GridData span="XL1 L3 M3 S6" />
+                    </layoutData> 
+              </Input>
+              <Label text="Extn" >
+               <layoutData>
+                        <l:GridData span="XL1 L2 M2 S6" />
+                    </layoutData> 
+              </Label>
+              <Input value="{Extn}" class="myBoldText" type="Tel" enabled="false" >
+                 <layoutData>
+                        <l:GridData span="XL1 L2 M2 S6" />
+                    </layoutData> 
+                </Input>
+                <Label text="Telephone" />
+                 <Input value="{Telephone}" class="myBoldText" type="Tel" enabled="false">
+                   <layoutData>
+                        <l:GridData span="XL1 L3 M3 S6" />
+                    </layoutData> 
+                </Input>
+                 <Label text="Mobile" >
+                 <layoutData>
+                        <l:GridData span="XL1 L2 M2 S6" />
+                    </layoutData> 
+                </Label>
+                <Input value="{Mobile_Num}" class="myBoldText" type="Tel"  enabled="false">
+                  <layoutData>
+                        <l:GridData span="XL1 L3 M3 S6" />
+                    </layoutData> 
+                </Input>
+            </form:content>
+        </form:SimpleForm>
+     	<layoutData>
+				<l:SplitterLayoutData size="auto" />
+		</layoutData>
+		</VBox>
+	</l:Splitter>
+		</f:GridListItem>
+	</f:GridList> -->
+        <f:GridList id="gridList" headerText="GridList with mode MultiSelect" mode="SingleSelectMaster" items="{ path: '/' }" selectionChange="onSelectionChange" delete="onDelete" class="sapUiResponsiveContentPadding">
+            <f:headerToolbar>
+                <Toolbar>
+                    <Title titleStyle="H5" text="List of Cars available for Pooling" />
+                </Toolbar>
+            </f:headerToolbar>
+            <f:customLayout>
+                <grid:GridResponsiveLayout layoutChange="onLayoutChange">
+                    <grid:layoutS>
+                        <grid:GridSettings gridTemplateColumns="repeat(auto-fit, 25rem)" gridGap="0.25rem 0" />
+                    </grid:layoutS>
+                    <grid:layoutM>
+                        <grid:GridSettings gridTemplateColumns="repeat(auto-fit, 45rem)" gridGap="0.5rem 0" />
+                    </grid:layoutM>
+                    <grid:layoutL>
+                        <grid:GridSettings gridTemplateColumns="repeat(auto-fit, 75rem)" gridGap="0.75rem 0" />
+                    </grid:layoutL>
+                    <grid:layoutXL>
+                        <grid:GridSettings gridTemplateColumns="repeat(auto-fit,  75rem)" gridGap="1rem 1rem" />
+                    </grid:layoutXL>
+                </grid:GridResponsiveLayout>
+            </f:customLayout>
+            <f:GridListItem detailPress="onDetailPress" press="onPress" highlight="Information">
+                <l:Splitter height="225px">
+                    <FlexBox height="225px" alignItems="Center" justifyContent="Center">
+                        <HBox class="MyBox">
+                            <Image src="{path: 'imagePath', formatter: '.imagePathFormatter'}" id="iImageTicket2" densityAware="false" width="180px" height="150px" />
+                        </HBox>
+                        <layoutData>
+                            <l:SplitterLayoutData size="300px" resizable="true" />
+                        </layoutData>
+                    </FlexBox>
+                    <VBox class="sapUiContentPadding sapUiTinyMarginBegin">
+                        <form:SimpleForm
+                            editable="true"
+                            layout="ResponsiveGridLayout"
+                            labelSpanXL="4"
+                            labelSpanL="2"
+                            labelSpanM="2"
+                            labelSpanS="12"
+                            adjustLabelSpan="true"
+                            emptySpanXL="0"
+                            emptySpanL="2"
+                            emptySpanM="2"
+                            emptySpanS="0"
+                            columnsXL="2"
+                            columnsL="4"
+                            columnsM="4"
+                            singleContainerFullSize="true"
+                        >
+                            <form:content>
+                                <Label text="Post-IT ID#" />
+                                <Input value="{Post_IT_ID}" class="myBoldText" enabled="false">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L3 M3 S6" />
+                                    </layoutData>
+                                </Input>
+                                <Label text="A/C">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L2 M2 S6" />
+                                    </layoutData>
+                                </Label>
+                                <Input enabled="false" class="myBoldText" value="{isAC}">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L3 M3 S6" />
+                                    </layoutData>
+                                </Input>
+                                <Label text="From Location" />
+                                <Input value="{From_Location}" class="myBoldText" enabled="false">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L3 M3 S6" />
+                                    </layoutData>
+                                </Input>
+                                <Label text="To Location">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L2 M2 S6" />
+                                    </layoutData>
+                                </Label>
+                                <Input value="{To_Location}" class="myBoldText" enabled="false">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L3 M3 S6" />
+                                    </layoutData>
+                                </Input>
+                                <Label text="Rate (/Person)" />
+                                <Input value="{Rate_Per_Person}" class="myBoldText" textAlign="End" enabled="false">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L3 M3 S6" />
+                                    </layoutData>
+                                </Input>
+                                <Label text="Available Seats">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L2 M2 S6" />
+                                    </layoutData>
+                                </Label>
+                                <Input type="Number" class="myBoldText" value="{Avail_Seats}" enabled="false">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L3 M3 S6" />
+                                    </layoutData>
+                                </Input>
+                                <Label text="Start Time" />
+                                <Input value="{Start_Time}" class="myBoldText" enabled="false">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L3 M3 S6" />
+                                    </layoutData>
+                                </Input>
+                                <Label text="Pick Up Point">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L2 M2 S6" />
+                                    </layoutData>
+                                </Label>
+                                <Input enabled="false" class="myBoldText" value="{Pickup_Point}">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L3 M3 S6" />
+                                    </layoutData>
+                                </Input>
+                                <Label text="Email" />
+                                <Input value="{Email}" class="myBoldText" type="Email" enabled="false">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L3 M3 S6" />
+                                    </layoutData>
+                                </Input>
+                                <Label text="Extn">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L2 M2 S6" />
+                                    </layoutData>
+                                </Label>
+                                <Input value="{Extn}" class="myBoldText" type="Tel" enabled="false">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L2 M2 S6" />
+                                    </layoutData>
+                                </Input>
+                                <Label text="Telephone" />
+                                <Input value="{Telephone}" class="myBoldText" type="Tel" enabled="false">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L3 M3 S6" />
+                                    </layoutData>
+                                </Input>
+                                <Label text="Mobile">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L2 M2 S6" />
+                                    </layoutData>
+                                </Label>
+                                <Input value="{Mobile_Num}" class="myBoldText" type="Tel" enabled="false">
+                                    <layoutData>
+                                        <l:GridData span="XL1 L3 M3 S6" />
+                                    </layoutData>
+                                </Input>
+                            </form:content>
+                        </form:SimpleForm>
+                        <layoutData>
+                            <l:SplitterLayoutData size="auto" />
+                        </layoutData>
+                    </VBox>
+                </l:Splitter>
+            </f:GridListItem>
+        </f:GridList>
+        <footer>
+            <OverflowToolbar class="sapUiResponsiveMargin">
+                <ToolbarSpacer />
+                <Button type="Accept" text="Submit" press="onSubmitRecord" />
+                <Text text="" />
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

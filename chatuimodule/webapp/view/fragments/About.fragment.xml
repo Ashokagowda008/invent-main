@@ -1,0 +1,48 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    class="sapUiSizeCompact"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="aboutDialog" icon="sap-icon://hint"
+        titleAlignment="Center"
+		type="Message"
+        contentWidth="36%"
+        contentHeight="36%"
+        title="About" >
+        <content>
+            <l:VerticalLayout
+                class="sapUiContentPadding"
+                width="100%" >
+                <l:content>
+                   <core:HTML content='&lt;p&gt;AI Alisha is a next-gen intelligent human interface powered by Generative AI LLM with SAP BTP and node.js
+&lt;/p&gt;&lt;p&gt;This is an AI Powered service to assist users with information of vendor details – External Employees and Spend Detail Information of SIX team. User queries via voice and chat are seamlessly answered by AI Alisha with high accuracy, enhancing the user experience, and delivering rich insights to the end user.
+&lt;/p&gt;'>
+			   </core:HTML>
+                </l:content>
+            </l:VerticalLayout>
+        </content>
+        <footer>
+            <Toolbar>
+                <content>
+                    <ToolbarSpacer />
+                    <!-- <Button
+                        id="Email"
+                        type="Emphasized"
+                        text="Email"
+                        press=".pressInsightEmail"
+                    /> -->
+                    <Button
+                        id="Close"
+                        text="Close"
+                        type="Reject"
+                        press=".onAboutDialogClose"
+                        ariaHasPopup="Dialog"
+                    />
+                </content>
+            </Toolbar>
+        </footer>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,64 @@
+<mvc:View xmlns:core="sap.ui.core"
+    controllerName="purchasinginfo.controller.LogFile"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:semantic="sap.f.semantic">
+    <Page showNavButton="true" titleAlignment="Center" navButtonPress="onBack" title="Purchasing Info Records Logs">
+      <!-- <ObjectHeader  class="myHeader" titleLevel="H4" title="Logs" responsive="true" fullScreenOptimized="true" /> -->
+        <content>
+        
+            <Table class="sapUiResponsiveMargin"  width="95%"
+                id="idTable"
+                items="{path: '/results'}"
+                noDataText="{worklistView>/tableNoDataText}"
+                busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+                growing="true"
+                growingScrollToLoad="true"
+           >
+                <headerToolbar>
+                <Toolbar class="sapUiTinyMargin">
+                <Title text="log items"></Title>
+                <ToolbarSpacer/>
+                <SearchField
+                            id="searchField"
+                            tooltip="{i18n>worklistSearchTooltip}"
+                            search=".onSearch"
+                        >  <layoutData>
+                                <OverflowToolbarLayoutData
+                                    maxWidth="250px"
+                                    priority="NeverOverflow"
+                                />
+                            </layoutData>
+                        </SearchField>
+                  <Button	icon="sap-icon://download" press="onExportXSLX" />
+                </Toolbar>
+                </headerToolbar>
+               <columns>
+                 <Column
+                        hAlign="Center"
+                        width="2rem"
+                    >
+                        <Text text="" />
+                    </Column>
+                    <Column
+                        id="messageInColumn">
+                        <Text
+                            text="Log Message"
+                            id="messageColumnTitle"
+                        />
+                    </Column>
+               </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                          <core:Icon src="sap-icon://information"/>
+                            <ObjectIdentifier title="{message}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+          
+             </content>
+       </Page>
+</mvc:View>

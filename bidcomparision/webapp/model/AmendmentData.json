@@ -1,0 +1,71 @@
+{
+	"Amendments": [{
+        "FieldName":"Test Tube 4ml,Not reusable, Pack of 36",
+		"PreviousBid": "",
+        "CurrentBid": "",
+        "ItemChanged": "No",
+        "TermChanged": "No"
+       
+	}, {
+		"FieldName":"Price",
+		"PreviousBid": "38",
+        "CurrentBid": "38",
+        "ItemChanged": "No",
+        "TermChanged": "No"
+	}, {
+		"FieldName":"Quantity",
+		"PreviousBid": "10",
+        "CurrentBid": "10",
+        "ItemChanged": "No",
+        "TermChanged": "No"
+	}, {
+		"FieldName":"Extended Price",
+		"PreviousBid": "380",
+        "CurrentBid": "380",
+        "ItemChanged": "No",
+        "TermChanged": "No"
+	}, {
+		"FieldName":"Discount Amount",
+		"PreviousBid": "0",
+        "CurrentBid": "0",
+        "ItemChanged": "No",
+        "TermChanged": "No"
+	},{
+		"FieldName":"Shipping",
+		"PreviousBid": "0",
+        "CurrentBid": "0",
+        "ItemChanged": "No",
+        "TermChanged": "No"
+	}, {
+		"FieldName":"Total Cost",
+		"PreviousBid": "380",
+        "CurrentBid": "380",
+        "ItemChanged": "No",
+        "TermChanged": "No"
+	}, {
+		"FieldName":"Supplier Part Id",
+		"PreviousBid": "PROC-LM-TT-004",
+        "CurrentBid": "PROC-LM-TT-004",
+        "ItemChanged": "No",
+        "TermChanged": "No"
+	}, {
+		"FieldName":"Lead Time",
+		"PreviousBid": "1",
+        "CurrentBid": "1",
+        "ItemChanged": "No",
+        "TermChanged": "No"
+    },
+{
+		"FieldName":"Requested Delivery Date",
+		"PreviousBid": "Thus, 20 May, 2021",
+        "CurrentBid": "Thus, 20 May, 2021",
+        "ItemChanged": "No",
+        "TermChanged": "No"
+    },{
+		"FieldName":"Ship To",
+		"PreviousBid": "867 1 300 Peach tree street So |ATLANTA|GA|30310|United State (US)",
+        "CurrentBid": "867 1 300 Peach tree street So |ATLANTA|GA|30310|United State (US)",
+        "ItemChanged": "No",
+        "TermChanged": "No"
+    }]
+}

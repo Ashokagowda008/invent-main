@@ -1,0 +1,187 @@
+<mvc:View xmlns:core="sap.ui.core"
+    controllerName="purchasinginfo.controller.Worklist"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:semantic="sap.f.semantic"
+>
+    <semantic:SemanticPage
+        id="page"
+        headerPinnable="false"
+        toggleHeaderOnTitleClick="false"
+    >
+        <semantic:titleHeading>
+            <Title text="Purchasing Info Records" />
+        </semantic:titleHeading>
+
+        <semantic:content>
+            <Table
+                id="table"
+                width="auto"
+                items="{
+                    path: '/PurchasingInfoSrv',
+                    sorter: [{
+                        path: 'CreationDate',
+                        descending: true
+                    },{
+                         path: 'PurchasingInfoRecord', 
+                         descending: true
+    }]
+                }"
+                noDataText="{worklistView>/tableNoDataText}"
+                busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+                growing="true"
+                growingScrollToLoad="true"
+                updateFinished=".onUpdateFinished"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title
+                            id="tableHeader"
+                            text="Records ({worklistView>/count})"
+                            level="H1"
+                            titleStyle="H4"
+                        />
+                        <ToolbarSpacer />
+                        <SearchField
+                            id="searchField"
+                            tooltip="{i18n>worklistSearchTooltip}"
+                            search=".onSearch"
+                        >
+                            <layoutData>
+                                <OverflowToolbarLayoutData
+                                    maxWidth="250px"
+                                    priority="NeverOverflow"
+                                />
+                            </layoutData>
+                        </SearchField>
+                    </OverflowToolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column
+                        id="PurchasingInfoColumn"
+                        hAlign="Center" width="12rem"
+                    >
+                        <Text
+                            text="Purchasing Info Record"
+                            id="PurchasingInfoColumnTitle"
+                        />
+                    </Column>
+                    <Column
+                        id="SupplierColumn"
+                        hAlign="Center"
+                    >
+                        <Text
+                            text="Supplier"
+                            id="SupplierColumnTitle"
+                        />
+                    </Column>
+                    <Column
+                        id="ManuColumn"
+                        hAlign="Center"
+                    >
+                        <Text
+                            text="Manufacturer"
+                            id="ManuColumnTitle"
+                        />
+                    </Column>
+                    <Column
+                        id="MaterialColumn"
+                        hAlign="Center"
+                    >
+                        <Text
+                            text="Material"
+                            id="MaterialColumnTitle"
+                        />
+                    </Column>
+
+                    <Column
+                        id="EANColumn"
+                        hAlign="Center"
+                    >
+                        <Text
+                            text="EAN"
+                            id="EANColumnTitle"
+                        />
+                    </Column>
+                    <Column
+                        id="ProductDescriptionColumn"
+                        hAlign="Center"
+                        visible="false"
+                    >
+                        <Text
+                            text="ProductDescription"
+                            id="ProductDescriptionColumnTitle"
+                        />
+                    </Column>
+                    <Column
+                        id="TaxononomyFlagColumn"
+                        hAlign="Center"
+                    >
+                        <Text
+                            text="Taxonomy Flag"
+                            id="TaxononomyFlagColumnTitle"
+                        />
+                    </Column>
+                    <Column
+                        id="EnergyEffClassColumn"
+                        hAlign="Center"
+                    >
+                        <Text
+                            text="Energy Eff. Class"
+                            id="EnergyEffClassColumnTitle"
+                        />
+                    </Column>
+                    <Column
+                        id="CreationDateColumn"
+                        hAlign="Center"
+                        width="12rem"
+                    >
+                        <Text text="Creation Date" />
+                    </Column>
+                    <Column
+                        hAlign="Center"
+                        width="4rem"
+                    >
+                        <Text text="" />
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <ObjectIdentifier title="{PurchasingInfoRecord}" />
+                            <ObjectIdentifier title="{Supplier}" />
+                            <ObjectIdentifier title="{Manufacturer}" />
+                            <ObjectIdentifier
+                                title="{Material}"
+                                titleActive="true"
+                                titlePress="handleGenericQuickViewPress"
+                            />
+                            <ObjectIdentifier
+                                title="{=${ProductStandardID} ? ${ProductStandardID} : ${ProductOldID}}"
+                            />
+                            <ObjectIdentifier
+                                title="{ProductDescription}"
+                                visible="false"
+                            />
+                            <ObjectIdentifier title="{TaxononomyFlag}" />
+                            <ObjectIdentifier title="{EnergyEffClass}" />
+                            <ObjectIdentifier title="{path: 'CreationDate', formatter:'.covertDateFormat'}" />
+                            <core:Icon src="sap-icon://refresh" color="#E69A17" press=".onRefreshForLLM" visible="{path: 'LLMFail', formatter:'.refreshVisible'}"></core:Icon>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </semantic:content>
+        <semantic:titleMainAction>
+			<semantic:TitleMainAction id="editAction" text="Logs" press="onClickLogs"/>
+		</semantic:titleMainAction>
+        <!-- <semantic:sendEmailAction>
+            <semantic:SendEmailAction
+                id="shareEmail"
+                press=".onShareEmailPress"
+            />
+        </semantic:sendEmailAction> -->
+    </semantic:SemanticPage>
+</mvc:View>

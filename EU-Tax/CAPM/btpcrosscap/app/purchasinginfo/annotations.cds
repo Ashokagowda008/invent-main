@@ -1,0 +1,1 @@
+using PurchasingInfoService as service from '../../srv/purchasinginfo-service';

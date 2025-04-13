@@ -1,0 +1,176 @@
+<mvc:View
+    xmlns:core="sap.ui.core"
+    controllerName="chatuimodule.controller.chatview"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:tnt="sap.tnt"
+    xmlns:l="sap.ui.layout"
+    height="90%"
+>
+    <!-- <webc:Toast id="steamingEnabledToast" duration="2000" placement="TopCenter"></webc:Toast> -->
+
+    <l:Splitter orientation="Horizontal">
+        <Page
+            backgroundDesign="Standard"
+            enableScrolling="false"
+            class="leftPage"
+            showFooter="false"
+            floatingFooter="false"
+            titleLevel="H2"
+            showHeader="false"
+        >
+            <FlexBox
+                class="myImg"
+                fitContainer="false"
+                direction="Column"
+                alignItems="Center"
+                justifyContent="Center"
+            >
+                <l:VerticalLayout
+                    id="myVidClip"
+                    class="sapUiSmallMarginBottom"
+                >
+                    <core:HTML
+                        id="myVedioClip"
+                        content='&lt;video width="100%" height="100%" id="myVidclp"&gt;
+  &lt;source src="{/vidClips}" type="video/mp4"&gt; autoplay
+  Your browser does not support the video tag.
+&lt;/video&gt;'
+                    />
+                </l:VerticalLayout>
+
+                <Button
+                    id="aboutBtn"
+                    class="myButton sapUiSmallMarginBottom sapUiSmallMarginTop"
+                    press="handleOpenAboutDialog"
+                    type="Default"
+                    text="About"
+                />
+
+                <Button
+                    class="myButton sapUiSmallMarginBottom"
+                    press="handleEmailPress"
+                    type="Default"
+                    text="Email"
+                />
+                <Button
+                    id="insightBtn"
+                    class="myButton sapUiSmallMarginBottom"
+                    press="handleOpenInsightsDialog"
+                    type="Default"
+                    text="Insights"
+                />
+
+                <Button
+                    class="myButton"
+                    press="onClear"
+                    type="Default"
+                    text="Clear Chat"
+                />
+                <Button
+                    id="dummyBtnTovideo"
+                    press="ondummyBtnTovideo"
+                    type="Default"
+                    visible="false"
+                />
+                <!-- </VBox> -->
+            </FlexBox>
+            <footer>
+                <OverflowToolbar class="myFooterleft">
+                    <ToolbarSpacer />
+                    <Text text="" />
+                </OverflowToolbar>
+            </footer>
+            <layoutData>
+                <l:SplitterLayoutData
+                    size="27%"
+                    minSize="0"
+                    resizable="false"
+                />
+            </layoutData>
+        </Page>
+
+        <Page
+            enableScrolling="true"
+            class="rightPage"
+            showFooter="true"
+            title="Chat with Generative AI"
+            titleAlignment="Center"
+            floatingFooter="true"
+            titleLevel="H2"
+            showHeader="false"
+        >
+            <VBox>
+                <List
+                    id="feedList"
+                    showSeparators="Inner"
+                    items="{/EntryCollection}"
+                    showNoData="false"
+                >
+                    <FeedListItem
+                        sender="{Author}"
+                        icon="{AuthorPicUrl}"
+                        showIcon="true"
+                        senderPress="onSenderPress"
+                        iconPress="onIconPress"
+                        iconSize="S"
+                        maxCharacters="500"
+                        iconDensityAware="false"
+                        info="{Type}"
+                        type="Navigation"
+                        timestamp="{Date}"
+                        text="{Text}"
+                    />
+                </List>
+                <Text
+                    id="listEndMarker"
+                    text=""
+                    visible="true"
+                />
+                <layoutData>
+                    <l:SplitterLayoutData size="75%" />
+                </layoutData>
+            </VBox>
+
+            <footer>
+                <OverflowToolbar
+                    style="Standard"
+                    class="myFooter"
+                >
+                    <TextArea
+                        placeholder="Post something here"
+                        id="newMessageInput"
+                        class="myMessageinput"
+                        rows="2"
+                        width="85%"
+                    />
+                    <Avatar
+                        id="postBtn"
+                        class="ftrButton"
+                        src="sap-icon://paper-plane"
+                        displaySize="S"
+                        displayShape="Square"
+                        showBorder="true"
+                        press="onPostMessage"
+                    />
+                    <Avatar
+                        src="sap-icon://microphone"
+                        id="microPhoneId"
+                        displaySize="S"
+                        displayShape="Circle"
+                        showBorder="true"
+                        backgroundColor="Accent8"
+                        class="ftrButton"
+                        press="onStartRecording"
+                    />
+                </OverflowToolbar>
+            </footer>
+            <VBox
+                height="40px"
+                id="myText"
+            />
+        </Page>
+    </l:Splitter>
+</mvc:View>

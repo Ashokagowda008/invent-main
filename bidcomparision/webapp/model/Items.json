@@ -1,0 +1,276 @@
+{
+    "title": "SP - OR - T1",
+    "description": "Operational Reporting API  - Testing",
+    "internalId": "Doc259020677",
+    "templateProjectInternalId": "SYS0207",
+    "testProject": "false",
+    "status": "Pending Selection",
+    "version": "v1",
+    "baseLanguage": "en",
+    "owner": {
+        "uniqueName": "admin",
+        "passwordAdapter": "PasswordAdapter1",
+        "name": "Admin",
+        "emailAddress": "no-reply@ansmtp.ariba.com",
+        "organization": "Cumulus 8",
+        "orgANId": "AN01478332031-T",
+        "orgName": "Cumulus 8",
+        "timeZoneID": "Europe/Prague",
+        "localeID": "en_US"
+    },
+    "regions": [
+        {
+            "uniqueName": "USA",
+            "name": "United States"
+        }
+    ],
+    "departments": [],
+    "commodities": [
+        {
+            "uniqueName": "7111",
+            "domain": "unspsc",
+            "name": "Oil and gas exploration services"
+        }
+    ],
+    "eventTypeName": "RFP",
+    "customFields": [
+        {
+            "fieldName": "arb_CompanyCode",
+            "fieldValue": "",
+            "fieldType": "java.lang.String"
+        },
+        {
+            "fieldName": "arb_PurchasingOrganization",
+            "fieldValue": "",
+            "fieldType": "java.lang.String"
+        },
+        {
+            "fieldName": "arb_PurchasingGroup",
+            "fieldValue": "",
+            "fieldType": "java.lang.String"
+        },
+        {
+            "fieldName": "arb_PaymentTerms",
+            "fieldValue": "",
+            "fieldType": "java.lang.String"
+        },
+        {
+            "fieldName": "arb_DocumentType",
+            "fieldValue": "",
+            "fieldType": "java.lang.String"
+        },
+        {
+            "fieldName": "arb_DocumentCategory",
+            "fieldValue": "",
+            "fieldType": "java.lang.String"
+        }
+    ],
+    "previewDate": "1628865538331",
+    "openDate": "1628865900000",
+    "closeDate": "1628868300000",
+    "externalSystem": {},
+    "link": {
+        "href": "",
+        "rel": "Next"
+    },
+    "items": [
+        {
+            "itemId": "331332544",
+            "title": "Totals",
+            "displayNumber": "",
+            "itemType": "Section",
+            "prerequisiteType": 0,
+            "isRequirement": false,
+            "terms": [
+                {
+                    "title": "Extended Price",
+                    "fieldId": "EXTENDEDPRICE",
+                    "valueTypeName": "Money",
+                    "value": {
+                        "amount": 13000.00,
+                        "currency": "USD"
+                    },
+                    "supplierValue": {
+                        "amount": 13000.00,
+                        "currency": "USD"
+                    },
+                    "attachments": []
+                },
+                {
+                    "title": "Savings",
+                    "fieldId": "SAVINGS",
+                    "valueTypeName": "MoneyDifference",
+                    "value": {
+                        "amount": 2000.00,
+                        "currency": "USD"
+                    },
+                    "attachments": []
+                }
+            ],
+            "competitiveTermFieldId": ""
+        },
+        {
+            "itemId": "331332547",
+            "title": "Introduction",
+            "displayNumber": "1",
+            "itemType": "Section",
+            "parentItem": "331332544",
+            "prerequisiteType": 0,
+            "isRequirement": false,
+            "terms": [],
+            "competitiveTermFieldId": ""
+        },
+        {
+            "itemId": "331332548",
+            "title": "Commercial Terms",
+            "displayNumber": "2",
+            "itemType": "Section",
+            "parentItem": "331332544",
+            "prerequisiteType": 0,
+            "isRequirement": false,
+            "terms": [],
+            "competitiveTermFieldId": ""
+        },
+        {
+            "itemId": "331332549",
+            "title": "Pricing",
+            "displayNumber": "3",
+            "itemType": "Section",
+            "parentItem": "331332544",
+            "prerequisiteType": 0,
+            "isRequirement": false,
+            "terms": [],
+            "competitiveTermFieldId": ""
+        },
+        {
+            "itemId": "331332550",
+            "title": "Desktop",
+            "displayNumber": "4",
+            "itemType": "Line Item",
+            "commodity": {
+                "uniqueName": "4321",
+                "domain": "unspsc",
+                "name": "Computer Equipment and Accessories"
+            },
+            "parentItem": "331332544",
+            "prerequisiteType": 0,
+            "isRequirement": false,
+            "terms": [
+                {
+                    "title": "Price",
+                    "fieldId": "PRICE",
+                    "valueTypeName": "Money",
+                    "value": {
+                        "amount": 800.00,
+                        "currency": "USD"
+                    },
+                    "supplierValue": {
+                        "amount": 800.00,
+                        "currency": "USD"
+                    },
+                    "attachments": []
+                },
+                {
+                    "title": "Quantity",
+                    "fieldId": "QUANTITY",
+                    "valueTypeName": "Quantity",
+                    "value": {
+                        "quantity": 10,
+                        "uom": "EA"
+                    },
+                    "attachments": []
+                },
+                {
+                    "title": "Extended Price",
+                    "fieldId": "EXTENDEDPRICE",
+                    "valueTypeName": "Money",
+                    "value": {
+                        "amount": 8000.00,
+                        "currency": "USD"
+                    },
+                    "supplierValue": {
+                        "amount": 8000.00,
+                        "currency": "USD"
+                    },
+                    "attachments": []
+                },
+                {
+                    "title": "Savings",
+                    "fieldId": "SAVINGS",
+                    "valueTypeName": "MoneyDifference",
+                    "value": {
+                        "amount": 1000.00,
+                        "currency": "USD"
+                    },
+                    "attachments": []
+                }
+            ],
+            "competitiveTermFieldId": "PRICE"
+        },
+        {
+            "itemId": "331332551",
+            "title": "Laptop",
+            "displayNumber": "5",
+            "itemType": "Line Item",
+            "commodity": {
+                "uniqueName": "4321",
+                "domain": "unspsc",
+                "name": "Computer Equipment and Accessories"
+            },
+            "parentItem": "331332544",
+            "prerequisiteType": 0,
+            "isRequirement": false,
+            "terms": [
+                {
+                    "title": "Price",
+                    "fieldId": "PRICE",
+                    "valueTypeName": "Money",
+                    "value": {
+                        "amount": 1000.00,
+                        "currency": "USD"
+                    },
+                    "supplierValue": {
+                        "amount": 1000.00,
+                        "currency": "USD"
+                    },
+                    "attachments": []
+                },
+                {
+                    "title": "Quantity",
+                    "fieldId": "QUANTITY",
+                    "valueTypeName": "Quantity",
+                    "value": {
+                        "quantity": 5,
+                        "uom": "EA"
+                    },
+                    "attachments": []
+                },
+                {
+                    "title": "Extended Price",
+                    "fieldId": "EXTENDEDPRICE",
+                    "valueTypeName": "Money",
+                    "value": {
+                        "amount": 5000.00,
+                        "currency": "USD"
+                    },
+                    "supplierValue": {
+                        "amount": 5000.00,
+                        "currency": "USD"
+                    },
+                    "attachments": []
+                },
+                {
+                    "title": "Savings",
+                    "fieldId": "SAVINGS",
+                    "valueTypeName": "MoneyDifference",
+                    "value": {
+                        "amount": 1000.00,
+                        "currency": "USD"
+                    },
+                    "attachments": []
+                }
+            ],
+            "competitiveTermFieldId": "PRICE"
+        }
+    ]
+}

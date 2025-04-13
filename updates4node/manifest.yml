@@ -1,0 +1,7 @@
+applications:
+- name: updates4node
+  memory:  512M
+  disk_quota: 512M
+  command: node index.js
+  buildpack: nodejs_buildpack
+  path: .

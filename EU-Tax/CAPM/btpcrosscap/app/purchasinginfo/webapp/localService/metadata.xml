@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="PurchasingInfoService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="PurchasingInfoSrv" EntityType="PurchasingInfoService.PurchasingInfoSrv"/>
+            </EntityContainer>
+            <EntityType Name="PurchasingInfoSrv">
+                <Key>
+                    <PropertyRef Name="PurchasingInfoRecord"/>
+                </Key>
+                <Property Name="PurchasingInfoRecord" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="Supplier" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Material" Type="Edm.String" MaxLength="40"/>
+                <Property Name="MaterialGroup" Type="Edm.String" MaxLength="9"/>
+                <Property Name="CreationDate" Type="Edm.DateTimeOffset"/>
+                <Property Name="IsDeleted" Type="Edm.Boolean"/>
+                <Property Name="PurchasingInfoRecordDesc" Type="Edm.String" MaxLength="40"/>
+                <Property Name="PurgInfoRecNonStockItmSortTerm" Type="Edm.String" MaxLength="10"/>
+                <Property Name="PurgDocOrderQuantityUnit" Type="Edm.String" MaxLength="3"/>
+                <Property Name="OrderItemQtyToBaseQtyNmrtr" Type="Edm.Decimal" Scale="0" Precision="5"/>
+                <Property Name="OrderItemQtyToBaseQtyDnmntr" Type="Edm.Decimal" Scale="0" Precision="5"/>
+                <Property Name="SupplierMaterialNumber" Type="Edm.String" MaxLength="35"/>
+                <Property Name="SupplierRespSalesPersonName" Type="Edm.String" MaxLength="30"/>
+                <Property Name="SupplierPhoneNumber" Type="Edm.String" MaxLength="16"/>
+                <Property Name="BaseUnit" Type="Edm.String" MaxLength="3"/>
+                <Property Name="SupplierMaterialGroup" Type="Edm.String" MaxLength="18"/>
+                <Property Name="PriorSupplier" Type="Edm.String" MaxLength="10"/>
+                <Property Name="AvailabilityStartDate" Type="Edm.DateTimeOffset"/>
+                <Property Name="AvailabilityEndDate" Type="Edm.DateTimeOffset"/>
+                <Property Name="VarblPurOrdUnitIsActive" Type="Edm.String" MaxLength="1"/>
+                <Property Name="Manufacturer" Type="Edm.String" MaxLength="10"/>
+                <Property Name="IsRegularSupplier" Type="Edm.Boolean"/>
+                <Property Name="SupplierSubrange" Type="Edm.String" MaxLength="6"/>
+                <Property Name="NoDaysReminder1" Type="Edm.Decimal" Scale="0" Precision="3"/>
+                <Property Name="NoDaysReminder2" Type="Edm.Decimal" Scale="0" Precision="3"/>
+                <Property Name="NoDaysReminder3" Type="Edm.Decimal" Scale="0" Precision="3"/>
+                <Property Name="ProductPurchasePointsQty" Type="Edm.Decimal" Scale="0" Precision="3"/>
+                <Property Name="ProductPurchasePointsQtyUnit" Type="Edm.String" MaxLength="3"/>
+                <Property Name="SupplierSubrangeSortNumber" Type="Edm.String" MaxLength="5"/>
+                <Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="IsEndOfPurposeBlocked" Type="Edm.String" MaxLength="1"/>
+                <Property Name="TaxononomyFlag" Type="Edm.String" MaxLength="1"/>
+                <Property Name="EnergyEffClass" Type="Edm.String" MaxLength="5"/>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

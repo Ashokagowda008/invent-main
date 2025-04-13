@@ -1,0 +1,42 @@
+<mvc:View
+    xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:m="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+    width="100%" displayBlock="true" xmlns:commons="sap.suite.ui.commons"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    controllerName="yokogawaElectricityChart.Main">
+	<commons:ChartContainer showFullScreen="true" showPersonalization="false" showZoom="false" showLegend="true"
+		autoAdjustHeight="false" title="Electricity Consumed by Equipment Types">
+		<commons:content>
+			<commons:ChartContainerContent icon="sap-icon://line-chart" title="">
+				<commons:content>
+					<viz:VizFrame vizType="pie" vizProperties="{plotArea: {colorPalette: ['#0070F2','#DF1278','#75980B','#C87B00','#8B47D7'], drawingEffect: 'glossy'}, title:{ visible:false },dataLabel:{visible:true,showTotal:true}}"
+						id="elecEquip" height="350px" legendVisible="false">
+						<viz:dataset>				
+							<viz.data:FlattenedDataset data="{/Equipment_Reading}">
+								<viz.data:dimensions>		
+									<viz.data:DimensionDefinition name="Equipment Type" value="{Equipmenttype}"/>	
+								</viz.data:dimensions>
+								<viz.data:measures>			
+									<viz.data:MeasureDefinition name="Total Energy Used(kWh)" value="{TotalEnergyUsed}"/>	
+								</viz.data:measures>
+							</viz.data:FlattenedDataset>		
+						</viz:dataset>
+						<viz:feeds>
+							<viz.feeds:FeedItem uid="size" type="Measure" values="Total Energy Used(kWh)"/>
+							<viz.feeds:FeedItem uid="color" type="Dimension" values="Equipment Type"/>
+						</viz:feeds>
+					</viz:VizFrame>
+				</commons:content>
+			</commons:ChartContainerContent>
+		</commons:content>
+		<commons:customIcons>
+			<core:Icon src="sap-icon://download" tooltip="Download" press="onSaveMeterChart"/>
+		</commons:customIcons>
+		<commons:toolbar>
+			<m:OverflowToolbar >
+				<m:ToolbarSpacer/>
+				<Button icon="{chartTypeModel>/selectedChartIcon}" press="onChartTypePopover" type="Emphasized"/>
+				<commons:ChartContainerToolbarPlaceholder></commons:ChartContainerToolbarPlaceholder>
+			</m:OverflowToolbar>
+		</commons:toolbar>
+	</commons:ChartContainer>
+</mvc:View>

@@ -1,0 +1,7 @@
+<mvc:View
+    xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+    width="100%" displayBlock="true" xmlns:vbm="sap.ui.vbm"
+	controllerName="yokogawaMap.Main">
+	<HBox id="map_canvas" fitContainer="true" justifyContent="Center" height="300px"
+        alignItems="Center" />
+</mvc:View>

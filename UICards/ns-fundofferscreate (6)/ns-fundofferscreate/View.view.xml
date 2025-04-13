@@ -1,0 +1,335 @@
+ <mvc:View
+		controllerName="ns.fundofferscreate.Card"
+		xmlns:layout="sap.ui.layout"
+		xmlns:form="sap.ui.layout.form"
+		xmlns:mvc="sap.ui.core.mvc"
+        xmlns:f="sap.f"
+        xmlns:u="sap.ui.unified"
+        xmlns:core="sap.ui.core"
+        xmlns="sap.m" 
+        height="100%"
+        class="sapUiSizeCompact">
+        <!-- <App>
+       <f:DynamicPage
+			stickySubheaderProvider="CreateProductWizard"
+			toggleHeaderOnTitleClick="false"
+			class="sapUiNoContentPadding"
+			showFooter="true"> -->
+           <!-- <f:content> -->
+				<Wizard id="CreateProductWizard" width="auto" 
+						class="sapUiResponsivePadding--content"
+						showNextButton="false" renderMode="Page">
+					<WizardStep id="ProductTypeStep"
+								title="Fund Details"
+								validated="true"
+								activate="productTypeActivate">
+                                <Panel>
+                      	 <form:SimpleForm
+                            maxContainerCols="2"
+						    editable="true"
+                            layout="ColumnLayout"
+			                labelSpanXL="4"
+			                labelSpanL="5"
+			                labelSpanM="5"
+			                labelSpanS="12"
+			                adjustLabelSpan="false"
+			                emptySpanXL="0"
+			                emptySpanL="0"
+			                emptySpanM="0"
+			                emptySpanS="0"
+			                columnsXL="3"
+			                columnsL="2"
+			                columnsM="2"
+                            singleContainerFullSize="false">
+                             <Label text="Fund ID" required="true"/>
+				             <ComboBox showButton="false" id="fFundId" change="onSelectFundId" showSecondaryValues= "true"	filterSecondaryValues= "true" 
+					           placeholder="Enter Fund Id" width="100%" items="{path: 'Funds>/',sorter: { path: 'VdrDlId' }}">
+					              <core:ListItem key="{Funds>VdrDlName}" text="{Funds>VdrDlId}" additionalText="{Funds>VdrDlName}"/>
+			          	    </ComboBox>
+                            <Label text="Fund Name"/>
+							<Text text="{/Fund/VdrDlName}" />
+                            <Label text="Vendor ID"/>
+							<Text text="{/Fund/VdrId}" />
+                            <Label text="Vendor Name"/>
+							<Text text="{/Fund/VendorName}" />
+                            <Label text="Fund Type"/>
+                            <Text text="{path: '/Fund/VdrDlTcd', formatter:'.onFundType' }"/>
+                            <!-- <Select id="fFundType" selectedKey="" change="onchangeFundType">
+					            <items>
+						              <core:ListItem text="Off Invoice" additionalText="1" key="1"/>
+						              <core:ListItem text="Scanback" additionalText="2" key="2"/>
+                                      <core:ListItem text="Billback" additionalText="3" key="3"/>
+                                      <core:ListItem text="Billback" additionalText="4" key="4"/>
+                                      <core:ListItem text="Fixed Sum" additionalText="5" key="5"/>
+				                </items>
+				             </Select>     -->
+                            <Label text="Sales Organization"/>
+							<Text text="{/Fund/SalesOrg}" />
+                             <Label text="Distribution Channel "/>
+							 <Text text="{/Fund/DistrCh}" />
+                             <Label text="Fund Category"/>
+							 <Text text="{path: '/Fund/FundCategory', formatter:'.onFundCat'}"/>
+                             
+                       	</form:SimpleForm>
+               </Panel>                           
+          <Table id="tFileUploadList"  items="{path: '/productmatSet'}">
+          <headerToolbar>
+			<OverflowToolbar>
+				<content>
+					<Title text="Funded Products" level="H3"/>
+                    <ToolbarSpacer />
+                    <Label text="Currency in: USD" design="Bold"/>
+                    <Text text=""/>
+                	</content>
+			</OverflowToolbar>
+		</headerToolbar>
+			     <columns>
+                   <Column minScreenWidth="Desktop"  demandPopin="true" hAlign="Center">
+						<Text text="Product ID" />
+					</Column>
+					<Column  demandPopin="true" hAlign="Center">
+						<Text text="Product Name" />
+					</Column>
+					 <Column minScreenWidth="Desktop"  demandPopin="true" hAlign="Center">
+						<Text text="Purchase Price" />
+					</Column>
+                    <Column  demandPopin="true" hAlign="Center">
+						<Text text="Retail Price" />
+					</Column>
+				   </columns>
+			       	<items>
+					<ColumnListItem>
+						<cells>
+                        <ObjectIdentifier title="{prod_id}"/>
+						<ObjectIdentifier title="{product_name}"/> 
+                        <ObjectIdentifier title="{=${purch_prc} === '' ? '0.00' : ${purch_prc}}"/>
+						<ObjectIdentifier title="{=${sug_retail_prc} === '' ? '0.00' : ${sug_retail_prc}}"/> 
+                       </cells>
+					</ColumnListItem>
+				    </items>
+			        </Table>
+					</WizardStep>
+                   	<WizardStep id="CreateOfferSteps"
+								validated="false"
+								title="Create Offers"
+								activate="onCreateOffer">
+					 <form:SimpleForm
+							editable="true"
+			                layout="ColumnLayout"
+			                labelSpanXL="4"
+			                labelSpanL="5"
+			                labelSpanM="5"
+			                labelSpanS="12"
+			                adjustLabelSpan="false"
+			                emptySpanXL="0"
+			                emptySpanL="0"
+			                emptySpanM="0"
+			                emptySpanS="0"
+			                columnsXL="3"
+			                columnsL="2"
+			                columnsM="2"
+			                singleContainerFullSize="true">
+                             <!-- <core:Title text=""></core:Title> -->
+                            <Label text="Fund ID"/>
+							 <Text text="{/Fund/FundID}" />
+                          	<Label text="Promotional Name" required="true"/>
+							<Input value="{/Offer/ofr_name}" valueState="{/OfferNameState}"/>
+                            <Label text="Promotional type" required="true"/>
+                            <Select id="promo_type" selectedKey="{/Offer/promo_type}" change="onchangePromotype" >
+					  <items>
+                        <core:ListItem text="RS30 - Supermarket US" key="RS30" additionalText="RS30"/>
+						<core:ListItem text="RF10 - Fashion DE" key="RF10" additionalText="RF10"/>
+						<core:ListItem text="RF30 - Fashion US" key="RF30" additionalText="RF30"/>
+                        <core:ListItem text="RH10 - Hardline DE" key="RH10" additionalText="RH10"/>
+						<core:ListItem text="RH30 - Hardline US" key="RH30" additionalText="RH30"/>
+                        <core:ListItem text="RS10 - Supermarket DE" key="RS10" additionalText="RS10"/>
+						<core:ListItem text="RSDE - Supermarket DE" key="RSDE" additionalText="RSDE"/>
+						<core:ListItem text="RSUS - Supermarket US" key="RSUS" additionalText="RSUS"/>
+					   </items>
+                     </Select>
+							<!-- <Input value="{/Offer/promo_type}" valueState="{/PromoTypeState}"/> -->
+                           <!-- <core:Title text=""></core:Title> -->
+                      <Label text="Purchase Group Id" required="true"/>
+                      <Select id="pur_grp_id" selectedKey="{/Offer/pur_grp_id}" change="onchangePurchaseGrp">
+					 <items>
+						<core:ListItem text="R30 - Retail Standard US" additionalText="R30" key="R30"/>
+						<core:ListItem text="R10 - EK Gruppe RET DE" additionalText="R10" key="R10 "/>
+				     </items>
+			    	</Select>
+							 <!-- <Input value="{/Offer/pur_grp_id}" valueState="{/PromoGroupState}"/> -->
+                          <Label text="Promotional Start Date" required="true"/>
+							  <DatePicker  value="{path:'/Offer/start_date',type: 'sap.ui.model.type.Date',
+				                 formatOptions: {pattern: 'dd/MM/yyyy'}}" id="fStartDate" valueState="{/PromoStartState}"/>
+                             <Label text="Promotional End Date" required="true"/>
+							<DatePicker  value="{path:'/Offer/End_Date',type: 'sap.ui.model.type.Date',  formatOptions: {pattern: 'dd/MM/yyyy'}}" id="fEndDate" valueState="{/PromoEndState}"/>
+                       </form:SimpleForm>
+					</WizardStep>
+                    <WizardStep id="idOfferDetails"
+								validated="false"
+								title="Term Details"
+								activate="">
+					 <form:SimpleForm
+							editable="true"
+			                layout="ColumnLayout"
+			                labelSpanXL="4"
+			                labelSpanL="5"
+			                labelSpanM="5"
+			                labelSpanS="12"
+			                adjustLabelSpan="false"
+			                emptySpanXL="0"
+			                emptySpanL="0"
+			                emptySpanM="0"
+			                emptySpanS="0"
+			                columnsXL="3"
+			                columnsL="2"
+			                columnsM="2"
+			                singleContainerFullSize="true">
+                            <core:Title text="Buy"></core:Title>
+                             <Label text="Dimension"/>
+				            
+                              <Input  editable="false" value="Product" valueState="{/QuantityState}"/>                             
+                             <Label text="Product"/>
+                             <Select id="fProduct" items="{path: '/productmatSet'}" selectedKey="{/Offer/ToTerm/0/prod_id}" change="onSelectProduct">
+						   <core:ListItem key ="{prod_id}" text="{prod_id} - {product_name}"/>
+                            </Select>
+                            <Label text="Quantity/Unit of Measure" required="true"/>
+							<Input value="{/Offer/ToTerm/0/prod_qty}" valueState="{/QuantityState}"/>
+                            <Text text="PC"/>
+                            <core:Title text="Get"></core:Title>
+                             <Label text="Discount Type"/>
+                            <Select id="fDisountType" selectedKey="{/Offer/ToTerm/0/disc_tcd}" change="onchangeDiscountType">
+					         <items>
+						<core:ListItem text="01 - Regular Price" additionalText="01" key="01"/>
+						<core:ListItem text="02 - Discount Price" additionalText="02" key="02"/>
+                        <core:ListItem text="03 - Discount Amount Off" additionalText="03" key="03"/>
+						<core:ListItem text="04 - Discount Percent Off" additionalText="04" key="04"/>
+                        <core:ListItem text="05 - Free" additionalText="05" key="05"/>
+						<core:ListItem text="06 - Everyday Low Price (EDLP)" additionalText="06" key="06"/>
+				                </items>
+				               </Select>
+                            <Label text="Discount" required="true"/>
+							<Input value="{/Offer/ToTerm/0/disc_val}"  valueState="{/DiscountState}"/>
+                            <Text text="USD"/>
+                       </form:SimpleForm>
+                    </WizardStep>
+                    <WizardStep id="idForcast"
+								validated="true"
+								title="Forecast and Assign Content"
+								activate="onAssignOffer">
+                                <form:SimpleForm
+							editable="true"
+			                layout="ColumnLayout"
+			                labelSpanXL="4"
+			                labelSpanL="5"
+			                labelSpanM="5"
+			                labelSpanS="12"
+			                adjustLabelSpan="false"
+			                emptySpanXL="0"
+			                emptySpanL="0"
+			                emptySpanM="0"
+			                emptySpanS="0"
+			                columnsXL="3"
+			                columnsL="2"
+			                columnsM="2"
+			                singleContainerFullSize="true">
+                             <Label text="Assign Content"  design="Bold"/>
+                             <u:FileUploader  buttonText="Choose File" placeholder="Attachment" id="fileUploader" name="myFileUpload" tooltip="Upload your file"
+									change="handleUploadChange" uploadComplete="handleUploadComplete" />
+						   <Button width="85px" text="Upload file" press="handleUploadPress"/>
+				               </form:SimpleForm>
+                     </WizardStep>
+                	<WizardStep id="ReviewSteps"
+								activate="reviewActivate"
+							    complete="reviewComplete"
+								validated="true"
+								title="Review">
+							<form:SimpleForm id="SimpleFormDisplay480_12120"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			labelSpanXL="5"
+			labelSpanL="5"
+			labelSpanM="5"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="0"
+			emptySpanL="0"
+			emptySpanM="0"
+			emptySpanS="0"
+			columnsXL="3"
+			columnsL="2"
+			columnsM="2"
+			singleContainerFullSize="false">
+			          <form:content>
+                           <core:Title text="Fund Details"></core:Title>
+						    <Label text="Fund ID" />
+				            <Text text="{/Fund/FundID}"/>
+                            <Label text="Fund Name"/>
+				            <Text text="{/Fund/VdrDlName}"/>
+                             <Label text="Vendor ID" />
+						     <Text text="{/Fund/VdrId}" />
+                            <Label text="Vendor Name" />
+							<Text text="{/Fund/VendorName}"/>
+                            <core:Title text=""></core:Title>
+                            <Label text="Fund Type"/>
+                            <Text text="{path: '/Fund/VdrDlTcd', formatter:'.onFundType' }"/>
+                            <Label text="Sales Organization"  />
+							<Text text="{/Fund/SalesOrg}"/>
+                             <Label text="Distribution Channel" />
+							<Text text="{/Fund/DistrCh}"/>
+                             <Label text="Fund Category" />
+							<Text text="{path: '/Fund/FundCategory', formatter:'.onFundCat'}"/> 
+                            <core:Title text="Offers Details"></core:Title>
+                        	<Label text="Promotional Name" />
+							<Text text="{/Offer/ofr_name}"/>
+                            <Label text="Promotional Type" />
+							<Text text="{/promotypeText}"/>
+                             <Label text="Purchase Group" />
+							 <Text text="{/PurGrpText}"/>
+                             <Label text="Promotional Start Date" />
+							  <Text text="{
+				        path: '/Offer/start_date',
+				        type: 'sap.ui.model.type.Date',
+				        formatOptions: {
+				          pattern: 'dd/MM/yyyy'
+				        }
+				      }" />
+                       <Label text="Promotional End Date" />
+                       <Text text="{
+				        path: '/Offer/End_Date',
+				        type: 'sap.ui.model.type.Date',
+				        formatOptions: {
+				          pattern: 'dd/MM/yyyy'
+				        }
+				      }" />
+						 <core:Title text="Terms and Discount"></core:Title>
+                           <Label text="Dimension" />
+							<Text text="Product"/>
+                            <Label text="Product" />
+							<Text text="{/ProductText}"/>
+                            <Label text="Quantity/UoM" />
+							<Text text="{ path:'/Offer/ToTerm/0/prod_qty', type: 'sap.ui.model.type.Float',formatOptions: { minFractionDigits: 2}} PC"/>
+                            <Label text="Discount Type" />
+							<Text text="{/DisountType}"/>
+                            <Label text="Discount"/>
+                            <Text text="{ path:'/Offer/ToTerm/0/disc_val', type: 'sap.ui.model.type.Float',formatOptions: { minFractionDigits: 2}} USD"/>
+                            <!-- <ObjectNumber  number="{path:'/Offer/ToTerm/0/disc_val',type: 'sap.ui.model.type.Currency',formatOptions: {showMeasure: false}}" unit="USD"/>                             -->
+							<!-- <Text text="{/Offer/ToTerm/0/trm_tcd}USD"/> -->
+                           </form:content>                            
+						</form:SimpleForm>
+                  	</WizardStep>
+				</Wizard>
+			<!-- </f:content>
+          	<f:footer> -->
+				<OverflowToolbar>
+					<ToolbarSpacer/>
+					<Button text="Previous" type="Emphasized" visible="{/backButtonVisible}" press="onDialogBackButton" />
+					<Button text="Forecast" type="Accept" visible="{/ForecastButtonVisible}"/>
+					<Button text="Assign Content" type="Accept" visible="{/AssignButtonVisible}"/>
+                    <Button text="Next Step" type="Emphasized" enabled="{/nextButtonEnabled}" visible="{/nextButtonVisible}" press="onDialogNextButton" />
+                    <Button text="Review" type="Emphasized" visible="{/reviewButtonVisible}" press="onDialogNextButton" />
+					<Button text="Submit" type="Emphasized" visible="{/finishButtonVisible}" press="handleWizardSubmit" />
+				</OverflowToolbar>
+			<!-- </f:footer>
+		</f:DynamicPage> -->
+       <!-- </App> -->
+</mvc:View>

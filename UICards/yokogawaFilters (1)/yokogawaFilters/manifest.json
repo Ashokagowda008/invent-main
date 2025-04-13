@@ -1,0 +1,80 @@
+{
+	"_version": "1.15.0",
+	"sap.app": {
+		"id": "yokogawaFilters",
+		"type": "card",
+		"title": "CO2e Filters",
+		"subTitle": "Filters",
+		"applicationVersion": {
+			"version": "1.0.58"
+		},
+		"shortTitle": "Filters",
+		"info": "Filters",
+		"description": "CO2e Filters",
+		"tags": {
+			"keywords": [
+				"Component",
+				"Card",
+				"Sample"
+			]
+		},
+		"dataSources": {
+            "Sustainability": {
+                "uri": "{{destinations.myDestination}}/odata/v2/Sustainability",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://technical-object"
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "yokogawaFilters.View",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.38",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {}
+			}
+		},
+		"resources": {
+		  "css": [
+			{
+			  "uri": "style.css"
+			}
+		  ]
+		}
+	},
+	"sap.card": {
+		"type": "Component",
+		"designtime": "dt/configuration",
+		"header": {
+            "title": "Filters",
+            "icon": {
+                "src": "sap-icon://filter",
+                "backgroundColor": "Accent10"
+            },
+			"visible": false
+		},
+		"configuration": {
+			"destinations": {
+				"myDestination": {
+					"name": "SustainabiltyCapDest"
+				}
+			}
+		}
+	}
+}

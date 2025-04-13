@@ -1,0 +1,521 @@
+<mvc:View
+    controllerName="ns.activitytrackerapp.controller.activityview"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+>
+    <Page
+        id="page"
+        showHeader="false"
+        title="{i18n>title}"
+        showFooter="true"
+        floatingFooter="true"
+    >
+        <ObjectHeader
+            id="pageObject"
+            icon="sap-icon://activity-items"
+            iconDensityAware="true"
+            iconAlt="BP Master"
+            imageShape="Circle"
+            iconActive="false"
+            responsive="true"
+            titleLevel="H1"
+            title="{i18n>title}"
+            intro=""
+            class="sapUiResponsivePadding--header"
+        />
+        <l:VerticalLayout
+            width="95%"
+            class="sapUiResponsiveMargin"
+        >
+            <fb:FilterBar
+                id="filterBar"
+                reset="onReset"
+                search="onSearch"
+                clear="onClear"
+                cancel="onCancel"
+                showFilterConfiguration="false"
+                filterBarExpanded="false"
+                showClearOnFB="true"
+                filtersDialogClosed="onFiltersDialogClosed"
+                showRestoreButton="false"
+                position="Left"
+                useToolbar="true"
+            >
+                <fb:filterGroupItems>
+                    <fb:FilterGroupItem
+                        groupName="G1"
+                        groupTitle="Group2"
+                        visibleInFilterBar="true"
+                        name="A1"
+                        label="Created By"
+                        labelTooltip=""
+                    >
+                        <fb:control>
+                            <Select
+                                items="{ path: 'LocalModel>/CreatedByUsers/'}"
+                                id="idfName"
+                                change="onChangeCreatedBy"
+                                showSecondaryValues="false"
+                            >
+                                <core:ListItem
+                                    key="{LocalModel>desc}"
+                                    text="{LocalModel>desc}"
+                                />
+                            </Select>
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                    <fb:FilterGroupItem
+                        groupName="G1"
+                        groupTitle="Group2"
+                        visibleInFilterBar="true"
+                        name="A2"
+                        label="Activity Date"
+                        labelTooltip=""
+                    >
+                        <fb:control>
+                            <DatePicker
+                                id="fActivityDate"
+                                value="{
+				'path': 'LocalModel>/filterDate',
+				'type': 'sap.ui.model.type.Date',
+				'formatOptions': {
+					'pattern': 'dd/MM/y'
+				}
+			}"
+                                placeholder="Enter Activity Date"
+                                change="handleChangeActivityDate"
+                            />
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                    <fb:FilterGroupItem
+                        groupName="G1"
+                        groupTitle="Group2"
+                        name="B1"
+                        label="Activity Type"
+                        visibleInFilterBar="true"
+                    >
+                        <fb:control>
+                            <Select
+                                items="{ path: 'MasterData>/ActivityTypes/'}"
+                                id="fActivityType"
+                                change="onChangeActivityType"
+                                showSecondaryValues="false"
+                            >
+                                <core:ListItem
+                                    key="{MasterData>desc}"
+                                    text="{MasterData>desc}"
+                                />
+                            </Select>
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                    <fb:FilterGroupItem
+                        groupName="G1"
+                        groupTitle="Group2"
+                        name="B2"
+                        label="Customer"
+                        visibleInFilterBar="true"
+                    >
+                        <fb:control>
+                            <!-- <Select items="{ path: 'MasterData>/Customers/'}" id="fCustomer" change="onChangeCustomer" showSecondaryValues="false">
+					 <core:ListItem key="{MasterData>desc}" text="{MasterData>desc}" />
+                 </Select> -->
+                            <Input
+                                id="fCustomer"
+                                placeholder="Please enter Customer"
+                                showSuggestion="true"
+                                suggestionItems="{ path: 'MasterData>/Customers/'}"
+                            >
+                                <suggestionItems>
+                                    <core:Item
+                                        key="{MasterData>desc}"
+                                        text="{MasterData>desc}"
+                                    />
+                                </suggestionItems>
+                            </Input>
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                    <fb:FilterGroupItem
+                        groupName="G1"
+                        groupTitle="Group2"
+                        name="C1"
+                        label="Type of Work "
+                        visibleInFilterBar="true"
+                    >
+                        <fb:control>
+                         <Input
+                                id="fTypeofWork"
+                                placeholder="Please enter Type of Work"
+                                showSuggestion="true"
+                                suggestionItems="{ path: 'MasterData>/TypeOfWorks/'}"
+                            >
+                                <suggestionItems>
+                                    <core:Item
+                                        key="{MasterData>desc}"
+                                        text="{MasterData>desc}"
+                                    />
+                                </suggestionItems>
+                            </Input>
+                            <!-- <Select
+                                items="{ path: 'MasterData>/TypeOfWorks/'}"
+                                id="fTypeofWork"
+                                change="onChangeTypeofWork"
+                                showSecondaryValues="false"
+                            >
+                                <core:ListItem
+                                    key="{MasterData>desc}"
+                                    text="{MasterData>desc}"
+                                />
+                            </Select> -->
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                    <fb:FilterGroupItem
+                        groupName="G1"
+                        groupTitle="Group2"
+                        name="C2"
+                        label="Activity Code"
+                        visibleInFilterBar="true"
+                    >
+                        <fb:control>
+                            <Select
+                                items="{ path: 'MasterData>/ActivityCodes/'}"
+                                id="fActivityCode"
+                                change="onChangeActivityCode"
+                                showSecondaryValues="false"
+                            >
+                                <core:ListItem
+                                    key="{MasterData>desc}"
+                                    text="{MasterData>desc}"
+                                />
+                            </Select>
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                </fb:filterGroupItems>
+            </fb:FilterBar>
+        </l:VerticalLayout>
+        <!-- <f:SimpleForm editable="true">
+						<f:content>
+							<Label text="File Name"></Label>
+							<VBox>
+								<u:FileUploader id="idfileUploader" width="50%" sameFilenameAllowed="false" buttonText="" fileType="CSV,XLSX,xlsx" placeholder="Choose a CSV/XLSX file"
+									style="Emphasized"></u:FileUploader>
+								<Button text="Upload" press="onUpload"></Button>
+							</VBox>
+						</f:content>
+				</f:SimpleForm> -->
+        <Table
+            id="idTable"
+            class="sapUiResponsiveMargin"
+            busyIndicatorDelay="0"
+            growing="true"
+            growingScrollToLoad="true"
+            noDataText="No Records Found"
+            updateFinished=".onUpdateFinished"
+            width="auto"
+            mode="None"
+            items="{path: '/',sorter: { path: 'createdAt',descending: true}}"
+        >
+            <headerToolbar>
+                <Toolbar>
+                    <core:Icon
+                        src="sap-icon://customer-order-entry"
+                        class="size1"
+                        color="#0459ff"
+                    >
+                        <core:layoutData>
+                            <FlexItemData growFactor="1" />
+                        </core:layoutData>
+                    </core:Icon>
+                    <Title
+                        text="Recorded Entries({LocalModel>/requestsCount})"
+                        titleStyle="H4"
+                        id="tableHeader"
+                    />
+                    <ToolbarSpacer />
+                    <Button
+                        icon="sap-icon://sys-add"
+                        visible="{=${LocalModel>/userType} ==='Admin'? true:false}"
+                        type="Emphasized"
+                        id="_bMasterData"
+                        text="Maintain Master Data"
+                        press=".onAddMasterData"
+                    />
+                    <Text text="" />
+					 <Button
+                        type="Reject"
+                        text="Delete All Master Data"
+                        press=".onDeleteAll"
+                    />
+                    <Button
+                        icon="sap-icon://add-activity"
+                        type="Emphasized"
+                        id="_bNew"
+                        text="New Activity"
+                        press=".onAdd"
+                    />
+                    <u:FileUploader 
+                        buttonOnly="true"
+                        icon="sap-icon://upload" 
+                        iconOnly="false"
+                        id="idfileUploader"
+                        typeMissmatch="onTypeMissmatch"
+                        change="onUpload"
+                        sameFilenameAllowed="false"
+                        buttonText="Upload Activities"
+                        fileType="CSV,XLSX,xlsx"
+                        placeholder="Choose a CSV/XLSX file"
+                        style="Emphasized"
+                    />
+                    <MenuButton icon="sap-icon://download">
+                        <menu>
+                            <Menu
+                                itemSelected="onExport"
+                                type="Emphasized"
+                            >
+                                <MenuItem text="CSV Format" />
+                                <MenuItem text="XLSX Format" />
+                            </Menu>
+                        </menu>
+                    </MenuButton>
+                    <!-- <Button	icon="sap-icon://download" press="onExportToCSV" /> -->
+                    <!-- <Button  type="Emphasized" icon="sap-icon://upload" id="_bRefresh" press=".onUpload"/> -->
+                </Toolbar>
+            </headerToolbar>
+            <columns>
+                <Column
+                    id="cActivityIDColumn"
+                    hAlign="Center"
+                     width="5rem"
+                    demandPopin="true"
+                    minScreenWidth="Tablet"
+                >
+                    <Label
+                        width="5rem"
+                        design="Bold"
+                        class="columnText"
+                        id="lblType"
+                        text="Activity ID"
+                    />
+                </Column>
+                <Column
+                    width="7rem"
+                    id="cCoEColumn"
+                    hAlign="Center"
+                    demandPopin="true"
+                    minScreenWidth="Tablet"
+                >
+                    <Label
+                        design="Bold"
+                        class="columnText"
+                        id="nameColumnTitle"
+                        text="CoE Member"
+                    />
+                </Column>
+                <Column
+                    id="cEntryDateColumn"
+                    width="6rem"
+                    hAlign="Center"
+                    demandPopin="true"
+                    minScreenWidth="Tablet"
+                >
+                    <Label
+                        design="Bold"
+                        class="columnText"
+                        id="idColumnTitle"
+                        text="Entry Date"
+                    />
+                </Column>
+                <Column width="6rem"
+                    id="cActivityDateColumn"
+                    hAlign="Center"
+                    demandPopin="true"
+                    minScreenWidth="Tablet"
+                >
+                    <Label
+                        design="Bold"
+                        class="columnText"
+                        text="Activity Date"
+                    />
+                </Column>
+                <Column
+                    width="6rem"
+                    demandPopin="true"
+                    minScreenWidth="Tablet"
+                    hAlign="Center"
+                >
+                    <Label
+                        class="columnText"
+                        wrapping="true"
+                        wrappingType="Hyphenated"
+                        design="Bold"
+                        text="Activity Type"
+                    />
+                </Column>
+                <Column
+                    demandPopin="true"
+                    minScreenWidth="Tablet"
+                    hAlign="Center"
+                >
+                    <Label
+                        class="columnText"
+                        wrapping="true"
+                        wrappingType="Hyphenated"
+                        design="Bold"
+                        text="Customer"
+                    />
+                </Column>
+
+                <Column
+                    id="StatusColumn"
+                    hAlign="Center"
+                >
+                    <Label
+                        class="columnText"
+                        design="Bold"
+                        text="Type of Work"
+                    />
+                </Column>
+                <Column hAlign="Center">
+                    <Label
+                        class="columnText"
+                        design="Bold"
+                        text="Activity Code"
+                    />
+                </Column>
+                <Column
+                    width="10rem"
+                    demandPopin="true"
+                    minScreenWidth="Tablet"
+                    hAlign="Center"
+                >
+                    <Label
+                        class="columnText"
+                        wrapping="true"
+                        wrappingType="Hyphenated"
+                        design="Bold"
+                        text="Created By"
+                    />
+                </Column>
+                <Column
+                    width="14rem"
+                    demandPopin="true"
+                    minScreenWidth="Tablet"
+                    hAlign="Center"
+                >
+                    <Label
+                        class="columnText"
+                        design="Bold"
+                        wrapping="true"
+                        text="Comments"
+                    />
+                </Column>
+                <Column
+                    width="2.7rem"
+                    demandPopin="true"
+                    minScreenWidth="Tablet"
+                    hAlign="Center"
+                >
+                    <Label
+                        class="columnText"
+                        text=""
+                    />
+                     </Column>
+                     <Column
+                    width="2.7rem"
+                    demandPopin="true"
+                    minScreenWidth="Tablet"
+                    hAlign="Center"
+                >
+                    <Label
+                        class="columnText"
+                        text=""
+                    />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem
+                    type="Active"
+                    press=".onPress"
+                >
+                    <cells>
+                        <ObjectNumber
+                            emphasized="true"
+                            number="{ActivityID}"
+                        />
+                        <ObjectNumber
+                            emphasized="false"
+                            number="{COEMember}"
+                        />
+                        <!-- <ObjectNumber
+                            emphasized="false"
+                            number="{path:'EntryDate', formatter: '.dateFormatter'}"
+                        />
+                        <ObjectNumber
+                            emphasized="false"
+                            number="{path:'ActivityDate', formatter: '.dateFormatter'}"
+                        /> -->
+                         <ObjectNumber
+                            emphasized="false"
+                            number="{'path': 'EntryDate',
+						'type': 'sap.ui.model.type.Date',
+						'formatOptions': {
+							'pattern': 'dd/MM/y',
+                             UTC:true
+						}}"
+                        />
+                        <ObjectNumber
+                            emphasized="false"
+                            number="{'path': 'ActivityDate',
+						'type': 'sap.ui.model.type.Date',
+						'formatOptions': {
+							'pattern': 'dd/MM/y',
+                             UTC:true
+						}}"
+                        />
+                        
+                        <ObjectNumber
+                            emphasized="false"
+                            number="{ActivityType}"
+                        />
+                        <ObjectNumber wrapping="true"
+                            emphasized="false"
+                            number="{Customer}"
+                        />
+                        <ObjectNumber
+                            emphasized="false"
+                            number="{TypeOfWork}"
+                        />
+                        <ObjectNumber
+                            emphasized="false"
+                            number="{ActivityCode}"
+                        />
+                        <ObjectNumber
+                            emphasized="false"
+                            number="{CreatedByUser}"
+                        />
+                        <ObjectNumber
+                            emphasized="false"
+                            number="{Comments}"
+                        />
+                       
+                         <Button
+                            icon="sap-icon://edit"
+                            type="Accept"
+                            press="onEdit"
+                        />
+                         <Button
+                            icon="sap-icon://delete"
+                            type="Reject"
+                            press="onDelete"
+                        />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </Page>
+</mvc:View>

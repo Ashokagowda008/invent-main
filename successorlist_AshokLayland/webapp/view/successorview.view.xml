@@ -1,0 +1,491 @@
+<mvc:View
+    controllerName="successorlist.controller.successorview"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:grid="sap.ui.layout.cssgrid"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:t="sap.tnt"
+>
+    <Page
+        id="page"
+        showHeader="false"
+        title="Successor List"
+        floatingFooter="true"
+    >
+        <ObjectHeader
+            id="pageObject"
+           
+            icon="./utils/Images/al-logo.png"
+            iconDensityAware="false"
+            responsive="true"
+            imageShape="Square"
+            title="Successor List"
+            fullScreenOptimized="true"
+        />
+        <fb:FilterBar
+            id="filterBar1"  class="sapUiTinyMargin"
+            filterContainerWidth="10rem"
+            search="onSearchPosition"
+            showFilterConfiguration="false"
+            filterBarExpanded="true"
+            filtersDialogClosed="onFiltersDialogClosed"
+            showRestoreButton="true"
+            showClearOnFB="false"
+            useToolbar="false"
+        >
+            <fb:filterGroupItems>
+                <fb:FilterGroupItem
+                    id="_IDGenFilterGroupItem5"
+                    groupName="G1"
+                    groupTitle="Group2"
+                    visibleInFilterBar="true"
+                    name="filterPosition"
+                    label="Position"
+                    labelTooltip="Tooltip GroupItem Example"
+                >
+                    <fb:control>
+                        <ComboBox
+                            id="filterPosition"
+                            showSecondaryValues="true"
+                            filterSecondaryValues="true"
+                            items="{
+						path: '/positions',
+						sorter: { path: 'jobTitle' }
+					}"
+                        >
+                            <core:ListItem
+                                key="{code}"
+                                text="{jobTitle}"
+                                additionalText="{code}"
+                            />
+                        </ComboBox>
+                    </fb:control>
+                </fb:FilterGroupItem>
+            </fb:filterGroupItems>
+        </fb:FilterBar>
+        <f:GridList
+            id="gridList1"
+            class="sapUiResponsiveContentPadding"
+        >
+            <f:headerToolbar>
+                <Toolbar id="_IDGenToolbar2">
+                    <Title
+                        id="_IDGenTitle2"
+                        titleStyle="H5"
+                        text="Position User"
+                    />
+                    <ToolbarSpacer id="_IDGenToolbarSpacer3" />
+                    <Button
+                        id="_IDGenButton3"
+                        text="Manage Weightage"
+                        type="Accept"
+                        press="onClickOfWeightageList"
+                    />
+                </Toolbar>
+            </f:headerToolbar>
+            <f:customLayout>
+                <grid:GridResponsiveLayout
+                    id="_IDGenGridResponsiveLayout3"
+                    layoutChange="onLayoutChange"
+                >
+                    <grid:layoutS>
+                        <grid:GridSettings
+                            id="_IDGenGridSettings5"
+                            gridTemplateColumns="repeat(auto-fit, 4rem)"
+                            gridGap="0.25rem 0.25rem"
+                        />
+                    </grid:layoutS>
+                    <grid:layoutM>
+                        <grid:GridSettings
+                            id="_IDGenGridSettings6"
+                            gridTemplateColumns="repeat(auto-fit, 7rem)"
+                            gridGap="0.5rem 0.5rem"
+                        />
+                    </grid:layoutM>
+                    <grid:layoutL>
+                        <grid:GridSettings
+                            id="_IDGenGridSettings7"
+                            gridTemplateColumns="repeat(auto-fit, 17.5rem)"
+                            gridGap="0.65rem 0.65rem"
+                        />
+                    </grid:layoutL>
+                    <grid:layoutXL>
+                        <grid:GridSettings
+                            id="_IDGenGridSettings8"
+                            gridTemplateColumns="repeat(auto-fit, 17.5rem)"
+                            gridGap="1rem 1rem"
+                        />
+                    </grid:layoutXL>
+                </grid:GridResponsiveLayout>
+            </f:customLayout>
+
+            <f:GridListItem
+                id="_IDGenGridListItem3"
+                visible="false"
+                highlight="None"
+            >
+                <VBox
+                    id="_IDGenVBox3"
+                    height="100%"
+                    class="sapUiSmallMargin"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            id="_IDGenFlexItemData3"
+                            growFactor="1"
+                            shrinkFactor="0"
+                        />
+                    </layoutData>
+                    <FlexBox
+                        id="_IDGenFlexBox3"
+                        alignItems="Center"
+                        justifyContent="Center"
+                        class="sapUiTinyMarginBottom"
+                    >
+                        <HBox
+                            id="_IDGenHBox3"
+                            class="MyBox"
+                        >
+                            <Image
+                                src="{/positionDatares/0/image}"
+                                id="iImageTicket3"
+                                densityAware="false"
+                                decorative="true"
+                                width="70px"
+                                height="70px"
+                            />
+                        </HBox>
+                    </FlexBox>
+
+                    <Label
+                        id="_IDGenLabel11"
+                        text="{/positionDatares/0/firstName} {/positionDatares/0/lastName}"
+                        wrapping="true"
+                        design="Bold"
+                    />
+                    <Label
+                        id="_IDGenLabel21"
+                        text="User Id: {/positionDatares/0/userId}"
+                    />
+                    <Label
+                        id="_IDGenLabel31"
+                        text="Age:     {/positionDatares/0/Age/Year}"
+                    />
+                    <Label
+                        id="_IDGenLabel41"
+                        text="Manager Id: {/positionDatares/0/managerId}"
+                    />
+                    <Label
+                        id="_IDGenLabel412"
+                        text="Location: {/positionDatares/0/locationName} ({/positionDatares/0/location})"
+                    />
+                    <HBox id="hBox1">
+                        <Label
+                            id="_IDGenLabel51"
+                            text="Department : "
+                        />
+                        <Label
+                            id="_IDGenLabel61"
+                            text="{/positionDatares/0/department}"
+                            wrapping="true"
+                        />
+                    </HBox>
+                </VBox>
+            </f:GridListItem>
+        </f:GridList>
+        <fb:FilterBar
+            id="filterBar"
+            filterContainerWidth="10rem"
+            class="sapUiMediumMarginBeginEnd"
+            reset="onReset"
+            clear="onClear"
+            search="onSearchSuccessorFilter"
+            showFilterConfiguration="false"
+            filterBarExpanded="true"
+            filtersDialogClosed="onFiltersDialogClosed"
+            showRestoreButton="true"
+            showClearOnFB="false"
+            useToolbar="false"
+        >
+            <fb:filterGroupItems>
+                <fb:FilterGroupItem
+                    id="_IDGenFilterGroupItem2"
+                    groupName="G1"
+                    groupTitle="Group2"
+                    visibleInFilterBar="true"
+                    name="filterAge"
+                    label="Age"
+                    labelTooltip="Tooltip GroupItem Example"
+                >
+                    <fb:control>
+                        <Select
+                            id="filterAge"
+                            showSecondaryValues="false"
+                            items="{ path: '/Ages' }"
+                        >
+                            <core:ListItem
+                                key="{key}"
+                                id="_IDGenListItem1"
+                                text="{text}"
+                            />
+                        </Select>
+                    </fb:control>
+                </fb:FilterGroupItem>
+                <fb:FilterGroupItem
+                    id="_IDGenFilterGroupItem3"
+                    groupName="G1"
+                    groupTitle="Group2"
+                    visibleInFilterBar="true"
+                    name="filterPromotion"
+                    label="Promotion"
+                    labelTooltip="Tooltip GroupItem Example"
+                >
+                    <fb:control>
+                        <Select
+                            id="filterPromotion"
+                            showSecondaryValues="false"
+                            items="{ path: '/Promotions'}"
+                        >
+                            <core:ListItem
+                                key="{key}"
+                                id="_IDGenListItem2"
+                                text="{text}"
+                            />
+                        </Select>
+                    </fb:control>
+                </fb:FilterGroupItem>
+                <fb:FilterGroupItem
+                    id="_IDGenFilterGroupItem4"
+                    groupName="G1"
+                    groupTitle="Group2"
+                    visibleInFilterBar="true"
+                    name="filterEducation"
+                    label="Education"
+                    labelTooltip="Tooltip GroupItem Example"
+                >
+                    <fb:control>
+                        <Select
+                            id="filterEducation"
+                            showSecondaryValues="true"
+                            items="{ path: '/Educations' }"
+                        >
+                            <core:ListItem
+                                id="_IDGenListItem3"
+                                text="{text}"
+                                additionalText="{key}"
+                            />
+                        </Select>
+                    </fb:control>
+                </fb:FilterGroupItem>
+                <fb:FilterGroupItem
+                    id="_IDGenFilterGroupItem6"
+                    groupName="G1"
+                    groupTitle="Group2"
+                    visibleInFilterBar="true"
+                    name="filterRating"
+                    label="Rating"
+                    labelTooltip="Tooltip GroupItem Example"
+                >
+                    <fb:control>
+                        <Select
+                            id="filterRating"
+                            showSecondaryValues="false"
+                            items="{ path: '/Ratings' }"
+                        >
+                            <core:ListItem
+                                id="_IDGenListItem4"
+                                text="{text}"
+                                additionalText="{key}"
+                            />
+                        </Select>
+                    </fb:control>
+                </fb:FilterGroupItem>
+
+                <fb:FilterGroupItem
+                    id="_IDGenFilterGroupItem7"
+                    groupName="G1"
+                    groupTitle="Group2"
+                    visibleInFilterBar="true"
+                    name="filterLocation"
+                    label="Location"
+                    labelTooltip="Tooltip GroupItem Example"
+                >
+                    <fb:control>
+                        <ComboBox placeholder="Enter Location"
+                            id="filterLocation"
+                            showSecondaryValues="true"
+                            filterSecondaryValues="true"
+                            items="{
+						path: '/locations',
+						sorter: { path: 'name' }
+					}"
+                        >
+                            <core:ListItem
+                                key="{externalCode}"
+                                text="{name}"
+                                additionalText="{externalCode}"
+                            />
+                        </ComboBox>
+                    </fb:control>
+                </fb:FilterGroupItem>
+            </fb:filterGroupItems>
+        </fb:FilterBar>
+        <content>
+            <f:GridList
+                id="gridList2"
+                items="{path : '/users',
+                        sorter : {
+                                path : 'score' ,
+                                descending : true
+                        }}"
+                growing="true"
+                growingThreshold="12"
+                growingDirection="Downwards"
+                class="sapUiResponsiveContentPadding"
+            >
+                <f:headerToolbar>
+                    <Toolbar id="_IDGenToolbar1">
+                        <Title
+                            id="_IDGenTitle1"
+                            titleStyle="H5"
+                            text="Successor List"
+                        />
+                    </Toolbar>
+                </f:headerToolbar>
+                <f:customLayout>
+                    <grid:GridResponsiveLayout
+                        id="_IDGenGridResponsiveLayout1"
+                        layoutChange="onLayoutChange"
+                    >
+                        <grid:layoutS>
+                            <grid:GridSettings
+                                id="_IDGenGridSettings1"
+                                gridTemplateColumns="repeat(auto-fit, 4rem)"
+                                gridGap="0.25rem 0.25rem"
+                            />
+                        </grid:layoutS>
+                        <grid:layoutM>
+                            <grid:GridSettings
+                                id="_IDGenGridSettings2"
+                                gridTemplateColumns="repeat(auto-fit, 7rem)"
+                                gridGap="0.5rem 0.5rem"
+                            />
+                        </grid:layoutM>
+                        <grid:layoutL>
+                            <grid:GridSettings
+                                id="_IDGenGridSettings3"
+                                gridTemplateColumns="repeat(auto-fit, 11.9rem)"
+                                gridGap="0.65rem 0.65rem"
+                            />
+                        </grid:layoutL>
+                        <grid:layoutXL>
+                            <grid:GridSettings
+                                id="_IDGenGridSettings4"
+                                gridTemplateColumns="repeat(auto-fit, 13rem)"
+                                gridGap="1rem 1rem"
+                            />
+                        </grid:layoutXL>
+                    </grid:GridResponsiveLayout>
+                </f:customLayout>
+
+                <f:GridListItem
+                    id="_IDGenGridListItem1"
+                    highlight="None"
+                >
+                    <VBox
+                        id="_IDGenVBox1"
+                        height="100%"
+                        class="sapUiSmallMargin"
+                    >
+                        <layoutData>
+                            <FlexItemData
+                                id="_IDGenFlexItemData1"
+                                growFactor="1"
+                                shrinkFactor="0"
+                            />
+                        </layoutData>
+                        <FlexBox
+                            id="_IDGenFlexBox1"
+                            alignItems="Center"
+                            justifyContent="Center"
+                            class="sapUiTinyMarginBottom"
+                        >
+                            <HBox
+                                id="_IDGenHBox1"
+                                class="MyBox"
+                            >
+                                <Image
+                                    src="{image}"
+                                    id="iImageTicket2"
+                                    densityAware="false"
+                                    decorative="true"
+                                    width="70px"
+                                    height="70px"
+                                />
+                            </HBox>
+                        </FlexBox>
+
+                        <Label
+                            id="_IDGenLabel1"
+                            text="{firstName} {lastName}"
+                            wrapping="true"
+                            design="Bold"
+                        />
+                        <Label
+                            id="_IDGenLabel2"
+                            text="User Id: {userId}"
+                        />
+                        <Label
+                            id="_IDGenLabel3"
+                            text="Age:     {Age/Year}"
+                        />
+                        <Label
+                            id="_IDGenLabel111"
+                            text="Promotion : {promoted}"
+                            visible="{= ${promoted} !== '' }"
+                            wrapping="true"
+                        />
+                        <Label
+                            id="_IDGenLabel211"
+                            text="Education : {education}"
+                            visible="{= ${education} !== '' }"
+                        />
+                        <Label
+                            id="_IDGenLabel311"
+                            text="Rating: {avgRating}"
+                            visible="{= ${avgRating} > 0 }"
+                        />
+                        <Label
+                            id="_IDGenLabel411"
+                            design="Bold"
+                            text="Score:  {score}"
+                            visible="{= ${score} > 0 }"
+                        />
+                        <!-- <RatingIndicator id="RI_L" maxValue="5" class="sapUiTinyMarginBottom" value="{rating}" iconSize="19px" tooltip="Evaluation Ratings" /> -->
+                    </VBox>
+                </f:GridListItem>
+            </f:GridList>
+        </content>
+        <!-- <footer>
+            <OverflowToolbar
+                id="_IDGenOverflowToolbar1"
+                class="sapUiResponsiveMargin"
+            >
+                <ToolbarSpacer id="_IDGenToolbarSpacer2" />
+                <Button
+                    id="_IDGenButton2"
+                    type="Accept"
+                    text="Submit"
+                    press="onSubmitRecord"
+                />
+                <Text
+                    id="_IDGenText1"
+                    text=""
+                />
+            </OverflowToolbar>
+        </footer> -->
+    </Page>
+</mvc:View>

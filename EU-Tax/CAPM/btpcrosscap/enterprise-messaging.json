@@ -1,0 +1,31 @@
+{
+    "emname": "e4q",
+    "namespace": "sap/s4hc/e4q",
+    "options": {
+        "management": true,
+        "messaging": true,
+        "messagingrest": true
+    },
+    "resources": {
+        "units": "10"
+    },
+    "rules": {
+        "queueRules": {
+            "publishFilter": [
+                "${namespace}/*"
+            ],
+            "subscribeFilter": [
+                "*"
+            ]
+        },
+        "topicRules": {
+            "publishFilter": [
+                "${namespace}/*"
+            ],
+            "subscribeFilter": [
+                "*"
+            ]
+        }
+    },
+    "version": "1.1.0"
+}

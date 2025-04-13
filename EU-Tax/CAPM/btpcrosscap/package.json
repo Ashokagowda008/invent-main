@@ -1,0 +1,135 @@
+{
+  "name": "btpcrosscap",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap-cloud-sdk/http-client": "^3.2.0",
+    "@sap-cloud-sdk/util": "^3.2.0",
+    "@sap/cds": "^6",
+    "@sap/hana-client": "^2.16.26",
+    "@sap/xb-msg-amqp-v100": "^0.9.58",
+    "@sap/xssec": "^3",
+    "axios": "^1.6.1",
+    "cds-swagger-ui-express": "^0.6.0",
+    "dotenv": "^16.3.1",
+    "express": "^4",
+    "fs": "^0.0.1-security",
+    "hdb": "^0.19.0",
+    "passport": "^0",
+    "path": "^0.12.7",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "@sap/hdi-deploy": "4.9.2",
+    "@sap/ux-specification": "^1.108.6",
+    "rimraf": "^3.0.2",
+    "sqlite3": "^5.1.6"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-purchasinginfo": "cds watch --open purchasinginfo/webapp/index.html?sap-ui-xx-viewCache=false",
+    "undeploy": "cf undeploy btpcrosscap --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "[production]": {
+          "kind": "hana-cloud"
+        },
+        "[development]": {
+          "kind": "hana-cloud"
+        },
+        "model": [
+          "db",
+          "srv"
+        ]
+      },
+      "[production]": {
+        "auth": {
+          "kind": "xsuaa",
+          "restrict_all_services": false
+        }
+      },
+      "API_INFORECORD_PROCESS_SRV": {
+        "kind": "odata-v2",
+        "model": "srv/external/API_INFORECORD_PROCESS_SRV-extended",
+        "credentials": {
+            "path": "/sap/opu/odata/sap/API_INFORECORD_PROCESS_SRV",
+            "destination": "btpcrosscap-bupa"
+          },
+        "[sandbox]": {
+          "credentials": {
+            "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_INFORECORD_PROCESS_SRV/"
+          }
+        },
+        "[production]": {
+          "credentials": {
+            "path": "/sap/opu/odata/sap/API_INFORECORD_PROCESS_SRV",
+            "destination": "btpcrosscap-bupa"
+          }
+        }
+      },
+      "messaging": {
+        "kind": "enterprise-messaging-shared",
+        "format": "cloudevents",
+        "publishPrefix": "$namespace/ce/",
+        "subscribePrefix": "+/+/+/ce/"
+      },
+      "ai4sauth": {
+        "kind": "rest",
+        "credentials": {
+          "destination": "ai4sauthurl",
+          "queries": {
+            "grant_type": "client_credentials"
+          }
+        }
+      },
+      "ai4s": {
+        "kind": "odata-v4",
+        "credentials": {
+          "destination": "ai4surl",
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          "requestTimeout": 120000
+        }
+      },
+      "matdescapi": {
+        "kind": "odata-v2",
+        "credentials": {
+          "destination": "btpcrosscap-bupa",
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          "requestTimeout": 120000
+        },
+        "csrf": true
+      },
+      "API_PURCHASEORDER_PROCESS_SRV": {
+        "kind": "odata-v2",
+        "model": "srv/external/API_PURCHASEORDER_PROCESS_SRV-extended",
+        "[sandbox]": {
+          "credentials": {
+            "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PURCHASEORDER_PROCESS_SRV/"
+          }
+        },
+        "[production]": {
+          "credentials": {
+            "path": "/sap/opu/odata/sap/API_PURCHASEORDER_PROCESS_SRV",
+            "destination": "btpcrosscap-bupa"
+          }
+        }
+      }
+    },
+    "hana": {
+      "deploy-format": "hdbtable"
+    }
+  }
+}

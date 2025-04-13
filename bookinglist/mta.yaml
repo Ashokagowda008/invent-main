@@ -1,0 +1,94 @@
+_schema-version: "3.2"
+ID: bookinglist
+description: A Fiori application.
+version: 0.0.1
+modules:
+- name: bookinglist-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: bookinglist-destination-service
+    parameters:
+      content-target: true
+  - name: bookinglist-repo-host
+    parameters:
+      service-key:
+        name: bookinglist-repo-host-key
+  - name: bookinglist-uaa
+    parameters:
+      service-key:
+        name: bookinglist-uaa-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: bookinglist_html_repo_host
+          ServiceInstanceName: bookinglist-html5-srv
+          ServiceKeyName: bookinglist-repo-host-key
+          sap.cloud.service: bookinglist
+        - Authentication: OAuth2UserTokenExchange
+          Name: bookinglist_uaa
+          ServiceInstanceName: bookinglist-xsuaa-srv
+          ServiceKeyName: bookinglist-uaa-key
+          sap.cloud.service: bookinglist
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: bookinglist-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: bookinglist-repo-host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - bookinglist.zip
+      name: bookinglist
+      target-path: resources/
+- name: bookinglist
+  type: html5
+  path: .
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: bookinglist-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: bookinglist-destination-service
+    service-plan: lite
+- name: bookinglist-uaa
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: bookinglist-xsuaa-srv
+    service-plan: application
+- name: bookinglist-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: bookinglist-html5-srv
+    service-plan: app-host
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true

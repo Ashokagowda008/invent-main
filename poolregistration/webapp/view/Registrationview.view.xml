@@ -1,0 +1,282 @@
+<mvc:View controllerName="poolregistration.controller.Registrationview" height="100%"
+    xmlns:mvc="sap.ui.core.mvc"  xmlns:l="sap.ui.layout"
+    xmlns="sap.m" xmlns:f="sap.ui.layout.form" 
+	xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" class="sapUiSizeCompact" >
+  
+    <Page  id="page" 
+		titleLevel="H2" showHeader="false" title="Car Pooling" floatingFooter="true">
+          <ObjectHeader class="myHeader"
+		    title="Car Pooling"
+        	responsive="true"
+            fullScreenOptimized="true"
+            icon="{LocalModel>/toolbarIcon}">
+            <ObjectAttribute
+			title="Date"
+			text="{path: '/Date', formatter: '.dateFormatter'}"/>
+            <statuses>
+		  <ObjectStatus visible="{=${StatuCode} !== 'A' ? true : false}"
+				text="{StatuDesc}"
+				state="{=${StatuCode} === 'B' ? 'Warning' : 'Success'}" />
+		</statuses>
+        </ObjectHeader>
+        <content>
+    	 <l:Splitter height="450px">
+		 <FlexBox id="_IDGenFlexBox2" height="450Px" alignItems="Center" justifyContent="Center" > 
+            <HBox class="MyBox">
+                 <Image src="{LocalModel>/imageSource}" press="onPressSeeImagen" id="iImageTicket2" densityAware="false" width="240px" height="190px"/>
+             </HBox>
+             <layoutData>
+				<l:SplitterLayoutData size="100px" resizable="true" />
+			</layoutData>
+	     </FlexBox>
+         <VBox class="sapUiContentPadding sapUiTinyMarginBegin">
+           <f:SimpleForm id="SimpleFormChange354wideDual"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="Registration Details"
+			labelSpanXL="4"
+			labelSpanL="2"
+			labelSpanM="2"
+			labelSpanS="12"
+			adjustLabelSpan="true"
+			emptySpanXL="0"
+			emptySpanL="2"
+			emptySpanM="2"
+			emptySpanS="0"
+			columnsXL="2"
+			columnsL="4"
+			columnsM="4"
+			singleContainerFullSize="true" >
+                <f:content>
+                 <Label text="Post-IT ID" />
+                 <Input id="_postId" value="{LocalModel>/Post_IT_ID}" placeholder="CAR/Employee Code/Post no"/>
+                 <Button type="Emphasized" width="20%" press="getPoolingData" icon="sap-icon://begin">
+                    <layoutData>
+                        <l:GridData span="XL1 L5 M5 S6" />
+                    </layoutData>
+                </Button>
+               
+                 <Label text="From Location"  required="{LocalModel>/saveEnabled}"/>
+                <Select id="_fromLoc"  selectedKey="{From_Location}" enabled="{LocalModel>/editEnabled}">
+                    <items>
+                        <core:Item text="(Select)" key="(Select)"/>
+                        <core:Item text="Airoli(West)" key="Airoli(West)"/>
+                        <core:Item text="Andheri(East)" key="Andheri(East)"/>
+                         <core:Item text="Andheri(West)" key="Andheri(West)"/>
+                        <core:Item text="Bandra(East)" key="Bandra(East)"/>
+                         <core:Item text="Bandra(West)" key="Bandra(West)"/>
+                          <core:Item text="Belapur(East)" key="Belapur(East)"/>
+                         <core:Item text="Belapur(West)" key="Belapur(West)"/>
+                           <core:Item text="Bhandup(East)" key="Bhandup(East)"/>
+                         <core:Item text="Bhandup(West)" key="Bhandup(West)"/>
+                         <core:Item text="Bhayandar(East)" key="Bhayandar(East)"/>
+                         <core:Item text="Bhayandar(West)" key="Bhayandar(West)"/>
+                         <core:Item text="Boisar(East)" key="Boisar(East)"/>
+                         <core:Item text="Boisar(West)" key="Boisar(West)"/>
+                         <core:Item text="Borivali(East)" key="Borivali(East)"/>
+                         <core:Item text="Borivali(West)" key="Borivali(West)"/>
+                          <core:Item text="ChurchGate(East)" key="ChurchGate(East)"/>
+                         <core:Item text="ChurchGate(West)" key="ChurchGate(West)"/>
+                           <core:Item text="Dadar(East)" key="Dadar(East)"/>
+                         <core:Item text="Dadar(West)" key="Dadar(West)"/>
+                          <core:Item text="Goregaon(East)" key="Goregaon(East)"/>
+                         <core:Item text="Goregaon(West)" key="Goregaon(West)"/>
+                         <core:Item text="Kalyan(East)" key="Kalyan(East)"/>
+                         <core:Item text="Kalyan(West)" key="Kalyan(West)"/>
+                          <core:Item text="Malad(East)" key="Malad(East)"/>
+                         <core:Item text="Malad(West)" key="Malad(West)"/>
+                     </items>
+                    <layoutData>
+                        <l:GridData span="XL1 L3 M3 S6" />
+                    </layoutData> 
+                 </Select>
+                 <Label text="To Location" required="{LocalModel>/saveEnabled}">
+                 <layoutData>
+                        <l:GridData span="XL1 L2 M2 S6" />
+                    </layoutData> 
+                    </Label>
+                 <Select id="_toLoc" selectedKey="{To_Location}" enabled="{LocalModel>/editEnabled}">
+                    <items>
+                       <core:Item text="(Select)" key="(Select)"/>
+                        <core:Item text="Airoli(West)" key="Airoli(West)"/>
+                        <core:Item text="Andheri(East)" key="Andheri(East)"/>
+                         <core:Item text="Andheri(West)" key="Andheri(West)"/>
+                        <core:Item text="Bandra(East)" key="Bandra(East)"/>
+                         <core:Item text="Bandra(West)" key="Bandra(West)"/>
+                          <core:Item text="Belapur(East)" key="Belapur(East)"/>
+                         <core:Item text="Belapur(West)" key="Belapur(West)"/>
+                           <core:Item text="Bhandup(East)" key="Bhandup(East)"/>
+                         <core:Item text="Bhandup(West)" key="Bhandup(West)"/>
+                         <core:Item text="Bhayandar(East)" key="Bhayandar(East)"/>
+                         <core:Item text="Bhayandar(West)" key="Bhayandar(West)"/>
+                         <core:Item text="Boisar(East)" key="Boisar(East)"/>
+                         <core:Item text="Boisar(West)" key="Boisar(West)"/>
+                         <core:Item text="Borivali(East)" key="Borivali(East)"/>
+                         <core:Item text="Borivali(West)" key="Borivali(West)"/>
+                          <core:Item text="ChurchGate(East)" key="ChurchGate(East)"/>
+                         <core:Item text="ChurchGate(West)" key="ChurchGate(West)"/>
+                           <core:Item text="Dadar(East)" key="Dadar(East)"/>
+                         <core:Item text="Dadar(West)" key="Dadar(West)"/>
+                          <core:Item text="Goregaon(East)" key="Goregaon(East)"/>
+                         <core:Item text="Goregaon(West)" key="Goregaon(West)"/>
+                         <core:Item text="Kalyan(East)" key="Kalyan(East)"/>
+                         <core:Item text="Kalyan(West)" key="Kalyan(West)"/>
+                          <core:Item text="Malad(East)" key="Malad(East)"/>
+                         <core:Item text="Malad(West)" key="Malad(West)"/>
+                    </items>
+                    <layoutData>
+                        <l:GridData span="XL1 L3 M3 S6" />
+                    </layoutData> 
+                 </Select>
+                  <Label text="Rate (/Person)" required="{LocalModel>/saveEnabled}"/>
+                <Input id="_ratePerPerson" value="{Rate_Per_Person}" type="Number" textAlign="End"  enabled="{LocalModel>/editEnabled}">
+                 <layoutData>
+                        <l:GridData span="XL1 L3 M3 S6" />
+                    </layoutData> 
+                </Input>
+                <Label text="Start Time(hh:mm)" required="{LocalModel>/saveEnabled}">
+                 <layoutData>
+                        <l:GridData span="XL1 L2 M2 S6" />
+                    </layoutData> 
+                 </Label>
+                <TimePicker  enabled="{LocalModel>/editEnabled}"
+				id="_startTime"
+				value="{Start_Time}"
+				valueFormat="HH:mm:ss"
+				displayFormat="HH:mm"
+				change="handleChange"
+				placeholder="Select Start Time">
+                 <layoutData>
+                        <l:GridData span="XL1 L3 M3 S6" />
+                    </layoutData> 
+                 </TimePicker>
+                <Label text="Pick Up Point" required="{LocalModel>/saveEnabled}" />
+                <Input id="_pickUpPoint" enabled="{LocalModel>/editEnabled}" placeholder="Enter Pick Up Point...." value="{Pickup_Point}" />
+         <Label text="Car Image" />
+         <!-- <u:FileUploader 
+			id="fileUploader"
+			name="myFileUpload"
+			uploadComplete="onUploadComplete"
+			change="onAttachmentsChange"
+		    style="Accept"
+			fileType="png,jpg"
+			placeholder="Choose a image for Upload...">
+           </u:FileUploader> -->
+           	<u:FileUploader enabled="{LocalModel>/editEnabled}"
+			id="fileUploader"
+			name="myFileUpload"
+			uploadUrl="upload/"
+			tooltip="Upload your file to the local server"
+			uploadComplete="handleUploadComplete"
+			change="handleValueChange"
+			typeMissmatch="handleTypeMissmatch"
+			fileType="png,jpg"
+			placeholder="Choose a file for Upload...">
+				<u:parameters>
+					<u:FileUploaderParameter
+						name="Accept-CH"
+						value="Viewport-Width"/>
+					<u:FileUploaderParameter
+						name="Accept-CH"
+						value="Width"/>
+					<u:FileUploaderParameter
+						name="Accept-CH-Lifetime"
+						value="86400"/>
+				</u:parameters>
+			</u:FileUploader>
+		   <Button  width="40%" enabled="{LocalModel>/editEnabled}"
+			text="Upload Image"
+             type="Emphasized"       
+  			 press="handleUploadPress">
+             </Button> 
+              <Label text="Available Seats" required="{LocalModel>/saveEnabled}"/>
+              <Input id="_availSeats" type="Number"  value="{Avail_Seats}" placeholder="Enter Available Seats">
+              <layoutData>
+					<!-- <FlexItemData growFactor="1" /> -->
+                    <l:GridData span="XL1 L3 M3 S6" />
+				</layoutData>
+              </Input>
+              <Label  text="A/C">
+              <layoutData>
+					<!-- <FlexItemData growFactor="1" /> -->
+                    <l:GridData span="XL1 L2 M2 S6" />
+				</layoutData>
+              </Label>
+              <Switch state="{isAC}" customTextOn="Yes" enabled="{LocalModel>/editEnabled}" customTextOff="No" change="onSwitchChange">
+				<layoutData>
+					<!-- <FlexItemData growFactor="1" /> -->
+                    <l:GridData span="XL1 L3 M3 S6" />
+				</layoutData>
+            </Switch>
+            </f:content>
+        </f:SimpleForm>
+         <f:SimpleForm id="SimpleFormCContactDetails"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="Contact Details"
+			labelSpanXL="4"
+			labelSpanL="2"
+			labelSpanM="2"
+			labelSpanS="12"
+			adjustLabelSpan="true"
+			emptySpanXL="0"
+			emptySpanL="2"
+			emptySpanM="2"
+			emptySpanS="0"
+			columnsXL="2"
+			columnsL="4"
+			columnsM="4"
+			singleContainerFullSize="true" >
+                <f:content>
+             <Label text="Email" />
+              <Input value="{Email}" type="Email" enabled="{LocalModel>/editEnabled}"  placeholder="Enter Email ID">
+               <layoutData>
+                        <l:GridData span="XL1 L3 M3 S6" />
+                    </layoutData> 
+              </Input>
+              <Label text="Extn" >
+               <layoutData>
+                        <l:GridData span="XL1 L2 M2 S6" />
+                    </layoutData> 
+              </Label>
+              <Input value="{Extn}" type="Tel" enabled="{LocalModel>/editEnabled}" placeholder="Enter Extn Number">
+                 <layoutData>
+                        <l:GridData span="XL1 L2 M2 S6" />
+                    </layoutData> 
+                </Input>
+                <Label text="Telephone" />
+                 <Input value="{Telephone}" type="Tel" enabled="{LocalModel>/editEnabled}"  placeholder="Enter Telephone Number">
+                   <layoutData>
+                        <l:GridData span="XL1 L3 M3 S6" />
+                    </layoutData> 
+                </Input>
+                 <Label text="Mobile"  required="{LocalModel>/saveEnabled}">
+                 <layoutData>
+                        <l:GridData span="XL1 L2 M2 S6" />
+                    </layoutData> 
+                </Label>
+                <Input value="{Mobile_Num}" type="Tel" id="_mobNum" enabled="{LocalModel>/editEnabled}" placeholder="Enter Mobile Number">
+                  <layoutData>
+                        <l:GridData span="XL1 L3 M3 S6" />
+                    </layoutData> 
+                </Input>
+            </f:content>
+        </f:SimpleForm>
+     	<layoutData>
+				<l:SplitterLayoutData size="auto" />
+		</layoutData>
+		</VBox>
+	</l:Splitter>
+    </content>
+    	<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Accept" text="Submit" visible="{LocalModel>/saveEnabled}" press="onSubmitRecord"/>
+                <Button type="Accept" text="Update" visible="{LocalModel>/updateEnabled}" press="updatePoolData"/>
+              	 <Button type="Reject" text="Delete" visible="{LocalModel>/deleteEnabled}" press="onDelete" />
+                <Button type="Reject" text="Reset"  press="onReset"/>
+                <Text test=""/>
+			</OverflowToolbar>
+		</footer>
+    </Page>
+</mvc:View>

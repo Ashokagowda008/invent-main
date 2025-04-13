@@ -1,0 +1,568 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:m="sap.m" xmlns:l="sap.ui.layout"
+	controllerName="cit.ux.yokogawa.controller.FuelConsumption" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:u="sap.ui.unified" xmlns:commons="sap.suite.ui.commons"
+    xmlns:smartchart="sap.ui.comp.smartchart" 	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:sl="sap.ui.comp.navpopover"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:f="sap.f" xmlns:vk="sap.ui.vk"
+	xmlns:card="sap.f.cards">
+	<Page id="_IDGenPage1" title="" showHeader="false">
+		<content>
+			<IconTabBar id="iconTabBarID" select="onTabChange" expandable="false" backgroundDesign="Solid"
+				headerMode="Inline" tabDensityMode="Cozy">
+				<items>
+					<IconTabFilter key="plant" text="{i18n>PlantDataTab}" class="sapUiNoContentPadding"
+						icon="sap-icon://geographic-bubble-chart" iconColor="Contrast">
+						<content>
+							<smartFilterBar:SmartFilterBar id="smartPlantFilterBar" considerSelectionVariants="false" filterBarExpanded="false" class="sapUiNoMarginTop"
+								showFilterConfiguration="false" showRestoreButton="false" showMessages="false" useToolbar="false" showGoOnFB="false" liveMode="true"
+								enableBasicSearch="true" smartVariant="pageVariantId" entitySet="Plant_Info_Entity" persistencyKey="SmartTableAnalytical_Explored"/>
+								
+							<smartTable:SmartTable entitySet="Plant_Info_Entity" tableType="Table" useExportToExcel="true" id="PlantSmartTable"
+								useVariantManagement="false" useTablePersonalisation="true" header="Items" smartFilterId="smartPlantFilterBar"
+								showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" 
+								enableAutoColumnWidth="true" editTogglable="false" app:useSmartToggle="true"
+								initiallyVisibleFields="desc" requestAtLeastFields="city,region,postcode,country">
+								<smartTable:layoutData>
+									<FlexItemData growFactor="1" baseSize="0%"/>
+								</smartTable:layoutData>
+								<smartTable:customToolbar>
+									<OverflowToolbar >
+										<ToolbarSpacer/>
+										<Button icon="sap-icon://add" text="{i18n>Add}" press="onAddEntry('AddPlantEntry', 'Plant_Info_Entity')" type="Emphasized"/>
+									</OverflowToolbar>
+								</smartTable:customToolbar>
+								<Table id="PlantTableID" mode="None" growing="true" growingScrollToLoad="true" alternateRowColors="true">
+									<columns>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "id", "columnIndex":"0","sortProperty":"id", "filterProperty":"id", "leadingProperty": "id"}'/>
+											</customData>
+											<Title text="{i18n>ID}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "desc", "columnIndex":"1", "filterProperty":"desc","sortProperty": "desc", "leadingProperty": "desc"}'/>
+											</customData>
+											<Title text="{i18n>PlantDesc}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "address", "columnIndex":"2", "filterProperty":"address","sortProperty": "address", "leadingProperty": "address"}'/>
+											</customData>
+											<Title text="{i18n>Address}"/>
+										</Column>
+										<!-- <Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "city","columnIndex":"3","sortProperty": "city","filterProperty": "city","leadingProperty": "city"}'/>
+											</customData>
+											<Title text="{i18n>City}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "region","columnIndex":"4","sortProperty": "region","filterProperty": "region","leadingProperty": "region"}'/>
+											</customData>
+											<Title text="{i18n>Region}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "country","columnIndex":"5","sortProperty": "country","filterProperty": "country","leadingProperty": "country"}'/>
+											</customData>
+											<Title text="{i18n>Country}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "postcode","columnIndex":"6","sortProperty": "postcode","filterProperty": "postcode","leadingProperty": "postcode"}'/>
+											</customData>
+											<Title text="{i18n>PostCode}"/>
+										</Column> -->
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "longitude","columnIndex":"7","sortProperty": "longitude","filterProperty": "longitude","leadingProperty": "longitude"}'/>
+											</customData>
+											<Title text="{i18n>longitude}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "lattitude","columnIndex":"8","sortProperty": "lattitude","filterProperty": "lattitude","leadingProperty": "lattitude"}'/>
+											</customData>
+											<Title text="{i18n>lattitude}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "Update", "columnIndex":"10"}'/>
+											</customData>
+											<Title text="{i18n>Update}"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem
+											highlight="{= ${is_renewable} === false ? 'Error': 'Success' }" visible="{= ${id} === 'All' ? false : true}">
+											<cells>
+												<Text text="{id}"/>
+											</cells>
+											<cells>
+												<ObjectIdentifier title="{desc}" text="{unit}"/>
+											</cells>
+											<cells>
+												<Text text="{address} {city}, {region} {postcode} {country}"/>
+											</cells>
+											<!-- <cells>
+												<Text text="{city}"/>
+											</cells>
+											<cells>
+												<ObjectStatus text="{region}" />
+											</cells>
+											<cells>
+												<Text text="{country}"/>
+											</cells>
+											<cells>
+												<Text text="{postcode}"/>
+											</cells> -->
+											<cells>
+												<Text text="{longitude}"/>
+											</cells>
+											<cells>
+												<Text text="{lattitude}"/>
+											</cells>
+											<cells>
+												<HBox justifyContent="Center">
+													<Button icon="sap-icon://edit" press="onEntryEdit($event, 'AddPlantEntry')" class="sapUiTinyMargin" type="Emphasized"/>
+													<Button icon="sap-icon://delete" press="onEntryDelete" class="sapUiTinyMargin" type="Critical"/>
+												</HBox>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</smartTable:SmartTable>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter key="sensor" text="{i18n>MeterDataTab}" class="sapUiNoContentPadding"
+						icon="sap-icon://receipt" iconColor="Positive">
+						<content>
+							<smartFilterBar:SmartFilterBar id="smartFilterBar" considerSelectionVariants="false" filterBarExpanded="false" class="sapUiNoMarginTop"
+								showFilterConfiguration="false" showRestoreButton="false" showMessages="false" useToolbar="false" showGoOnFB="false" liveMode="true"
+								enableBasicSearch="true" smartVariant="pageVariantId" entitySet="Sensor_Register_Entity" persistencyKey="SmartTableAnalytical_Explored"/>
+							<smartTable:SmartTable entitySet="Sensor_Register_Entity" tableType="Table" useExportToExcel="true" smartFilterId="smartFilterBar" 
+								useVariantManagement="false" useTablePersonalisation="true" header="Items" beforeRebindTable="onBeforeRebindSensorRegisterTable"
+								showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" 
+								enableAutoColumnWidth="true" editTogglable="false" app:useSmartToggle="true" id="MeterSmartTable"
+								initiallyVisibleFields="id" requestAtLeastFields="equipment_type/desc,lower_threshold_limit,upper_threshold_limit,equipment_type,type">
+								<smartTable:layoutData>
+									<FlexItemData growFactor="1" baseSize="0%"/>
+								</smartTable:layoutData>
+								<smartTable:customToolbar>
+									<OverflowToolbar >
+										<ToolbarSpacer/>
+										<Button icon="sap-icon://add" text="{i18n>Add}" press="onAddEntry('AddMeterEntry', 'Sensor_Register_Entity')" type="Emphasized"/>
+									</OverflowToolbar>
+								</smartTable:customToolbar>
+								<Table id="MeterTableID" mode="None" growing="true" growingScrollToLoad="true" alternateRowColors="true">
+									<columns>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "id", "columnIndex":"0","sortProperty":"id", "filterProperty":"id", "leadingProperty": "id"}'/>
+											</customData>
+											<Title text="{i18n>sensor_id}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "equipment_type_id", "columnIndex":"1", "filterProperty":"equipment_type/desc","sortProperty": "equipment_type/desc", "leadingProperty": "equipment_type"}'/>
+											</customData>
+											<Title text="{i18n>equipment_type_id}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "type_id", "columnIndex":"2", "filterProperty":"type_id","sortProperty": "type_id", "leadingProperty": "type"}'/>
+											</customData>
+											<Title text="{i18n>type_id}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "plant_id","columnIndex":"3","sortProperty": "plant_id","filterProperty": "plant_id","leadingProperty": "plant_id"}'/>
+											</customData>
+											<Title text="{i18n>plant_id}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "fuel_type","columnIndex":"4","sortProperty": "fuel_type","filterProperty": "fuel_type","leadingProperty": "fuel_type"}'/>
+											</customData>
+											<Title text="{i18n>FuelType}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "status","columnIndex":"5","sortProperty": "status","filterProperty": "status","leadingProperty": "status"}'/>
+											</customData>
+											<Title text="{i18n>status}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "equipment_no", "columnIndex":"6", "filterProperty":"equipment_no","sortProperty": "equipment_no", "leadingProperty": "equipment_no"}'/>
+											</customData>
+											<Title text="{i18n>equipment_no}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "create_maintainance_order", "columnIndex":"7", "filterProperty":"create_maintainance_order","sortProperty": "create_maintainance_order", "leadingProperty": "create_maintainance_order"}'/>
+											</customData>
+											<Title text="{i18n>create_maintainance_order}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "threshold_limit","columnIndex":"8","sortProperty": "threshold_limit","filterProperty": "threshold_limit","leadingProperty": "threshold_limit"}'/>
+											</customData>
+											<Title text="{i18n>threshold_limit}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "Update", "columnIndex":"9"}'/>
+											</customData>
+											<Title text="{i18n>Update}"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem
+											highlight="{= ${status} === false ? 'Error': 'Success' }">
+											<cells>
+												<Text text="{id}"/>
+											</cells>
+											<cells>
+												<ObjectIdentifier text="{equipment_type/desc}"/>
+											</cells>
+											<cells>
+												<Text text="{type/desc}"/>
+											</cells>
+											<cells>
+												<Text text="{plant_id}"/>
+											</cells>
+											<cells>
+												<Text text="{fuel_type}"/>
+											</cells>
+											<cells>
+												<ObjectStatus text="{status}" state="{=${status} === 'Online' ? 'Success': 'Error'}"/>
+											</cells>
+											<cells>
+												<Text text="{equipment_no}"/>
+											</cells>
+											<cells>
+												<ObjectStatus text="{= ${create_maintainance_order} === false ? 'No': 'Yes'}" state="{=${create_maintainance_order} === true ? 'Success': 'None'}"/>
+												<!-- <Text text="{= ${create_maintainance_order} === false ? 'No': 'Yes'}"/>  -->
+											</cells>
+											<cells>
+												<HBox justifyContent="Center">
+													<Text text="{lower_threshold_limit}" class="sapUiTinyMargin"/>
+													<Text text="{upper_threshold_limit}" class="sapUiTinyMargin"/>
+													<!-- <Text text="{threshold_limit}" class="sapUiTinyMargin"/> -->
+												</HBox>
+											</cells>
+											<cells>
+												<HBox justifyContent="Center">
+													<Button icon="sap-icon://edit" press="onEntryEdit($event, 'AddMeterEntry')" class="sapUiTinyMargin" type="Emphasized"/>
+													<Button icon="sap-icon://delete" press="onEntryDelete" class="sapUiTinyMargin" type="Critical"/>
+												</HBox>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</smartTable:SmartTable>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter key="fuel" text="{i18n>FuelDataTab}" class="sapUiNoContentPadding" icon="sap-icon://mileage" iconColor="Neutral">
+						<content>
+							<smartFilterBar:SmartFilterBar id="smartFilterBarFuel" considerSelectionVariants="false" filterBarExpanded="false" class="sapUiNoMarginTop"
+								showFilterConfiguration="false" showRestoreButton="false" showMessages="false" useToolbar="false" showGoOnFB="false" liveMode="true"
+								enableBasicSearch="true" smartVariant="pageVariantId" entitySet="Fuel_Category_Entity" persistencyKey="SmartTableAnalytical_Explored"/>
+							<smartTable:SmartTable entitySet="Fuel_Category_Entity" tableType="Table" useExportToExcel="true" smartFilterId="smartFilterBarFuel"
+								useVariantManagement="false" useTablePersonalisation="true" header="Items" 
+								showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" 
+								enableAutoColumnWidth="true" editTogglable="false" app:useSmartToggle="true"
+								initiallyVisibleFields="type" requestAtLeastFields="unit">
+								<smartTable:layoutData>
+									<FlexItemData growFactor="1" baseSize="0%"/>
+								</smartTable:layoutData>
+								<smartTable:customToolbar>
+									<OverflowToolbar >
+										<ToolbarSpacer/>
+										<Button icon="sap-icon://add" text="{i18n>Add}" press="onAddEntry('AddFuelEntry', 'Fuel_Category_Entity')" type="Emphasized"/>
+									</OverflowToolbar>
+								</smartTable:customToolbar>
+								<Table id="FuelTableID" mode="None" growing="true" growingScrollToLoad="true" alternateRowColors="true">
+									<columns>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "type", "columnIndex":"0","sortProperty":"type", "filterProperty":"type", "leadingProperty": "type"}'/>
+											</customData>
+											<Title text="{i18n>FuelType}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "desc", "columnIndex":"1","sortProperty":"desc", "filterProperty":"desc", "leadingProperty": "desc"}'/>
+											</customData>
+											<Title text="{i18n>Desc}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "carbon_emission_value", "columnIndex":"2", "filterProperty":"carbon_emission_value","sortProperty": "carbon_emission_value", "leadingProperty": "carbon_emission_value"}'/>
+											</customData>
+											<Title text="{i18n>CarbonEmissionValue}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "is_renewable","columnIndex":"3","sortProperty": "is_renewable","filterProperty": "is_renewable","leadingProperty": "is_renewable"}'/>
+											</customData>
+											<Title text="{i18n>IsRenewable}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "Update", "columnIndex":"5"}'/>
+											</customData>
+											<Title text="{i18n>Update}"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem
+											highlight="{= ${is_renewable} === false ? 'Error': 'Success' }">
+											<cells>
+												<Text text="{type}"/>
+											</cells>
+											<cells>
+												<Text text="{desc}"/>
+											</cells>
+											<cells>
+												<ObjectIdentifier title="{carbon_emission_value}" text="{unit}"/>
+											</cells>
+											<cells>
+												<ObjectStatus text="{= ${is_renewable} === false ? 'No': 'Yes' }"
+													state="{= ${is_renewable} === false ? 'Error': 'Success' }"/>
+											</cells>
+											<cells>
+												<HBox justifyContent="Center">
+													<Button icon="sap-icon://edit" press="onEntryEdit($event, 'AddFuelEntry')" class="sapUiTinyMargin" type="Emphasized"/>
+													<Button icon="sap-icon://delete" press="onEntryDelete" class="sapUiTinyMargin" type="Critical"/>
+												</HBox>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</smartTable:SmartTable>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter key="SensorTypesData" text="{i18n>SensorTypesTab}" class="sapUiNoContentPadding" icon="sap-icon://business-objects-explorer" iconColor="Critical">
+						<content>
+							<smartTable:SmartTable entitySet="Sensor_Types_Entity" tableType="Table" useExportToExcel="true" 
+								useVariantManagement="false" useTablePersonalisation="true" header="Items" 
+								showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" 
+								enableAutoColumnWidth="true" editTogglable="false" app:useSmartToggle="true"
+								initiallyVisibleFields="desc" requestAtLeastFields="unit">
+								<smartTable:layoutData>
+									<FlexItemData growFactor="1" baseSize="0%"/>
+								</smartTable:layoutData>
+								<smartTable:customToolbar>
+									<OverflowToolbar >
+										<ToolbarSpacer/>
+										<Button icon="sap-icon://add" text="{i18n>Add}" press="onAddEntry('AddSensorTypesEntry', 'Sensor_Types_Entity')" type="Emphasized"/>
+									</OverflowToolbar>
+								</smartTable:customToolbar>
+								<Table id="SensorTypesTableID" mode="None" growing="true" growingScrollToLoad="true" alternateRowColors="true">
+									<columns>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "id", "columnIndex":"0","sortProperty":"id", "filterProperty":"id", "leadingProperty": "id"}'/>
+											</customData>
+											<Title text="{i18n>type_id}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "desc", "columnIndex":"1", "filterProperty":"desc","sortProperty": "desc", "leadingProperty": "desc"}'/>
+											</customData>
+											<Title text="{i18n>SensorTypeName}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "Update", "columnIndex":"2"}'/>
+											</customData>
+											<Title text="{i18n>Update}"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text text="{id}"/>
+											</cells>
+											<cells>
+												<ObjectIdentifier title="{desc}" text="{unit}"/>
+											</cells>
+											<cells>
+												<HBox justifyContent="Center">
+													<Button icon="sap-icon://edit" press="onEntryEdit($event, 'AddSensorTypesEntry')" class="sapUiTinyMargin" type="Emphasized"/>
+													<Button icon="sap-icon://delete" press="onEntryDelete" class="sapUiTinyMargin" type="Critical"/>
+												</HBox>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</smartTable:SmartTable>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter key="EquipmentTypesData" text="{i18n>EquipmentTypesTab}" class="sapUiNoContentPadding" 
+						icon="sap-icon://add-equipment" iconColor="Marker" design="Vertical">
+						<content>
+							<smartTable:SmartTable entitySet="Equipment_type_Entity" tableType="Table" useExportToExcel="true" 
+								useVariantManagement="false" useTablePersonalisation="true" header="Items" 
+								showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" 
+								enableAutoColumnWidth="true" editTogglable="false" app:useSmartToggle="true"
+								initiallyVisibleFields="desc">
+								<smartTable:layoutData>
+									<FlexItemData growFactor="1" baseSize="0%"/>
+								</smartTable:layoutData>
+								<smartTable:customToolbar>
+									<OverflowToolbar >
+										<ToolbarSpacer/>
+										<Button icon="sap-icon://add" text="{i18n>Add}" press="onAddEntry('AddEquipmentTypesEntry', 'Equipment_type_Entity')" type="Emphasized"/>
+									</OverflowToolbar>
+								</smartTable:customToolbar>
+								<Table id="EquipmentTypesTableID" mode="None" growing="true" growingScrollToLoad="true" alternateRowColors="true">
+									<columns>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "id", "columnIndex":"0","sortProperty":"id", "filterProperty":"id", "leadingProperty": "id"}'/>
+											</customData>
+											<Title text="{i18n>EquipmentID}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "desc", "columnIndex":"1", "filterProperty":"desc","sortProperty": "desc", "leadingProperty": "desc"}'/>
+											</customData>
+											<Title text="{i18n>EqipTypeDesc}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "Update", "columnIndex":"2"}'/>
+											</customData>
+											<Title text="{i18n>Update}"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem visible="{= ${id} === 'All' ? false : true}">
+											<cells>
+												<Text text="{id}"/>
+											</cells>
+											<cells>
+												<ObjectIdentifier title="{desc}"/>
+											</cells>
+											<cells>
+												<HBox justifyContent="Center">
+													<Button icon="sap-icon://edit" press="onEntryEdit($event, 'AddEquipmentTypesEntry')" class="sapUiTinyMargin" type="Emphasized"/>
+													<Button icon="sap-icon://delete" press="onEntryDelete" class="sapUiTinyMargin" type="Critical"/>
+												</HBox>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</smartTable:SmartTable>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter key="SensorData" text="{i18n>SensorTab}" class="sapUiNoContentPadding" icon="images/energyUsed.png" iconColor="Negative" visible="false">
+						<content>
+							<smartTable:SmartTable entitySet="Sensor_Data_Entity" tableType="Table" useExportToExcel="true" 
+								useVariantManagement="false" useTablePersonalisation="true" header="Items" 
+								showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" 
+								enableAutoColumnWidth="true" editTogglable="false" app:useSmartToggle="true"
+								initiallyVisibleFields="timestamp">
+								<smartTable:layoutData>
+									<FlexItemData growFactor="1" baseSize="0%"/>
+								</smartTable:layoutData>
+								<smartTable:customToolbar>
+									<OverflowToolbar >
+										<ToolbarSpacer/>
+										<Button icon="sap-icon://add" text="{i18n>Add}" press="onAddEntry('AddSensorEntry', 'Sensor_Data_Entity')" type="Emphasized"/>
+									</OverflowToolbar>
+								</smartTable:customToolbar>
+								<Table id="SensorTableID" mode="None" growing="true" growingScrollToLoad="true" alternateRowColors="true">
+									<columns>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "timestamp", "columnIndex":"0","sortProperty":"timestamp", "filterProperty":"timestamp", "leadingProperty": "timestamp"}'/>
+											</customData>
+											<Title text="{i18n>TimeStamp}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "sensor_id", "columnIndex":"5", "filterProperty":"sensor_id","sortProperty": "sensor_id", "leadingProperty": "sensor_id"}'/>
+											</customData>
+											<Title text="{i18n>meter_id}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "reading", "columnIndex":"6", "filterProperty":"reading","sortProperty": "reading", "leadingProperty": "reading"}'/>
+											</customData>
+											<Title text="{i18n>Reading}"/>
+										</Column>
+										<Column hAlign="Center" visible="true">
+											<customData>
+												<core:CustomData key="p13nData"
+												value='\{"columnKey": "Update", "columnIndex":"7"}'/>
+											</customData>
+											<Title text="{i18n>Update}"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text text="{timestamp}"/>
+											</cells>
+											<cells>
+												<Text text="{sensor_id}"/>
+											</cells>
+											<cells>
+												<Text text="{reading}"/>
+											</cells>
+											<cells>
+												<HBox justifyContent="Center">
+													<Button icon="sap-icon://edit" press="onEntryEdit($event, 'AddSensorEntry')" class="sapUiTinyMargin" type="Emphasized"/>
+													<Button icon="sap-icon://delete" press="onEntryDelete" class="sapUiTinyMargin" type="Critical"/>
+												</HBox>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</smartTable:SmartTable>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+	</Page>
+</mvc:View>

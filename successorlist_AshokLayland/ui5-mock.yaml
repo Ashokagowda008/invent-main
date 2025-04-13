@@ -1,0 +1,47 @@
+specVersion: "3.1"
+metadata:
+  name: successorlist
+type: application
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+        backend:
+          - path: /odata
+            url: https://api44preview.sapsf.com
+            destination: aslaylandsuceesdest
+          - path: /odata/v4
+            url: https://se-demo-sdcplatformdbrs-dev-al-dbr-capapp-srv.cfapps.eu10.hana.ondemand.com
+            destination: sfweightagecapapp
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: sap-fe-mockserver
+      beforeMiddleware: csp
+      configuration:
+        mountPath: /
+        services:
+          - urlPath: /odata/v2
+            metadataPath: ./webapp/localService/metadata.xml
+            mockdataPath: ./webapp/localService/data
+            generateMockData: true
+        annotations: []
+        service:
+          - urlPath: /odata/v2
+            generateMockData: true
+            metadataXmlPath: ./webapp/localService/mainService/metadata.xml
+            mockdataRootPath: ./webapp/localService/data
+          - urlPath: /odata/v4/service
+            metadataXmlPath: ./webapp/localService/service/metadata.xml
+            mockdataRootPath: ./webapp/localService/service/mockdata
+            generateMockData: true

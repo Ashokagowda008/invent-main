@@ -1,0 +1,322 @@
+{
+    "title": "SP - OR - T1",
+    "description": "Operational Reporting API  - Testing",
+    "internalId": "Doc259020677",
+    "templateProjectInternalId": "SYS0207",
+    "testProject": "false",
+    "status": "Pending Selection",
+    "version": "v1",
+    "baseLanguage": "en",
+    "owner": {
+        "uniqueName": "admin",
+        "passwordAdapter": "PasswordAdapter1",
+        "name": "Admin",
+        "emailAddress": "no-reply@ansmtp.ariba.com",
+        "organization": "Cumulus 8",
+        "orgANId": "AN01478332031-T",
+        "orgName": "Cumulus 8",
+        "timeZoneID": "Europe/Prague",
+        "localeID": "en_US"
+    },
+    "regions": [
+        {
+            "uniqueName": "USA",
+            "name": "United States"
+        }
+    ],
+    "departments": [],
+    "commodities": [
+        {
+            "uniqueName": "7111",
+            "domain": "unspsc",
+            "name": "Oil and gas exploration services"
+        }
+    ],
+    "eventTypeName": "RFP",
+    "customFields": [
+        {
+            "fieldName": "arb_CompanyCode",
+            "fieldValue": "",
+            "fieldType": "java.lang.String"
+        },
+        {
+            "fieldName": "arb_PurchasingOrganization",
+            "fieldValue": "",
+            "fieldType": "java.lang.String"
+        },
+        {
+            "fieldName": "arb_PurchasingGroup",
+            "fieldValue": "",
+            "fieldType": "java.lang.String"
+        },
+        {
+            "fieldName": "arb_PaymentTerms",
+            "fieldValue": "",
+            "fieldType": "java.lang.String"
+        },
+        {
+            "fieldName": "arb_DocumentType",
+            "fieldValue": "",
+            "fieldType": "java.lang.String"
+        },
+        {
+            "fieldName": "arb_DocumentCategory",
+            "fieldValue": "",
+            "fieldType": "java.lang.String"
+        }
+    ],
+    "previewDate": "1628865538331",
+    "openDate": "1628865900000",
+    "closeDate": "1628868300000",
+    "externalSystem": {},
+    "invitedSuppliers": [
+        {
+            "mainContact": {
+                "uniqueName": "1626262700337_SolExp.procurement.internal@demo.cloud.sap",
+                "passwordAdapter": "SourcingSupplierUser",
+                "name": "Willow Prings",
+                "emailAddress": "SolExp.procurement.internal@demo.cloud.sap",
+                "phone": "1-111 extn.111",
+                "networkUserId": "willowspringsinc@sap.com",
+                "networkPersonId": "25827931.0000000000",
+                "organization": "Willow Springs Inc",
+                "orgANId": "an01716131033-t",
+                "orgName": "Willow Springs Inc",
+                "timeZoneID": "America/Los_Angeles",
+                "localeID": "en",
+                "isRecommended": false
+            },
+            "contacts": [
+                {
+                    "uniqueName": "1626262700337_SolExp.procurement.internal@demo.cloud.sap",
+                    "passwordAdapter": "SourcingSupplierUser",
+                    "name": "Willow Prings",
+                    "emailAddress": "SolExp.procurement.internal@demo.cloud.sap",
+                    "phone": "1-111 extn.111",
+                    "networkUserId": "willowspringsinc@sap.com",
+                    "networkPersonId": "25827931.0000000000",
+                    "organization": "Willow Springs Inc",
+                    "orgANId": "an01716131033-t",
+                    "orgName": "Willow Springs Inc",
+                    "timeZoneID": "America/Los_Angeles",
+                    "localeID": "en",
+                    "isRecommended": false
+                }
+            ],
+            "organization": {
+                "name": "Willow Springs Inc",
+                "systemID": "ACM_7490987",
+                "smVendorID": "S30469936",
+                "organizationIDs": [
+                    {
+                        "domain": "buyersystemid",
+                        "value": "acm_7490987"
+                    },
+                    {
+                        "domain": "sap",
+                        "value": "99676889"
+                    },
+                    {
+                        "domain": "networkid",
+                        "value": "an01716131033-t"
+                    },
+                    {
+                        "domain": "internalsupplierid",
+                        "value": "99676889"
+                    },
+                    {
+                        "domain": "transactionnetworkid",
+                        "value": "an01716131033-t"
+                    }
+                ],
+                "address": {
+                    "name": "",
+                    "uniqueName": "an01716131033-t-CorporateAddress",
+                    "phone": "",
+                    "fax": "",
+                    "lines": [
+                        "7 Times Sq Ste 2503"
+                    ],
+                    "city": "New York",
+                    "state": "NY",
+                    "postalCode": "10036",
+                    "country": "US"
+                }
+            },
+            "inviter": {
+                "uniqueName": "admin",
+                "passwordAdapter": "PasswordAdapter1",
+                "fullName": "Admin"
+            },
+            "invitationId": "1626262700337_SolExp.procurement.internal@demo.cloud.sap",
+            "qualificationStatus": "Qualified",
+            "isPreferred": true,
+            "hasBid": true,
+            "acceptedSupplierAgreement": 1
+        },
+        {
+            "mainContact": {
+                "uniqueName": "1626263209654_SolExp.procurement.internal@demo.cloud.sap",
+                "passwordAdapter": "SourcingSupplierUser",
+                "name": "Valley Retail",
+                "emailAddress": "SolExp.procurement.internal@demo.cloud.sap",
+                "networkUserId": "valleyretailplc@sap.com",
+                "networkPersonId": "25828106.0000000000",
+                "organization": "Valley Retail Plc",
+                "orgANId": "an01716134652-t",
+                "orgName": "Valley Retail Plc",
+                "timeZoneID": "US/Pacific",
+                "localeID": "en",
+                "isRecommended": false
+            },
+            "contacts": [
+                {
+                    "uniqueName": "1626263209654_SolExp.procurement.internal@demo.cloud.sap",
+                    "passwordAdapter": "SourcingSupplierUser",
+                    "name": "Valley Retail",
+                    "emailAddress": "SolExp.procurement.internal@demo.cloud.sap",
+                    "networkUserId": "valleyretailplc@sap.com",
+                    "networkPersonId": "25828106.0000000000",
+                    "organization": "Valley Retail Plc",
+                    "orgANId": "an01716134652-t",
+                    "orgName": "Valley Retail Plc",
+                    "timeZoneID": "US/Pacific",
+                    "localeID": "en",
+                    "isRecommended": false
+                }
+            ],
+            "organization": {
+                "name": "Valley Retail Plc",
+                "systemID": "ACM_7490988",
+                "smVendorID": "S30469937",
+                "organizationIDs": [
+                    {
+                        "domain": "buyersystemid",
+                        "value": "acm_7490988"
+                    },
+                    {
+                        "domain": "sap",
+                        "value": "99676890"
+                    },
+                    {
+                        "domain": "networkid",
+                        "value": "an01716134652-t"
+                    },
+                    {
+                        "domain": "internalsupplierid",
+                        "value": "99676890"
+                    },
+                    {
+                        "domain": "transactionnetworkid",
+                        "value": "an01716134652-t"
+                    }
+                ],
+                "address": {
+                    "name": "",
+                    "uniqueName": "an01716134652-t-CorporateAddress",
+                    "phone": "",
+                    "fax": "",
+                    "lines": [
+                        "520 Madison Ave"
+                    ],
+                    "city": "New York",
+                    "state": "NY",
+                    "postalCode": "10022",
+                    "country": "US"
+                }
+            },
+            "inviter": {
+                "uniqueName": "admin",
+                "passwordAdapter": "PasswordAdapter1",
+                "fullName": "Admin"
+            },
+            "invitationId": "1626263209654_SolExp.procurement.internal@demo.cloud.sap",
+            "qualificationStatus": "Qualified",
+            "isPreferred": true,
+            "hasBid": true,
+            "acceptedSupplierAgreement": 1
+        },
+        {
+            "mainContact": {
+                "uniqueName": "1626263426931_SolExp.procurement.internal@demo.cloud.sap",
+                "passwordAdapter": "SourcingSupplierUser",
+                "name": "Grove Street",
+                "emailAddress": "SolExp.procurement.internal@demo.cloud.sap",
+                "networkUserId": "grovestreetent@sap.com",
+                "networkPersonId": "25828164.0000000000",
+                "organization": "Grove Street Enterprises",
+                "orgANId": "an01716135932-t",
+                "orgName": "Grove Street Enterprises",
+                "timeZoneID": "America/Los_Angeles",
+                "localeID": "en",
+                "isRecommended": false
+            },
+            "contacts": [
+                {
+                    "uniqueName": "1626263426931_SolExp.procurement.internal@demo.cloud.sap",
+                    "passwordAdapter": "SourcingSupplierUser",
+                    "name": "Grove Street",
+                    "emailAddress": "SolExp.procurement.internal@demo.cloud.sap",
+                    "networkUserId": "grovestreetent@sap.com",
+                    "networkPersonId": "25828164.0000000000",
+                    "organization": "Grove Street Enterprises",
+                    "orgANId": "an01716135932-t",
+                    "orgName": "Grove Street Enterprises",
+                    "timeZoneID": "America/Los_Angeles",
+                    "localeID": "en",
+                    "isRecommended": false
+                }
+            ],
+            "organization": {
+                "name": "Grove Street Enterprises",
+                "systemID": "ACM_7490990",
+                "smVendorID": "S30469938",
+                "organizationIDs": [
+                    {
+                        "domain": "buyersystemid",
+                        "value": "acm_7490990"
+                    },
+                    {
+                        "domain": "sap",
+                        "value": "99676891"
+                    },
+                    {
+                        "domain": "networkid",
+                        "value": "an01716135932-t"
+                    },
+                    {
+                        "domain": "internalsupplierid",
+                        "value": "99676891"
+                    },
+                    {
+                        "domain": "transactionnetworkid",
+                        "value": "an01716135932-t"
+                    }
+                ],
+                "address": {
+                    "name": "",
+                    "uniqueName": "an01716135932-t-CorporateAddress",
+                    "phone": "",
+                    "fax": "",
+                    "lines": [
+                        "7 Times Sq Ste 2503"
+                    ],
+                    "city": "New York",
+                    "state": "NY",
+                    "postalCode": "10036",
+                    "country": "US"
+                }
+            },
+            "inviter": {
+                "uniqueName": "admin",
+                "passwordAdapter": "PasswordAdapter1",
+                "fullName": "Admin"
+            },
+            "invitationId": "1626263426931_SolExp.procurement.internal@demo.cloud.sap",
+            "qualificationStatus": "Qualified",
+            "isPreferred": true,
+            "hasBid": true,
+            "acceptedSupplierAgreement": 1
+        }
+    ]
+}
